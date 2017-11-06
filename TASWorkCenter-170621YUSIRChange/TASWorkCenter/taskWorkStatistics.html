@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!-- 评分样式 -->
+		<link rel="stylesheet" type="text/css" href="css/starGradeStyle.css" />
+		<script type="text/javascript" src="js/comment.js"></script>
+		<!--图标框架-->
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/drilldown.src.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#box_statistic {
+				height: 420px;
+				margin: 0 auto;
+			}
+			
+			#chart1 {
+				margin-left: 15px;
+				margin-top: 5px;
+				min-width: 310px;
+				width: 500px;
+				height: 400px;
+				float: left;
+				-webkit-box-shadow: 0 0 5px #50A3A2;
+			}
+			
+			#chart2 {
+				margin-left: 20px;
+				margin-top: 5px;
+				min-width: 310px;
+				width: 500px;
+				height: 400px;
+				float: left;
+				-webkit-box-shadow: 0 0 5px #50A3A2;
+			}
+			
+			.annual_statistic {
+				height: 420px;
+				margin: 0 15px;
+				text-align: center;
+				-webkit-box-shadow: 0 0 5px #50A3A2;
+			}
+			
+			#chart3 {
+				min-width: 310px;
+				width: 1000px;
+				height: 400px;
+				position: absolute;
+				margin-top: 10px;
+				margin-left: 10px;
+				margin-right: auto;
+				/*-webkit-box-shadow: 0 0 5px #50A3A2;*/
+			}
+			
+			.year_select {
+				position: absolute;
+				margin-left: 350px;
+				margin-top: 12px;
+				z-index: 2;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页 </a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="rightContent" style="">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">统计</a>
+					</li>
+					<li class="active">工作任务统计</li>
+				</ol>
+				<div id="box_statistic">
+					<div id="chart1"></div>
+					<div id="chart2"></div>
+				</div>
+				<div class="annual_statistic">
+					<div class="year_select">
+						<select name="year_statistic" id="year_statistic" class="form-control">
+							<option value="0">2016年</option>
+							<option value="1" selected>2017年</option>
+							<option value="2">2018年</option>
+						</select>
+					</div>
+					<div id="chart3">
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+//				defaultOptions={colors:"#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1"
+				Highcharts.setOptions({
+					colors: ['#24CBE5', '#CB2326', '#DDDF00', '#cccE5', '#64E572', '#FF9655', '#CB2326', '#6AF9C4']
+				});
+				//任务列表				
+				//Create the chart1
+				$('#chart1').highcharts({ //图表展示容器，与 div 的 id 保持一致
+					chart: {
+						type: 'column',
+						zoomType: 'xy',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: '年度任务统计' //指定图表标题
+					},
+					subtitle: {
+						text: '钻取下图查看截至目前任务详情'
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					xAxis: {
+						crosshair: true, //显示标示区			
+						type: 'category'
+					},
+					yAxis: {
+						gridLineWidth: 1,
+						title: {
+							text: '',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						},
+						labels: {
+							format: '{value} 份',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+						valueSuffix: ' 份',
+						//						useHTML: true
+					},
+					plotOptions: {
+						pie: {
+							colors: [
+								'#50B432',
+								'#ED561B',
+								'#DDDF00',
+								'#24CBE5',
+								'#64E572',
+								'#FF9655',
+								'#FFF263',
+								'#6AF9C4'
+							],
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+
+					series: [{
+						name: '任务单',
+						data: [{
+							name: '2016 年',
+							y: 50,
+							drilldown: '2016任务单类型占比'
+						}, {
+							name: '2017 年',
+							y: 80,
+							drilldown: '2017任务单类型占比'
+						}, {
+							name: '2018 年',
+							y: 20,
+							drilldown: '2018任务单类型占比'
+						}],
+						color: Highcharts.getOptions().colors[8] //'#50A3A2'
+					}],
+					drilldown: {
+						series: [{
+								type: 'pie',
+								id: '2016任务单类型占比',
+								name: '2016任务单类型占比',
+								data: [
+									['团队任务 45份', 45.0],
+									['合同任务 27份', 26.8],
+									{
+										name: '个人任务 13份',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务 8份', 8.5],
+									['临时任务 7份', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								name: '2017任务单类型占比',
+								id: '2017任务单类型占比',
+								data: [
+									['团队任务 45份', 45.0],
+									['合同任务 27份', 26.8],
+									{
+										name: '个人任务 13份',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务 8份', 8.5],
+									['临时任务 7份', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								name: '2018任务单类型占比',
+								id: '2018任务单类型占比',
+								data: [
+									['团队任务 45份', 45.0],
+									['合同任务 26份', 26.8],
+									{
+										name: '个人任务',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务 8份', 8.5],
+									['临时任务 6份', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							}
+						]
+					} //drilldown
+				});
+				//				//工作详情
+				//				// Create the chart2
+				$('#chart2').highcharts({ //图表展示容器，与 div 的 id 保持一致
+					chart: {
+						type: 'column',
+						zoomType: 'xy',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: '年度工作统计' //指定图表标题
+					},
+					subtitle: {
+						text: '钻取下图查看截至目前工作详情'
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					xAxis: {
+						crosshair: true, //显示标示区			
+						type: 'category'
+					},
+					yAxis: {
+						gridLineWidth: 1,
+						title: {
+							text: '',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						},
+						labels: {
+							format: '{value} 份',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+						valueSuffix: ' 份',
+						useHTML: true
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+
+					series: [{ //指定数据列
+						name: '工作单', //数据列名
+						data: [{
+							name: '2016 年',
+							y: 550,
+							drilldown: '2016工作单类型占比'
+						}, {
+							name: '2017 年',
+							y: 630,
+							drilldown: '2017工作单类型占比'
+						}, {
+							name: '2018 年',
+							y: 240,
+							drilldown: '2018工作单类型占比'
+						}], //数据
+						color: Highcharts.getOptions().colors[0]
+					}],
+					drilldown: {
+						series: [{
+								type: 'pie',
+								id: '2016工作单类型占比',
+								name: '2016工作单类型占比',
+								data: [
+									['开发工作单 45份 ', 45.0],
+									['运维工作单 26份', 26.8],
+									{
+										name: '巡检工作单 13份',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约工作单 8份', 8.5],
+									['顾问工作单 2份', 2.2],
+									['其他 1份', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								id: '2017工作单类型占比',
+								name: '2017工作单类型占比',
+								data: [
+									['开发工作单 55份', 55.0],
+									['运维工作单 17份', 16.8],
+									{
+										name: '巡检工作单 13份',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约工作单 8份', 8.5],
+									['顾问工作单 2份', 2.2],
+									['其他 1份', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								id: '2018工作单类型占比',
+								name: '2018工作单类型占比',
+								data: [
+									['开发工作单 25份', 25.0],
+									['运维工作单 46份', 46.8],
+									{
+										name: '巡检工作单 55份',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约工作单 8份', 8.5],
+									['顾问工作单 2份', 2.2],
+									['其他 1份', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+						]
+					}
+				});
+
+				$('#chart3').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: '工作任务详情'
+					},
+					subtitle: {
+						text: '年度每月工作单量'
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					xAxis: {
+						categories: [
+							'一月',
+							'二月',
+							'三月',
+							'四月',
+							'五月',
+							'六月',
+							'七月',
+							'八月',
+							'九月',
+							'十月',
+							'十一月',
+							'十二月'
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: '建单数量 (份)'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y} 份</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: '任务',
+						data: [83, 78, 98, 93, 106, 84, 105, 104, 91, 83, 106, 92],
+					}, {
+						name: '工作',
+						data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54],
+						color: Highcharts.getOptions().colors[8]
+					}]
+				});
+			});
+		</script>
+	</body>
+
+</html>

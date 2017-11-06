@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/serviceManagement.css" />
+		<script src="js/bootstrap-tree.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.leftNav {
+				height: 600px;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			/*.tree A:visited {
+				TEXT-DECORATION: none;
+				COLOR: black
+			}
+			
+			.tree A:link {
+				text-decoration: none;
+				COLOR: black
+			}
+			
+			.tree A:hover {
+				TEXT-DECORATION: none;
+				COLOR: #333333;
+				background: #EAF2FF;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">服务管理</a>
+					</li>
+					<li class="active">客户服务中心 </li>
+				</ol>
+
+				<ul id="tabs">
+					<li>
+						<a href="#" name="#tab1">添加用户</a>
+					</li>
+					<li>
+						<a href="#" name="#tab2">添加用户现场</a>
+					</li>
+					<li>
+						<a href="#" name="#tab3">修改查看用户与现场</a>
+					</li>
+					<li>
+						<a href="#" name="#tab4">添加及修改请求方</a>
+					</li>
+				</ul>
+
+				<div id="content">
+					<div id="tab1">
+						<!--  内容 -->
+						<div id="addCustomer">
+							<form name="addCustomerForm" method="post">
+								<table class="table table-bordered table-hover" id="addCustomerTable">
+									<tr>
+										<td><strong>用户名:</strong></td>
+										<td colspan=1><input type=text name="name" class="form-control"></td>
+										<td><strong>联系人:</strong></td>
+										<td>
+											<input type=text name="linkman" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td><strong>电话:</strong></td>
+										<td>
+											<input type=text name="linkman_phone" class="form-control">
+										</td>
+										<td><strong>传真:</strong></td>
+										<td>
+											<input type=text name="fax" class="form-control ">
+										</td>
+									</tr>
+									<tr>
+										<td><strong>邮箱:</strong></td>
+										<td>
+											<input type=text name="linkman_email" class="form-control">
+										</td>
+										<td><strong>微信号:</strong></td>
+										<td>
+											<input type=text name="linkman_wx" class="form-control">
+										</td>
+									</tr>
+									<tr>
+									</tr>
+									<tr>
+										<td colspan=4 align="center" class="col-md-12">
+											<input type="button" class="btn btn-info col-md-2 col-md-offset-9" onClick="validatesubmit()" value="创建" />
+											<input type="reset" class="btn btn-default col-md-1" value="重设" />
+										</td>
+									</tr>
+								</table>
+							</form>
+							<!--  内容 -->
+						</div>
+
+					</div>
+					<!-- tab1 -->
+
+					<div id="tab2">
+						<!--添加用户现场-->
+						<div id="addCustomerSite">
+							<!--  内容 -->
+							<form method="post" name="addCustomerSiteForm">
+								<table width="800" class="table table-bordered">
+									<tr>
+										<td>*用户名字:</td>
+										<td>
+											<input type=text id="A_name" name="A_name" onkeydown="if(event.keyCode=='13') chk(this.value);" onblur="chk(this.value)" class="form-control" />
+											<input type=hidden value="" id="A_id" name="A_id" />
+										</td>
+									</tr>
+									<tr>
+										<td>*用户现场:</td>
+										<td>
+											<input name="customer_name" type="text" value="" onblur="showHint('page/gethint_isOnlyCustomerName.jsp',this.value,'txtHint')" class="form-control">
+
+										</td>
+										<!--<td>标志建筑:</td>-->
+										<td colspan=2><p style="float: left;display: inline-block;">标志建筑:</p><input name="build" type="text" class="form-control" style="width: 87%; float: left;display: inline-block; margin-left: 10px;"></td>
+									</tr>
+									<tr>
+										<td>*客户地址:</td>
+										<td colspan=3><input name="address" type="text" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>*交通路线:</td>
+										<td colspan=3><input name="traffic" type="text" class="form-control"></td>
+									</tr>
+									<tr>
+										<td>*主联系人:</td>
+										<td>
+											*姓名：<input name="linkmanA" type="text" class="form-control">
+										</td>
+										<!--<td>*联系电话:</td>-->
+										<td>
+											*联系电话:<input name="linkmanA_phone" type="text" class="form-control">
+										</td>
+										<td>
+											*电子邮件:<input name="linkmanA_email" type="text" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td>次联系人:</td>
+										<td>
+											姓名：<input name="linkmanB" type="text" class="form-control">
+										</td>
+										<td>
+											联系电话:<input name="linkmanB_phone" type="text" class="form-control">
+										</td>
+										<td>
+											电子邮件:<input name="linkmanB_email" type="text" class="form-control">
+										</td>
+									</tr>
+									<tr>
+										<td>其他:</td>
+										<td>
+											(传真)<input name="fax" type="text" class="form-control">
+										</td>
+										<td>
+											(区域)<input name="area" type="text" class="form-control">
+										</td>
+										<td>
+											(邮编)<input name="postalcode" type="text" class="form-control">
+										</td>
+
+									</tr>
+									<tr>
+										<td style="border: none;">
+											PS：* 号为必填项
+										</td>
+										<td colspan=3 align=right>
+											<input type="button" class="btn btn-primary" onclick="chk3();" value="创建" />
+											<input type="reset" class="btn btn-default" value="重设" />
+										</td>
+									</tr>
+								</table>
+							</form>
+							<!--  内容 -->
+						</div>
+					</div>
+					<!-- tab2 -->
+					<div id="tab3">
+						<div id="editCustomer">
+							<input type="radio" name="r1" style="vertical-align:-2px" value="1" checked/>用户&nbsp;&nbsp;
+							<input type="radio" name="r1" style="vertical-align:-2px" value="2" />行政&nbsp;&nbsp;
+							<input type="radio" name="r1" style="vertical-align:-2px" value="3" />现场&nbsp;&nbsp;
+							<input type=text id="cx" class="form-control" style="vertical-align:-2px;display: inline-block;width: 200px;" onkeydown="if(event.keyCode=='13') chk(this.value);" />&nbsp;<input type="button" class="btn btn-info" value="查询" onclick="chk(document.getElementById('cx').value)" />
+						</div>
+						<style type="text/css">
+							#tab3 ul {
+								padding-left: 25px;
+							}
+							
+							#tab3 ul li {
+								list-style-type: circle;
+							}
+							
+							.tree_node {
+								color: #0099CC;
+							}
+							
+							.tree_node:hover {
+								background: #adcdef;
+								/*background: #eaf2ff;*/
+							}
+							.editable {
+    							cursor: pointer;
+    							color: blue;
+							}
+							/*.icon-plus-sign {
+								background-position:0 -96px;
+							}*/
+							/*.glyphicon glyphicon-minus-sign{background-position:-24px -96px}*/
+						</style>
+						<div class="tree well" style="width: 650px;float: left;">
+							<ul>
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="#" onclick="showDetails(1,this)">华能国际电力股份有限公司上海石洞口第二电厂</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="#" onclick="showDetails(2,this)">石洞口二厂</a>
+											</div>
+											<ul>
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="#" onclick="showDetails(1,this)">国网上海市电力公司</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a <a href="#" onclick="showDetails(2,this)">市北公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a <a href="#" onclick="showDetails(2,this)">市区公司 </a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a <a href="#" onclick="showDetails(2,this)">浦东公司</a>
+											</div>
+											<ul>
+
+												<!---------------------------------- 三层 ---------------------------------------->
+												<li>
+													<div class="tree_node">
+														<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+														<a <a href="#" onclick="showDetails(3,this)">浦东张江</a>
+													</div>
+												</li>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=53">松江公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=54">嘉定公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=56">金山公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=57">奉贤公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=58">崇明公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=61">检修公司</a>
+											</div>
+											<ul>
+
+												<!---------------------------------- 三层 ---------------------------------------->
+												<li>
+													<div class="tree_node">
+														<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+														<a href="page/editCustomerB_detail.jsp?id=399">检修电缆</a>
+													</div>
+												</li>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=62">电科院</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=65">物流中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=42">上海市电力公司</a>
+											</div>
+											<ul>
+
+												<!---------------------------------- 三层 ---------------------------------------->
+												<li>
+													<div class="tree_node">
+														<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+														<a href="page/editCustomerB_detail.jsp?id=470">数据灾备中心</a>
+													</div>
+												</li>
+
+												<!---------------------------------- 三层 ---------------------------------------->
+												<li>
+													<div class="tree_node">
+														<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+														<a href="page/editCustomerB_detail.jsp?id=1512">上海电力医院</a>
+													</div>
+												</li>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=64">计量中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=50">市南公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=55">青浦公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=59">长兴公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=392">培训中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=393">闸北电厂</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=394">路灯中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=395">超高压</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=398">电网公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=1509">送变电</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=396">调控中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="page/editCustomerA_detail.jsp?id=71">上海市电力调度中心</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=415">上海市电力调度中心</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="page/editCustomerA_detail.jsp?id=87">上海电力设计院有限公司</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=437">上海电力设计院有限公司</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="page/editCustomerA_detail.jsp?id=66">上海电力股份有限公司</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=407">上海电力股份有限公司 </a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="page/editCustomerA_detail.jsp?id=65">上海电力股份有限公司吴泾热电厂</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=405">吴泾热电厂</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+								<!---------------------------------- 一层 ---------------------------------------->
+								<li>
+									<div class="tree_node">
+										<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+										<a href="page/editCustomerA_detail.jsp?id=67">上海上电电力工程有限公司</a>
+									</div>
+									<ul>
+
+										<!---------------------------------- 二层 ---------------------------------------->
+										<li>
+											<div class="tree_node">
+												<span><i class="glyphicon glyphicon-minus-sign"></i> </span>
+												<a href="page/editCustomerB_detail.jsp?id=408">电力工程</a>
+											</div>
+											<ul>
+
+											</ul>
+										</li>
+
+									</ul>
+								</li>
+
+							</ul>
+						</div>
+						<div id="tree_details" style="float: left;margin-left: 20px;width: 550px; background: #f2ecff;display: none;">
+							<div id="treeDetailTitle">
+								<h4><strong>修改及查看用户</strong></h4>
+							</div>
+							<form id="levelOneDetailsForm" method="post" style="display: none;">
+								<table class="table table-bordered">
+									<tr>
+										<td>用户名:</td>
+										<td colspan=3>
+											<span id="name">上海银行股份有限公司</span>
+											<input type=hidden id="id" name="id" value="1">
+										</td>
+									</tr>
+									<tr>
+										<td>联系人:</td>
+										<td>
+											<span id="linkman" class="editable">杨越</span>
+										</td>
+										<td>电话:</td>
+										<td>
+											<span id="linkman_phone" class="editable">13816864290</span>
+										</td>
+									</tr>
+									<tr>
+										<td>邮件:</td>
+										<td>
+											<span id="linkman_email" class="editable">yangyue@bankofshanghai.com</span>
+										</td>
+										<td>传真:</td>
+										<td>
+											<span id="fax1" class="editable"> </span>
+										</td>
+									</tr>
+									<tr>
+										<td>微信号:</td>
+										<td>
+											<span id="linkman_wx" class="editable"> </span>
+										</td>
+										<td>&nbsp;</td>
+										<td>&nbsp;</td>
+									</tr>
+								</table>
+							</form>
+							<form method="post" id="levelTwoDetailsForm" style="display: none;">
+
+								<table class="table table-bordered">
+									<tr>
+										<td>*用户名字:</td>
+										<td>
+											<span id="Aname">上海银行股份有限公司</span>
+										</td>
+										<td>*Code:</td>
+										<td>
+											<span id="code">0010001</span>
+										</td>
+									</tr>
+									<tr>
+										<td>*用户现场:</td>
+										<td colspan=3>
+											<span id="customer_name" class="editable">上海银行苏州分行</span>
+											<input type=hidden id="id" name="id" value="1">
+										</td>
+									</tr>
+									<tr>
+										<td>*客户地址:</td>
+										<td colspan=3>
+											<span id="address" class="editable">江苏苏州市工业园区时代广场23栋B座</span>
+										</td>
+									</tr>
+									<tr>
+										<td>标志建筑:</td>
+										<td colspan=3>
+											<span id="build" class="editable">[修改]</span>
+										</td>
+									</tr>
+									<tr>
+										<td>*交通路线:</td>
+										<td colspan=3>
+											<span id="traffic" class="editable"> </span>
+										</td>
+										<!--<td colspan=2>&nbsp;</td>-->
+									</tr>
+									<tr>
+										<td>*主联系人:</td>
+										<td>
+											<span id="linkmanA" class="editable"> </span>
+											<td>*联系电话:</td>
+											<td>
+												<span id="linkmanA_phone" class="editable">0512-66960600</span>
+											</td>
+									</tr>
+									<tr>
+										<td>*电子邮件:</td>
+										<td>
+											<span id="linkmanA_email" class="editable"> </span>
+										</td>
+										<td colspan=2>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>次联系人:</td>
+										<td>
+											<span id="linkmanB" class="editable">[修改]</span>
+										</td>
+										<td>联系电话:</td>
+										<td>
+											<span id="linkmanB_phone" class="editable">[修改]</span>
+										</td>
+									</tr>
+									<tr>
+										<td>电子邮件:</td>
+										<td>
+											<span id="linkmanB_email" class="editable">[修改]</span>
+										</td>
+										<td colspan=2>&nbsp;</td>
+									</tr>
+									<tr>
+										<td>其他:</td>
+										<td colspan=3>
+											(传真)<span id="fax2" class="editable">[修改]</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											(区域)<span id="area" class="editable">[修改]</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											(邮编)<span id="postalcode" class="editable">[修改]</span>
+										</td>
+									</tr>
+									<tr>
+										<td colspan=4>
+											PS：* 号为必填项
+										</td>
+									</tr>
+								</table> 
+							</form>
+							 历史修改记录:
+							<div style="overflow:auto;height:200px">
+								<table width=600 class="table table-bordered table-hover">
+									<tr align=center>
+										<td>字段</td>
+										<td>修改前</td>
+										<td>修改后</td>
+										<td>修改时间</td>
+									</tr>
+
+								</table>
+							</div>
+							<!--  内容 -->
+
+						</div>
+					</div>
+					<!-- tab3 -->
+
+					<div id="tab4">
+						<div id="addQuestPart">
+							<form name="addQuestPartForm" method=post>
+								<div style="overflow:auto;height:480px;width:600px;float:left">
+									<table width="600px" class="table table-bordered table-striped">
+										<tr align=center>
+											<td>
+												请求方
+											</td>
+											<td>
+												分类
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="1" class="editable">IT服务@TAS</span>
+											</td>
+											<td>
+												<select onchange="change(1,this.value)">
+													<option value="公司内部">公司内部</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="2" class="editable">陶九峰@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(2,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="3" class="editable">郑明华@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(3,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="4" class="editable">曹杰@LANDesk</span>
+											</td>
+											<td>
+												<select onchange="change(4,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="5" class="editable">熊虎@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(5,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="6" class="editable">任振华@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(6,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="7" class="editable">李翔@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(7,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="8" class="editable">朱承廉@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(8,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="9" class="editable">付绘滨@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(9,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="10" class="editable">吴建刚@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(10,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="11" class="editable">张茂金@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(11,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="12" class="editable">徐逸凡@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(12,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="13" class="editable">鲁臻@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(13,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="14" class="editable">吴新平@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(14,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="15" class="editable">孟晋敏@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(15,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="16" class="editable">钟力战@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(16,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="17" class="editable">周蒙@Veritas</span>
+											</td>
+											<td>
+												<select onchange="change(17,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="18" class="editable">赵欢@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(18,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<span id="19" class="editable">李淋@Symantec</span>
+											</td>
+											<td>
+												<select onchange="change(19,this.value)">
+													<option value="厂商">厂商</option>
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+
+											</td>
+										</tr>
+
+									</table>
+								</div>
+
+								<div style="display:inline-block;margin-left:40px">
+									<table border="0" width="300" id="table2" align=center>
+										<tr>
+											<td>
+												<p align="left">新增请求方:</td>
+										</tr>
+										<tr>
+											<td><input type=text class="form-control" name=T1 size=30></td>
+										</tr>
+										<tr>
+											<td colspan="2">(例:"人名+@+公司名")</td>
+										</tr>
+										<tr>
+											<td>
+												<p align="left">新增类别:</td>
+										</tr>
+										<tr>
+											<td>
+												<select name=s1 class="form-control">
+													<option value="厂商">厂商</option>
+													<option value="集成商">集成商</option>
+													<option value="公司内部">公司内部</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td align=center><input type=button class="btn btn-primary" name=B1 value=新增 onclick="chk4();"></td>
+										</tr>
+									</table>
+								</div>
+
+							</form>
+
+							<!--  内容 -->
+						</div>
+
+					</div>
+					<!-- tab4 -->
+				</div>
+				<!--content-->
+
+			</div>
+			<script>
+				function validatesubmit() {
+
+					if(addCustomerForm.name.value == "") {
+						alert("请填写用户 ！")
+						//issubmit = false;
+						return false;
+					}
+
+					if(addCustomerForm.linkman.value == "") {
+						alert("请填写联系人 ！")
+						//issubmit = false;
+						return false;
+					}
+
+					if(addCustomerForm.linkman_phone.value == "") {
+						alert("请填写联系电话 ！")
+						//issubmit = false;
+						return false;
+					}
+					if(addCustomerForm.linkman_email.value == "") {
+						alert("请填写EMAIL！")
+						//issubmit = false;
+						return false;
+					}
+					if(addCustomerForm.fax.value == "") {
+						alert("请填写传真 ！")
+						//issubmit = false;
+						return false;
+					}
+					if(addCustomerForm.linkman_wx.value == "") {
+						alert("请填写微信 ！")
+						//issubmit = false;
+						return false;
+					}
+
+					//				var msg=window.confirm("确认提交!?");
+					//              if(msg){
+					//                addCustomerForm.action="page/do_addCustomerA.jsp";
+					//				  addCustomerForm.submit();  
+					//              }else{return false;}
+
+				}
+				$(document).ready(function() {
+					$(".editable").dblclick(function() {
+
+						var span_id = $(this).attr("id");
+
+						var o = $("#" + span_id);
+						var str = o.text();
+						o.text("");
+						var txt = $("<input>");
+						txt.val(str).appendTo(o).select();
+						var a1 = $("<a class='a1'>修改</a>");
+						var a2 = $("<a class='a1'>删除</a>");
+						var a3 = $("<a class='a1'>取消</a>");
+						a1.appendTo(o);
+						a2.appendTo(o);
+						a3.appendTo(o);
+						a1.click(function() {
+							if(txt.val() == "") {
+								alert("修改内容不能为空！");
+								o.text(str);
+							} else {
+								//								$.ajax({
+								//									url: 'editquestpartAction',
+								//									type: 'POST',
+								//									data: { id: span_id, name: "questpart", value: txt.val() },
+								//									success: function(data) { alert('修改成功'); },
+								//									error: function() { //alert('发生错误');
+								//									}
+								//								});
+								o.text(txt.val());
+							}
+						});
+						a2.click(function() {
+							lfm.action = "deletequestpartAction?id=" + span_id;
+							lfm.submit();
+						});
+						a3.click(function() {
+							o.text(txt.val());
+						});
+
+					});
+
+				});
+
+				function change(obj, obj2) {
+					//					$.ajax({
+					//						url: 'editquestpartAction',
+					//						type: 'POST',
+					//						data: { id: obj, name: "type", value: obj2 },
+					//						success: function(data) { alert('修改成功'); },
+					//						error: function() { //alert('发生错误');
+					//						}
+					//					});
+				}
+
+				function chk4() {
+
+					var msg = window.confirm("确认提交!?");
+					if(msg) {
+						lfm.action = "addquestpartAction";
+						lfm.submit();
+					}
+
+				}
+				function showDetails (value,obj) {
+					$('.tree').css("width","480px");
+					$("#tree_details").show('middle');
+					if (value == 1) {
+						$('#levelOneDetailsForm').show();
+						$('#levelTwoDetailsForm').hide();
+					} else{
+						$('#levelTwoDetailsForm').show();
+						$('#levelOneDetailsForm').hide();
+					}
+				}
+			</script>
+
+			<script>
+				function resetTabs() {
+					$("#content > div").hide(); //Hide all content
+					$("#tabs a").attr("id", ""); //Reset id's      
+				}
+
+				var myUrl = window.location.href; //get URL
+				var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+				var myUrlTabName = myUrlTab.substring(0, 4); // For the above example, myUrlTabName = #tab
+				(function() {
+					$("#content > div").hide(); // Initially hide all content
+					$("#tabs li:first a").attr("id", "current"); // Activate first tab
+					$("#content > div:first").fadeIn(); // Show first tab content
+
+					$("#tabs a").on("click", function(e) {
+						e.preventDefault();
+						if($(this).attr("id") == "current") { //detection for current tab
+							return
+						} else {
+							resetTabs();
+							$(this).attr("id", "current"); // Activate this
+							$($(this).attr('name')).fadeIn(); // Show content for current tab
+						}
+					});
+
+					for(i = 1; i <= $("#tabs li").length; i++) {
+						if(myUrlTab == myUrlTabName + i) {
+							resetTabs();
+							$("a[name='" + myUrlTab + "']").attr("id", "current"); // Activate url tab
+							$(myUrlTab).fadeIn(); // Show url tab content        
+						}
+					}
+				})()
+			</script>
+	</body>
+
+</html>

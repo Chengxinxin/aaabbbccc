@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<script type="text/javascript" src="css/tableScript.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+
+		<!-- 评分样式 -->
+		<link rel="stylesheet" type="text/css" href="css/starGradeStyle.css" />
+		<script type="text/javascript" src="js/comment.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#project_edit").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').show();
+					$('.projectDescription').hide();
+				});
+				$("#project_cancel").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').hide();
+					$('.projectDescription').show();
+				});
+				$("#edit_submit_btn").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').hide();
+					$('.projectDescription').show();
+				});
+				//设置评论固定星星
+				var starNumber = 5;
+				var starString = "五分，非常满意";
+				staticStarGarde(starNumber, starString);
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="color: #000000;">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">个人中心</a>
+					</li>
+					<li>
+						<a href="myTasks.html">我的任务</a>
+					</li>
+					<li class="active">该任务的工作列表</li>
+				</ol>
+
+				<div class="projectDescription container-fluid">
+					<!--style="background: #EBCCCC;"-->
+					<div class="row">
+						<div class="work_title col-md-8">
+							<h4>任务名称：</h4>
+							<h1>[1314]</h1>
+							<h1>开发工作个人中心平台</h1>
+						</div>
+
+					</div>
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+
+					<div class="row">
+						<div class="col-sm-4">
+							<p>任务单ID:</p>
+							<p class="">1314
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>发布人:</p>
+							<p class="">钱经理
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>指派给:</p>
+							<p class="">Neo
+								<p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>任务类别:</p>
+							<p class="">开发
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>起止时间:</p>
+							<p class="">2017-03-01-2017-05-01
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>任务状态:</p>
+							<p class="">进行中
+								<p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>优先级:</p>
+							<p class="">最高
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>审核状态:</p>
+							<p class="">未审核
+								<p>
+						</div>
+
+					</div>
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+
+					<!--<div id="controls">
+
+						</div>-->
+					<div class="work_description">
+						<h5>工作描述:</h5>
+						<p>
+							Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+						<br />
+						<p>
+							Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+						</p>
+
+					</div>
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+					<div class="beizhu">
+						<h5>备注：</h5>
+						<p>优先级最高，优先完成！！！</p>
+					</div>
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered table-hover" id="table">
+
+							<h4>任务隶属工作列表</h4>
+							<thead>
+								<tr>
+									<th>工作单ID</th>
+									<th>工作名称</th>
+									<th>工作类别</th>
+									<th>发布人</th>
+									<th>优先级</th>
+									<th>工作起止时间</th>
+									<th>工作状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>
+										<a href="projectDescription.html">开发前端系统234234收到付款开发前端系统234234收到付款开发前端系统234234收到付款</a>
+									</td>
+									<td>开发</td>
+									<td>Boss</td>
+									<td>优先</td>
+									<td>3/2/2017——5/1/2017</td>
+									<td>已完成</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>
+										<a href="projectDescription.html">开发前端系统</a>
+									</td>
+									<td>开发</td>
+									<td>Boss</td>
+									<td>普通</td>
+									<td>3/1/2017-4/1/2017</td>
+									<td>已完成</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>
+										<a href="projectDescription.html">开发后端系统</a>
+									</td>
+									<td>开发</td>
+									<td>Boss</td>
+									<td>紧急</td>
+									<td>3/9/2017-4/1/2017</td>
+									<td>已完成</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!--table-responsive-->
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+
+					<!--<div id="controls">
+
+						</div>-->
+					<div class="work_description">
+						<h5>项目总结:</h5>
+						<p>
+							Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+						<br />
+						<p>
+							Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+						</p>
+
+					</div>
+					<div class="partingLine">————————————————————————————————————————————————————————————————————————</div>
+					<div class="comment_score">
+						<h4>打分评价：</h4>
+						<div class="goods-comm" style="margin-top: 10px;">
+							<div class="goods-comm-stars">
+								<span class="star_l">满意度：</span>
+								<div id="rate-comm-1" class="rate-comm"></div>
+							</div>
+						</div>
+						<div class="work_description">
+							<h5>评价内容: </h5>
+							<p>
+								Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+							<br />
+							<p>
+								Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+							</p>
+
+						</div>
+					</div>
+					<!--comment_score-->
+				</div>
+				<!--TaskEvaluationDescription-->
+			</div>
+
+	</body>
+
+</html>

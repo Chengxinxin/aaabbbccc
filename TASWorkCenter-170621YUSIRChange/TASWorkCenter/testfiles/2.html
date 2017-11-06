@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD><TITLE>js操作刷新</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8" ;>
+<script language="javaScript" src="js/jquery-3.1.1.min.js"></script>
+</HEAD>
+<SCRIPT>
+//--------------------- 排序
+//需要在排序的table上加id="tableNeed",需在排序的列上加onclick="sortt('.?')",在此列所有<td>上加class="?"
+function sortt(className){
+var listName=new Array();
+var listNameOld=new Array();
+var listTr=new Array();
+var listSort=new Array();
+var i=1;
+var b=false;
+//取得原来的<tr>,并清空<table>
+$("#tableNeed tr").each(function(){
+listTr.push($(this).html());
+});
+//得到要排列的列的元素，并在末尾追加此刻的顺序（从1开始）
+$(className).each(function(){
+listName.push($(this).text()+i);
+listNameOld.push($(this).text()+i);
+i++;
+});
+//将要排序的元素排序
+mySort(listName);
+//判断排序后元素位置是否发生变化
+for(var j=0;j<listName.length;j++){
+if(listName[j].substring(listName[j].length-listNameOld[j].length)!=listNameOld[j]){
+b=true;
+break;
+}
+}
+//排序后，根据先前追加的顺序得到此时<tr>的顺序
+for(var j=0;j<listName.length;j++){
+listSort.push(parseInt(listName[j].substring(listName[j].length-1)));
+}
+$("#tableNeed").html('');
+//按顺序追加<tr>，若排序后元素顺序未变化，则倒序追加
+$("#tableNeed").append("<tr class='header'>"+listTr[0]+"</tr>");
+if(b){
+for(var j=0;j<listSort.length;j++){
+$("#tableNeed").append("<tr>"+listTr[listSort[j]]+"</tr>");
+}
+}else{
+for(var j=listSort.length-1;j>=0;j--){
+$("#tableNeed").append("<tr>"+listTr[listSort[j]]+"</tr>");
+}
+}
+}
+//首先按字符个数排序，然后按相对应的字符大小排序
+function mySort(list){
+var len=0;
+var add="";
+for(var i=0;i<list.length;i++){
+var str=list[i];
+if(str.length>len){
+len=str.length;
+}
+}
+for(var i=0;i<len;i++){
+add+="0"
+}
+for(var i=0;i<list.length;i++){
+var strOne=add+list[i];
+list[i]=strOne.substring(strOne.length-len);
+}
+list.sort();
+}
+//----------------------------
+</SCRIPT>
+<BODY>
+<TABLE id="tableNeed" border=1>
+<tr><td onclick="sortt('.1')">数字</td><td onclick="sortt('.2')">字母</td><td onclick="sortt('.3')">数字和字母</td></tr>
+<tr><td class="1">11</td><td class="2">ee</td><td class="3">1a</td></tr>
+<tr><td class="1">22</td><td class="2">gg</td><td class="3">7g</td></tr>
+<tr><td class="1">33</td><td class="2">cc</td><td class="3">d4</td></tr>
+<tr><td class="1">44</td><td class="2">aa</td><td class="3">3c</td></tr>
+<tr><td class="1">55</td><td class="2">dd</td><td class="3">e5</td></tr>
+<tr><td class="1">66</td><td class="2">ff</td><td class="3">f6</td></tr>
+<tr><td class="1">77</td><td class="2">hh</td><td class="3">2b</td></tr>
+<tr><td class="1">88</td><td class="2">bb</td><td class="3">h8</td></tr>
+</TABLE>
+</BODY></HTML>

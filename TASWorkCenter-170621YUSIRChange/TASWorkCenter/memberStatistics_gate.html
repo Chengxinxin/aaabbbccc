@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--Edge 模式通知 IE以最高级别的可用模式显示内容。即如果你有IE11的话那么就调用高版本的那个也就是IE11。-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!-- 评分样式 -->
+		<link rel="stylesheet" type="text/css" href="css/starGradeStyle.css" />
+		<script type="text/javascript" src="js/comment.js"></script>
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-table.css" />
+		<script src="js/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap-table-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+
+		<link href="js/Fliter.css" rel="stylesheet" />
+		<script src="js/Filter.js"></script>
+		<!--多选插件-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-select.min.css" />
+		<script src="js/bootstrap-select.min.js"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">统计</a>
+					</li>
+					<li class="active">员工管理</li>
+				</ol>
+
+				<!--标签-->
+				<ul id="tabs">
+					<li>
+						<a href="memberStatistics.html#tab1" name="#tab1">员工信息列表</a>
+					</li>
+					<li>
+						<a href="memberStatistics.html#tab2" name="#tab2">员工权限列表</a>
+					</li>
+					<li>
+						<a href="memberStatistics_gate.html" name="#tab3" id="current">属性管理入口</a>
+					</li>
+
+				</ul>
+
+				<div id="content">
+					
+					<style type="text/css">
+						.gate_div {
+							display: inline-block;
+							margin: 20px;
+							padding: 0px 20px;
+							color: #586772;
+							background: #f3f3f3;
+							height: 140px;
+							width: 200px;
+							cursor: pointer;
+						}
+						.gate_div:hover {
+							background: #DfDfDf;
+							color: #3db0cf;
+						}
+						.text-center {
+							text-align: center;
+						}
+						.text-center img{
+							margin: 10px auto;
+						}
+						.set_title {
+							margin-bottom: 5px;
+						}
+						.description {
+							color: #586772;
+						}
+					</style>
+					<div id="tab3" class="container" style="width: 1060px;">
+
+						<div class="row clearfix text-center">
+							<a class=" gate_div" v-for="item in setArray" v-bind:href="item.url">
+								<header class="text-center">
+									<img v-bind:src="item.img_url"  width="56" height="56">
+									<h4 class="set_title">{{item.name}}</h4>
+								</header>
+								<div class="description">
+									<p class="text-center">{{item.description}}</p>
+								</div>
+							</a>
+
+							<!--<a class="tech-training col-md-3 gate_div" href="memberStatistics_attrsManage.html">
+								<header class="text-center">
+									<img src="img/set_model.svg" width="72" height="72">
+									<h4 class="set_title">模板设置</h4>
+								</header>
+								<div class="description">
+									<p class="text-center" >添加删除对应的提交工作模板</p>
+								</div>
+							</a>-->
+
+
+						</div>
+
+					</div>
+					<!--tab3-->
+				</div>
+
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el: '#tab3',
+				data: {
+					setArray: [
+						{
+							name: '工作属性设置',
+							img_url: 'img/set_people.svg',
+							description:'添加删除员工的工作属性',
+							url:'memberStatistics_attrsManage.html',
+						},{
+							name: '模板设置',
+							img_url: 'img/set_model.svg',
+							description:'添加删除对应的提交工作模板',
+							url:'memberStatistics_modelsManage.html',
+						}
+						,{
+							name: '偏好设置',
+							img_url: 'img/set_preference.svg',
+							description:'添加删除合约偏好',
+							url:'memberStatistics_preferenceManage.html',
+						},{
+							name: '手册设置',
+							img_url: 'img/set_manual.svg',
+							description:'添加删除对应的例行巡检手册',
+							url:'memberStatistics_manualManage.html',
+						}
+						
+					]
+				}
+			})
+		</script>
+	</body>
+
+</html>

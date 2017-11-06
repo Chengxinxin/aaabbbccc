@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/serviceManagement.css" />
+		<script src="js/bootstrap-tree.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/YUSignSpan.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--范围选择器-->
+		<link rel="stylesheet" type="text/css" href="js/jquery.range.css"/>
+		<script src="js/jquery.range.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.leftNav {
+				height: 600px;
+			}
+			
+			#settingSericeStandardTable>tbody>tr>td {
+				vertical-align: middle;
+				text-align: left;
+			}
+			input[type="text"],.inputstyle{
+			  box-sizing: border-box;
+			  font-size:12px;
+			  height:24px;
+			  border-radius:4px;
+			  border:1px solid #c8cccf;
+			  color:#6a6f77;
+			  -web-kit-appearance:none;
+			  -moz-appearance: none;
+			  display:inline-block;
+			  outline:0;
+			  padding:2px 10px;
+			  text-decoration:none;
+			  margin-top: 5px;
+			}
+			input[type="text"]:focus,.inputstyle:focus {
+			  border:1px solid #4d90ff;
+			}
+			/*input[type="text"]{
+			  box-sizing: border-box;
+			  text-align:center;
+			  font-size:12px;
+			  height:24px;
+			  border-radius:4px;
+			  border:1px solid #c8cccf;
+			  color:#6a6f77;
+			  -web-kit-appearance:none;
+			  -moz-appearance: none;
+			  display:inline-block;
+			  outline:0;
+			  padding:0 10px;
+			  text-decoration:none;
+			}
+			input[type="text"]:focus{
+			  border:1px solid #ff7496;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">服务管理</a>
+					</li>
+					<li class="active">服务标准管理</li>
+				</ol>
+
+				<ul id="tabs">
+					<li>
+						<a href="#" name="#tab1">添加服务标准</a>
+					</li>
+					<li>
+						<a href="#" name="#tab2">查看服务标准</a>
+					</li>
+					<li>
+						<a href="#" name="#tab3">增改服务范围</a>
+					</li>
+				</ul>
+
+				<div id="content">
+					<div id="tab1">
+						<!--  内容 -->
+						<div id="addCustomer">
+							<form name="addSericeStandardForm" method="post">
+								<table id="settingSericeStandardTable" width="800" class="table table-bordered" style="float:left">
+									<tr>
+										<td width="120" align="right">服务标准名称：</td>
+										<td>&nbsp;&nbsp;<input type="text" name="standardname" size="40" class="inputstyle">
+											<font color="#FF0000">*</font>
+										</td>
+									</tr>
+									<tr>
+										<td width="120" align="right">服务产品范围：</td>
+										<td valign="top">
+											&nbsp;
+											<select name="serviceRange_sel"class="inputstyle" style="width:250px" onchange="showHint('page/gethint_getSeries.jsp',this.value,'sp_series');">
+												<option value="">-----------------选择范围-----------------</option>
+												<option value="身份管理以及特权账户管理">身份管理以及特权账户管理</option>
+												<option value="数据加密及信息防泄漏管理">数据加密及信息防泄漏管理</option>
+												<option value="安全威胁控制和监控">安全威胁控制和监控</option>
+												<option value="端点管理和标准化">端点管理和标准化</option>
+												<option value="数据中心信息防护">数据中心信息防护</option>
+												<option value="基础架构运营管理">基础架构运营管理</option>
+											</select>(范围) &nbsp;
+
+											<span id="sp_series"></span><br/> &nbsp;
+											<span id="sp_company"></span> &nbsp;
+											<span id="sp_product"></span>
+											<input type="hidden" name="productlist" />
+										</td>
+									</tr>
+									<tr>
+										<td width="120" align="right">服务方式：</td>
+										<td valign="top">&nbsp;
+											<input type="checkbox" name="chk_isTel" value="ON" onclick="showTel();"> 电话支持&nbsp;&nbsp;
+											<span id="sp_Tel" style="display:;">
+		      <select name="type_tel1" size="1" class="inputstyle">
+		        <option selected value=" "> </option>			    
+			    <option value="5天">5天</option>
+			    <option value="7天">7天</option>
+			  </select>
+			  <select name="type_tel2" size="1" class="inputstyle">
+			    <option selected value=" "> </option>
+			    <option value="8小时">8小时</option>
+			    <option value="12小时">12小时</option>
+			    <option value="24小时">24小时</option>
+			  </select>
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isElc" value="ON" onclick="showElc();"> 电子连线&nbsp;&nbsp;
+											<span id="sp_Elc" style="display:;">
+			  <select name="type_elc" size="1" class="inputstyle">
+			    <option selected value=" "> </option>
+			    <option value="5*8小时">5*8小时</option>
+			    <option value="5*12小时">5*12小时</option>
+			    <option value="7*8小时">7*8小时</option>
+			    <option value="7*12小时">7*12小时</option>
+			    <option value="7*24小时">7*24小时</option>
+			  </select>
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isLoc" value="ON" onclick="showLoc();"> 现场支持&nbsp;&nbsp;
+											<span id="sp_Loc" style="display:;">
+			  <select name="type_loc1" size="1" class="inputstyle">
+			    <option selected value=" "> </option>
+				<option value="5*8小时">5*8小时</option>
+			    <option value="5*12小时">5*12小时</option>
+				<option value="5*24小时">5*24小时</option>
+			    <option value="7*8小时">7*8小时</option>
+				<option value="7*12小时">7*12小时</option>														
+			    <option value="7*24小时">7*24小时</option>
+			  </select>
+			  <select name="type_loc2" size="1" class="inputstyle">
+			    <option selected value=" "> </option>
+			    <option value="2小时内到场">2小时内到场</option>
+			    <option value="4小时内到场">4小时内到场</option>
+			    <option value="6小时内到场">6小时内到场</option>
+			    <option value="8小时内到场">8小时内到场</option>
+			    <option value="下一个工作日">下一个工作日</option>
+			  </select>
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isFax" value="ON" onclick="showFax();">&nbsp;电子邮件、传真支持
+											<span id="sp_fax" style="display:;">  
+			  <select name="type_fax1" size="1" class="inputstyle">		
+			    <option selected value=" "> </option>	    
+			    <option value="5天">5天</option>
+			    <option value="7天">7天</option>
+			  </select>
+			  <select name="type_fax2" size="1" class="inputstyle">
+			    <option selected value=" "> </option>
+			    <option value="8小时">8小时</option>
+			    <option value="12小时">12小时</option>
+			    <option value="24小时">24小时</option>
+			  </select>
+			</span>
+										</td>
+									</tr>
+									<tr>
+										<td width="120" align="right">服务内容：</td>
+										<td valign="top">&nbsp;
+											<input type="checkbox" name="chk_isNeedMaster" value="ON" onclick="showMaster();">&nbsp;服务交付经理专署接口服务&nbsp;
+											<span id="sp_NeedMaster" style="display:;">
+			  <input type="text" class="inputstyle" name="ename" value="--姓名--" size="15" onclick="this.value='';">
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isFrontTest" value="ON">&nbsp;实施前基础环境评估服务
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isDesign" value="ON">&nbsp;方案设计服务
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isInstellUpdate" value="ON" onclick="showType();">&nbsp;安装部署或升级服务
+											<BR>
+											<span id="sp_Choose" style="display:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <input type="checkbox" name="chk_isSetupConfig" value="1">设备安装、调试、配置、优化；<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <select name="model_sel" size="1" class="inputstyle">	
+			    <option value="">&nbsp;</option>			
+			    <option value="管理服务器,客户端全部,服务器全部;[Limited]">管理服务器,客户端全部,服务器全部;[Limited]</option>
+			    <option value="管理服务器,客户端全部,服务器全部;[UnLimited]">管理服务器,客户端全部,服务器全部;[UnLimited]</option>
+			    <option value="管理服务器,客户端样本,服务器全部;">管理服务器,客户端样本,服务器全部;</option>
+			    <option value="管理服务器,服务器样本,客户端样本;">管理服务器,服务器样本,客户端样本;</option>
+			    <option value="管理服务器,服务器样本;">管理服务器,服务器样本;</option>
+			    <option value="管理服务器,服务器全部;">管理服务器,服务器全部;</option>
+			  </select><BR>
+			</span>&nbsp;
+											<input type="checkbox" name="chk_isAppTrain" value="ON">&nbsp;应用培训服务
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isNewStady" value="ON">&nbsp;新技术教育服务
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isWarning" value="ON" onclick="showAlarm();">&nbsp;预警和对策方案服务
+											<span id="sp_alarm" style="display:;">&nbsp;&nbsp;&nbsp;安全级别:
+			  <input type="checkbox" name="isRedAlarm" value="ON">&nbsp;<font color="#FF0000">红色</font>&nbsp;&nbsp;
+			  <input type="checkbox" name="isOrangeAlarm" value="ON">&nbsp;<font color="#FF9900">橙色</font>&nbsp;&nbsp;
+			  <input type="checkbox" name="isYellowAlarm" value="ON">&nbsp;<font color="#808000">黄色</font>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <input type="checkbox" name="isHole" value="ON">&nbsp;漏洞信息&nbsp;&nbsp;
+			  <input type="checkbox" name="isBully" value="ON">&nbsp;威胁警报&nbsp;&nbsp;
+			  <input type="checkbox" name="isLat" value="ON">&nbsp;潜在安全威胁警报&nbsp;&nbsp;
+			  <input type="checkbox" name="isCount" value="ON">&nbsp;对策方案&nbsp;&nbsp;
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isDuty" value="ON" onclick="showDuty();">&nbsp;例行巡检服务&nbsp;&nbsp;
+											<span id="sp_Times" style="display:;">频度
+			  <select name="times_sel" size="1" class="inputstyle">
+				 <option selected value=" "> </option>	
+				 <option value="一周1次">一周1次</option>
+				 <option value="一周2次">一周2次</option>
+				 <option value="一月1次">一月1次</option>
+				 <option value="一月2次">一月2次</option>
+				 <option value="两月一次">两月1次</option>
+				 <option value="三月1次">三月1次</option>
+				 <option value="六月1次">六月1次</option>
+				 <option value="应约">应约</option>
+			  </select>&nbsp;&nbsp;
+			  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <input type="checkbox" name="isDutyTel" value="ON">&nbsp;电话巡检&nbsp;&nbsp;
+			  <input type="checkbox" name="isDutyLoc" value="ON">&nbsp;现场巡检&nbsp;&nbsp;
+			  <input type="checkbox" name="isDutyElc" value="ON">&nbsp;电子巡检&nbsp;&nbsp;
+			</span><BR>&nbsp;
+			<input type="checkbox" name="chk_isDuty" value="ON" onclick=" ">&nbsp;偏好
+			<div class="preferSet" style="margin:5px 25px;">
+				每月合适日期段:<div class="rangediv" style="display: inline-block; margin: 10px 15px;">
+					<input type="hidden" class="range-slider slider-input" value="5,10" />
+				</div>
+				偏好时间: <input type="time" name="limitTime" class="inputstyle"/>
+				<br/>指定工程师：
+				<select name="specify_engineer"  class="inputstyle">
+					<option selected value=" "> </option>	
+					<option value="何志文">何志文</option>
+					<option value="周平川">周平川</option>
+					<option value="朱慧泽">朱慧泽</option>
+					<option value="徐春财">徐春财</option>
+					<option value="宋建平">宋建平</option>
+					<option value="张 璟">张璟</option>
+					<option value="彭 鹏">彭鹏</option>
+					<option value="洪坤宇">洪坤宇</option>
+					<option value="刘海运">刘海运</option>
+					<option value="胡心波">胡心波</option>
+					<option value="王焱">王焱</option>
+				</select>
+				着装要求：
+				<select name="specify_dress"  class="inputstyle">
+					<option selected value=" "> </option>	
+					<option value="休闲正装">休闲正装</option>
+					<option value="西装">西装</option>
+				</select>
+				工具要求：
+				<select name="specify_tool"  class="inputstyle">
+					<option selected value=" "> </option>	
+					<option value="病毒定义更新光盘">病毒定义更新光盘</option>
+				</select>
+			</div>
+			<script type="text/javascript">
+				$('.range-slider').jRange({
+				    from: 1,
+				    to: 30,
+				    step: 1,
+//				    scale: ['1st',"week1","week2","week3","week4"],
+				    format: '%s号',
+				    theme: 'theme-blue',
+				    width: 300,
+				    showLabels: true,//显示上方标签用的
+				    isRange : true
+				});
+				$('.range-slider').jRange('setValue', '3,20');
+//				alert($('.range-slider').val());//获取input里的两个值
+			</script>
+			<!--<div class="SignSpan" id="SignSpan1"></div>
+			<script type="text/javascript">
+				$('#SignSpan1').SignSpan({
+					title:"添加偏好",
+					maxnumber: 5,
+					data: ['会议', '展览', '论坛', '课程', '讲座', '沙龙', '出身', '无敌', '是多么', '寂寞'],
+				});
+			</script>-->
+
+											&nbsp;
+											<input type="checkbox" name="chk_NeedLoc" value="ON" onclick="showNeedLocType();">&nbsp;应需和应约现场技术服务&nbsp;&nbsp;
+											<span id="sp_NeedLocType" style="display:;">
+			  <select name="loctype_sel1" size="1" class="inputstyle">			    
+			    <option value="5天">5天</option>
+			    <option value="7天">7天</option>
+			  </select>
+			  <select name="loctype_sel2" size="1" class="inputstyle">
+			    <option value="8小时">8小时</option>
+			    <option value="12小时">12小时</option>
+			    <option value="24小时">24小时</option>
+			  </select>
+			  <select name="loctype_sel3" size="1" class="inputstyle">
+			    <option value="2小时内到场">2小时内到场</option>
+			    <option value="4小时内到场">4小时内到场</option>
+			    <option value="6小时内到场">6小时内到场</option>
+			    <option value="8小时内到场">8小时内到场</option>
+			    <option value="下一个工作日">下一个工作日</option>
+			  </select>
+			  <select name="loctype_sel4" size="1" class="inputstyle">	
+			    <option value="无推诿">无推诿</option>		    
+			    <option value="可推诿">可推诿</option> 
+			  </select>&nbsp;
+			     次数:<input type="text" name="loctype_times" size=2/>
+			 
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_Urgency" value="ON" onclick="showUrgency();">&nbsp;紧急现场响应技术服务&nbsp;&nbsp;
+											<span id="sp_UrgencyType" style="display:;"><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <select size="1" name="urgency_sel" class="inputstyle" >
+				<option value="">  </option>
+				<option value="钻石级:严重事故,2小时内到现场;一般事故,4小时内到现场;轻微故障,1个工作日到现场;">钻石级:严重事故,2小时内到现场;一般事故,4小时内到现场;轻微故障,1个工作日到现场;</option>
+				<option value="铂金级:严重事故,4小时内到现场;一般事故,1个工作日内到现场;轻微故障,2个工作日到现场;">铂金级:严重事故,4小时内到现场;一般事故,1个工作日内到现场;轻微故障,2个工作日到现场;</option>
+				<option value="黄金级:严重事故,1个工作日内到现场;一般事故,第2个工作日内到现场;轻微故障,经约定时间到现场;">黄金级:严重事故,1个工作日内到现场;一般事故:第2个工作日内到现场;轻微故障,经约定时间到现场;</option>
+			  </select>&nbsp;
+			次数:<input type="text" name="urgency_times" size=1/>
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_Crisis" value="ON" onclick="showCrisis();">&nbsp;高危漏洞响应服务&nbsp;&nbsp;
+											<span id="sp_HightCrisis" style="display:;">&nbsp;&nbsp;&nbsp;安全级别:
+			  <input type="checkbox" name="isBlackCrisis" value="ON">&nbsp;黑色&nbsp;&nbsp;
+			  <input type="checkbox" name="isRedCrisis" value="ON">&nbsp;<font color="#FF0000">红色</font>&nbsp;&nbsp;
+			  <input type="checkbox" name="isOrangeCrisis" value="ON">&nbsp;<font color="#FF9900">橙色</font>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <input type="checkbox" name="isHightCrisis" value="ON">&nbsp;高危漏洞威胁网络隔离机制的解决方案
+			</span>
+											<BR>&nbsp;
+											<input type="checkbox" name="chk_isReport" value="ON" onclick="showReport();">&nbsp;定期报告服务<br>
+											<span id="sp_Report" style="display:;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  <select style="width:175;height:125" multiple name="reportlist1_sel" size="5" ondblclick="moveOption(document.addSericeStandardForm.reportlist1_sel, document.addSericeStandardForm.reportlist2_sel)">
+				<option value="基础环境评估报告">基础环境评估报告</option>
+				<option value="设计方案">设计方案</option>
+				<option value="安装部署或升级服务报告">安装部署或升级服务报告</option>
+				<option value="年度维护服务报告">年度维护服务报告</option>
+				<option value="配置变更记录">配置变更记录</option>
+				<option value="培训计划">培训计划</option>
+				<option value="巡检服务报告">巡检服务报告</option>
+				<option value="应急响应报告">应急响应报告</option>
+				<option value="季度维护服务报告">季度维护服务报告</option>
+				<option value="半年度维护服务报告">半年度维护服务报告</option>
+		      </select>
+			  <select style="width:175;height:125; background-color:#CCFFCC; margin-left: 15px;" multiple name="reportlist2_sel" size="5" ondblclick="moveOption(document.addSericeStandardForm.reportlist2_sel, document.addSericeStandardForm.reportlist1_sel)"></select>		
+			</span>
+											<input type="hidden" name="reportlist" value="">
+										</td>
+									</tr>
+
+									<tr>
+										<td align=right>备注：</td>
+										<td>&nbsp;
+											<textarea rows="6" name="loc_remark" cols="40"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td>&nbsp;
+											<input type="button" class="btn btn-warning" value="保存" name="add" class="inputstyle" onclick="check();">&nbsp;
+											<input type="reset" class="btn btn-default" value="重置" name="reset" class="inputstyle">
+										</td>
+									</tr>
+
+								</table>
+								<table width="150">
+									<tr>
+										<td id="showProducts" style="padding-top:60px;padding-left:20px"></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<!--  内容 -->
+
+					</div>
+					<!-- tab1 -->
+
+					<div id="tab2">
+						<!--添加用户现场-->
+						<div id="addCustomerSite">
+							<!--  内容 -->
+							<select onchange="change(this.value);">
+
+								<option value="2014">2014</option>
+								<option value="">所有</option>
+								<option value="2011">2011</option>
+								<option value="2012">2012</option>
+								<option value="2013">2013</option>
+								<option value="2014">2014</option>
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+							</select>
+							<div style="overflow:auto;height:400px">
+								<table class="table table-bordered table-hover">
+									<tr align=center>
+										<td>
+											套餐名字
+										</td>
+										<td>
+											产品服务范围
+										</td>
+
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=1">2014年徐汇区财政局终端安全系统维护服务</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=37">2014东方证券终端维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=9">2014年东方证券股份有限公司网络防病毒升级服务</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=60">2014政务网防病毒维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=70">2014浦东大酒店防病毒维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=22">2014年上海华联罗森有限公司销售合同</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=61">2014吴泾热电防病毒维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=21">2014年通联数据科技股份有限公司销售合同</a>
+										</td>
+										<td>
+											数据中心信息防护/备份与恢复/Symantec /Backup Exec 3600;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=48">2014门户网站SEP维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=55">2014年百胜咨询（上海）有限公司IT系统维护服务协议</a>
+										</td>
+										<td>
+											端点管理和标准化 /系统生命周期管理/LANDesk/LANDesk 管理套件;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=56">2014上海电力防病毒维护（二级）</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=57">2014上海电力防病毒维护（三级）</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=66">2014上海法院防病毒维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=67">2014年百胜咨询(上海)有限公司桌面管理系统维护</a>
+										</td>
+										<td>
+											端点管理和标准化 /系统生命周期管理/LANDesk/LANDesk 管理套件;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=69">2014市委办公厅防病毒与补丁加载维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;安全威胁控制和监控/端点安全管理/Microsoft/Windows Server Update Services;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=71">2014公务网防病毒与补丁加载维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;安全威胁控制和监控/端点安全管理/Microsoft/Windows Server Update Services;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=76">2014维保服务</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;安全威胁控制和监控/端点安全管理 /Symantec /Network Access Control;数据中心信息防护/备份与恢复 /Symantec /Netbackup;端点管理和标准化/客户端管理/Symantec/Altiris;
+										</td>
+									</tr>
+
+									<tr align=center>
+										<td>
+											<a href="page/viewServiceStandards_maintain_detail.jsp?id=62">2014闸电燃防病毒维护</a>
+										</td>
+										<td>
+											安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;
+										</td>
+									</tr>
+
+								</table>
+							</div>
+
+							<!--  内容 -->
+
+						</div>
+					</div>
+					<!-- tab2 -->
+					<div id="tab3">
+						<!--3开头-->
+						<form name=lfm method=post>
+							<div style="overflow:auto;height:350px">
+								<table width="1000" class="table table-bordered table-striped table-hover">
+									<tr>
+										<td>服务范围</td>
+										<td>系列</td>
+										<td>厂商</td>
+										<td>产品</td>
+									</tr>
+
+									<tr>
+										<td>
+											<span id="1_servicerange" class="editable">安全威胁控制和监控</span>
+										</td>
+										<td>
+											<span id="1_series" class="editable">端点安全管理</span>
+										</td>
+										<td>
+											<span id="1_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="1_product" class="editable">Endpoint Protection</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="2_servicerange" class="editable">安全威胁控制和监控</span>
+										</td>
+										<td>
+											<span id="2_series" class="editable">端点安全管理 </span>
+										</td>
+										<td>
+											<span id="2_company" class="editable">Symantec </span>
+										</td>
+										<td>
+											<span id="2_product" class="editable">Network Access Control</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="3_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="3_series" class="editable">归档与电子发现</span>
+										</td>
+										<td>
+											<span id="3_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="3_product" class="editable">Enterprise Vault</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="4_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="4_series" class="editable">备份与恢复</span>
+										</td>
+										<td>
+											<span id="4_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="4_product" class="editable">Backup Exec</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="5_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="5_series" class="editable">备份与恢复</span>
+										</td>
+										<td>
+											<span id="5_company" class="editable">Symantec </span>
+										</td>
+										<td>
+											<span id="5_product" class="editable">Backup Exec 3600</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="19_servicerange" class="editable">安全威胁控制和监控</span>
+										</td>
+										<td>
+											<span id="19_series" class="editable">入侵防护系统</span>
+										</td>
+										<td>
+											<span id="19_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="19_product" class="editable">Web Gateway</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="7_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="7_series" class="editable">备份与恢复</span>
+										</td>
+										<td>
+											<span id="7_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="7_product" class="editable">System Recovery</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="8_servicerange" class="editable">数据加密及信息防泄漏管理</span>
+										</td>
+										<td>
+											<span id="8_series" class="editable">数据泄露防护</span>
+										</td>
+										<td>
+											<span id="8_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="8_product" class="editable">Data Loss Prevention</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="20_servicerange" class="editable">安全威胁控制和监控</span>
+										</td>
+										<td>
+											<span id="20_series" class="editable">入侵防护系统 </span>
+										</td>
+										<td>
+											<span id="20_company" class="editable">Symantec </span>
+										</td>
+										<td>
+											<span id="20_product" class="editable">Messaging Gateway</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="12_servicerange" class="editable">端点管理和标准化 </span>
+										</td>
+										<td>
+											<span id="12_series" class="editable">系统生命周期管理</span>
+										</td>
+										<td>
+											<span id="12_company" class="editable">LANDesk</span>
+										</td>
+										<td>
+											<span id="12_product" class="editable">LANDesk 管理套件</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="13_servicerange" class="editable">端点管理和标准化 </span>
+										</td>
+										<td>
+											<span id="13_series" class="editable">端点安全管理</span>
+										</td>
+										<td>
+											<span id="13_company" class="editable">LANDesk</span>
+										</td>
+										<td>
+											<span id="13_product" class="editable">LANDesk 安全套件</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="14_servicerange" class="editable">安全威胁控制和监控</span>
+										</td>
+										<td>
+											<span id="14_series" class="editable">入侵防护系统</span>
+										</td>
+										<td>
+											<span id="14_company" class="editable">HP</span>
+										</td>
+										<td>
+											<span id="14_product" class="editable">Tipping Point</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="16_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="16_series" class="editable">存储备份</span>
+										</td>
+										<td>
+											<span id="16_company" class="editable">Symantec </span>
+										</td>
+										<td>
+											<span id="16_product" class="editable">NetBackup</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="17_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="17_series" class="editable">存储备份</span>
+										</td>
+										<td>
+											<span id="17_company" class="editable">Symantec</span>
+										</td>
+										<td>
+											<span id="17_product" class="editable">NetBackup 5200（5230）</span>
+										</td>
+
+									</tr>
+
+									<tr>
+										<td>
+											<span id="21_servicerange" class="editable">数据中心信息防护</span>
+										</td>
+										<td>
+											<span id="21_series" class="editable">备份与恢复 </span>
+										</td>
+										<td>
+											<span id="21_company" class="editable">Symantec </span>
+										</td>
+										<td>
+											<span id="21_product" class="editable">Netbackup</span>
+										</td>
+
+									</tr>
+
+								</table>
+							</div>
+
+							<div>
+								<table border="0">
+									<tr>
+										<td>
+											<p align="left">新增服务范围:</td>
+									</tr>
+									<tr>
+										<td>
+											范围:
+											<select name="s1">
+												<option value="身份管理以及特权账户管理">身份管理以及特权账户管理</option>
+												<option value="数据加密及信息防泄漏管理">数据加密及信息防泄漏管理</option>
+												<option value="安全威胁控制和监控">安全威胁控制和监控</option>
+												<option value="端点管理和标准化">端点管理和标准化</option>
+												<option value="数据中心信息防护">数据中心信息防护</option>
+												<option value="基础架构运营管理">基础架构运营管理</option>
+											</select>&nbsp;&nbsp; 系列:
+											<input type=text name="t2" size="27">&nbsp;&nbsp; 厂商:
+											<input type=text name="t3" size="27">&nbsp;&nbsp; 产品:
+											<input type=text name="t4" size="27">&nbsp;&nbsp;
+										</td>
+										<td>
+											<p align="right"><input type=button class="btn btn-info" name=B1 value=新增 onclick="chk();">
+										</td>
+									</tr>
+
+								</table>
+							</div>
+						</form>
+
+						<!--3结束-->
+					</div>
+					<!-- tab3 -->
+
+				</div>
+				<!--content-->
+
+			</div>
+			<script>
+				$(document).ready(function() {
+					$(".editable").dblclick(function() {
+
+						var span_id = $(this).attr("id");
+
+						var o = $("#" + span_id);
+						var str = o.text();
+						o.text("");
+						var txt = $("<input>");
+						txt.val(str).appendTo(o).select();
+						var a1 = $("<a class='a1'>修改</a>");
+						var a2 = $("<a class='a1'>删除</a>");
+						var a3 = $("<a class='a1'>取消</a>");
+						a1.appendTo(o);
+						a2.appendTo(o);
+						a3.appendTo(o);
+						a1.click(function() {
+							if(txt.val() == "") {
+								alert("修改内容不能为空！");
+								o.text(str);
+							} else {
+								//								$.ajax({
+								//									url: 'editquestpartAction',
+								//									type: 'POST',
+								//									data: { id: span_id, name: "questpart", value: txt.val() },
+								//									success: function(data) { alert('修改成功'); },
+								//									error: function() { //alert('发生错误');
+								//									}
+								//								});
+								o.text(txt.val());
+							}
+						});
+						a2.click(function() {
+							lfm.action = "deletequestpartAction?id=" + span_id;
+							lfm.submit();
+						});
+						a3.click(function() {
+							o.text(txt.val());
+						});
+
+					});
+				});
+
+				function moveOption(e1, e2) {
+					try {
+						for(var i = 0; i < e1.options.length; i++) {
+							if(e1.options[i].selected) {
+								var e = e1.options[i];
+								e2.options.add(new Option(e.text, e.value));
+								e1.remove(i);
+								i = i - 1;
+							}
+						}
+					} catch(e) {}
+				}
+			</script>
+
+			<script>
+				function resetTabs() {
+					$("#content > div").hide(); //Hide all content
+					$("#tabs a").attr("id", ""); //Reset id's      
+				}
+
+				var myUrl = window.location.href; //get URL
+				var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+				var myUrlTabName = myUrlTab.substring(0, 4); // For the above example, myUrlTabName = #tab
+				(function() {
+					$("#content > div").hide(); // Initially hide all content
+					$("#tabs li:first a").attr("id", "current"); // Activate first tab
+					$("#content > div:first").fadeIn(); // Show first tab content
+
+					$("#tabs a").on("click", function(e) {
+						e.preventDefault();
+						if($(this).attr("id") == "current") { //detection for current tab
+							return
+						} else {
+							resetTabs();
+							$(this).attr("id", "current"); // Activate this
+							$($(this).attr('name')).fadeIn(); // Show content for current tab
+						}
+					});
+
+					for(i = 1; i <= $("#tabs li").length; i++) {
+						if(myUrlTab == myUrlTabName + i) {
+							resetTabs();
+							$("a[name='" + myUrlTab + "']").attr("id", "current"); // Activate url tab
+							$(myUrlTab).fadeIn(); // Show url tab content        
+						}
+					}
+				})()
+			</script>
+	</body>
+
+</html>

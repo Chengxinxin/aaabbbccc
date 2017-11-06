@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/serviceManagement.css" />
+		<script src="js/bootstrap-tree.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.table>tbody>tr>td {
+				text-align: left;
+			}			
+			.leftNav {
+				height: 600px;
+			}
+			.panelSet {
+				padding: 5px 15px;
+			}
+			.a_btn {
+				border: 1px solid #007FFF;
+				padding: 5px;
+				border-radius: 4px;
+			}
+			input[type="text"],select{
+			  box-sizing: border-box;
+			  font-size:12px;
+			  height:24px;
+			  border-radius:4px;
+			  border:1px solid #c8cccf;
+			  color:#6a6f77;
+			  -web-kit-appearance:none;
+			  -moz-appearance: none;
+			  display:inline-block;
+			  outline:0;
+			  padding:2px 10px;
+			  text-decoration:none;
+			  margin-top: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">合约管理</a>
+					</li>
+					<li class="active">新建合约</li>
+				</ol>
+
+				
+
+				<div id="content">
+						<!--  内容 -->
+						<div id="createContractDiv" style="margin-left: 20px;margin-top: 15px;">
+							<form method="post" name="fm">
+								<div class="panel-group" id="accordion" style="width:800px">
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+										        <a data-toggle="collapse"   href="#collapseZero">#0 操作选项</a>
+      										</h4>
+										</div>
+										<div id="collapseZero" class="panel-collapse collapse in">
+											<div class="panel-body panelSet">
+												<table class="table table-bordered" style="margin-bottom: 2px;">
+													<tr>
+														<td>
+															<label for="r0">请选择：</label>
+															<input type="radio" name="r0" style="vertical-align:-2px" value="1" onclick="" checked/>维保&nbsp;&nbsp;
+															<input type="radio" name="r0" style="vertical-align:-2px" value="2" onclick="" />项目&nbsp;&nbsp;
+															<input type="radio" name="r0" style="vertical-align:-2px" value="3" onclick="" />顾问&nbsp;&nbsp;
+														</td>
+														<td>
+															<label for="r1">请选择：</label>
+															<input type="radio" name="r1" style="vertical-align:-2px" value="1" onclick="jump(this.value)" checked/>新建&nbsp;&nbsp;
+															<input type="radio" name="r1" style="vertical-align:-2px" value="2" onclick="jump(this.value)" />续约&nbsp;&nbsp;
+															<input type="radio" name="r1" style="vertical-align:-2px" value="3" onclick="jump(this.value)" />延期&nbsp;&nbsp;
+														</td>
+														<td>
+															<span>
+        														<input type="checkbox" name="cb1" value="1"/>临时合约 <small> （若是请勾选）</small>
+        													</span>
+														</td>
+													</tr>
+												</table>
+												
+												
+												
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+        										<a data-toggle="collapse"   href="#collapseOne">#1 基本信息</a>
+      										</h4>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in">
+											<div class="panel-body panelSet">
+												<table width="600" style="margin-bottom: 2px;" cellpadding="5"  class="table table-bordered">
+													<tr>
+														<td>合约序号:</td>
+														<td>
+
+															<input type="text" name="code" value="132" style="background-color:#cdcccc" readonly/>
+														</td>
+													</tr>
+													<tr>
+														<td>合约编号:</td>
+														<td><input type=text name="compactNum">(可以暂时不填，以后补填。)</td>
+													</tr>
+													<tr>
+														<td>合约名称:</td>
+														<td><input type=text name="compactName"></td>
+													</tr>
+													<tr>
+														<td>客户代表:</td>
+														<td>
+
+															<select name="seller">
+																<option value="">-----请选择销售----</option>
+																<option value="单文娴">单文娴</option>
+																<option value="刘婷婷">刘婷婷</option>
+																<option value="陈晓芳">陈晓芳</option>
+																<option value="熊虎">熊虎</option>
+																<option value="王樑成">王樑成</option>
+																<option value="吴雯倩">吴雯倩</option>
+																<option value="金敏">金敏</option>
+																<option value="周丽">周丽</option>
+																<option value="柴浩卿">柴浩卿</option>
+																<option value="黄霄枫">黄霄枫</option>
+															</select>
+
+														</td>
+													</tr>
+													<tr>
+														<td>合约日期:</td>
+														<td><input class="form-control" style="display: inline-block; width: 152px;" id="compactDate" type="date" name="compactDate" />(可以暂时不填，以后补填。)</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+        										<a data-toggle="collapse"  href="#collapseTwo">#2 合约用户</a>
+      										</h4>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body panelSet">
+												<table cellpadding="5" class="table table-bordered">
+													<tr>
+														<td>输入用户关键字:</td>
+														<td colspan=2>选择用户:</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="text" onkeydown="if(event.keyCode=='13') chk(this.value);" onblur="chk(this.value)" />
+															<input type="hidden" id="A_id" name="A_id" />
+															<input type="hidden" id="C_id" name="C_id" value="0" />
+														</td>
+														<td colspan=2>
+															<span id="span_sel_customerA"></span>
+														</td>
+													</tr>
+													<tr>
+														<td>选择行政:</td>
+														<td colspan=2>&nbsp;</td>
+													</tr>
+													<tr>
+														<td>
+															<span id="span_sel_customerB_xz">
+            													<select style="width:250px;height:75;" multiple name="customerB_xz_1" size="5" ondblclick="moveOption(document.fm.customerB_xz_1, document.fm.customerB_xz_2)"></select>
+            												</span>
+														</td>
+														<td>
+															<select style="width:250px;height:75;background-color:#CCFFCC" multiple name="customerB_xz_2" size="5" ondblclick="moveOption(document.fm.customerB_xz_2, document.fm.customerB_xz_1)"></select>
+														</td>
+														<td align=center style="vertical-align: middle;">
+															<a href="javascript:void(0)" onclick="chk3()" class="a_btn">提 交</a>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+        										<a data-toggle="collapse" href="#collapseThree">#3 服务标准</a>
+      										</h4>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+												<table cellpadding="5" class="table table-bordered">
+													<tr>
+														<td>绑定现场与服务标准：</td>
+														<td colspan=2>
+															<span id="span_sel_serviceStandard"></span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<span id="span_sel_customerB_xc">
+            													<select style="width:250px;height:75;" multiple name="customerB_xc_1" size="5" ondblclick="moveOption(document.fm.customerB_xc_1, document.fm.customerB_xc_2)"></select>
+															</span>
+														</td>
+														<td>
+															<select style="width:250px;height:75;" multiple name="customerB_xc_2" size="5" ondblclick="moveOption(document.fm.customerB_xc_2, document.fm.customerB_xc_1)"></select>
+														</td>
+														<td align=center style="vertical-align: middle;">
+															<a href="javascript:void(0)" onclick="chk4()" class="a_btn">提 交</a>
+														</td>
+													</tr>
+													<tr>
+														<td colspan=3>已绑定：</td>
+													</tr>
+													<tr>
+														<td colspan=3>
+															<div id="div_show_bind" style="height:50px"></div>
+															<input type="hidden" name="bind" />
+														</td>
+													</tr>
+
+												</table>
+
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+        										<a data-toggle="collapse" href="#collapseFour">#4 服务时间</a>
+      										</h4>
+										</div>
+										<div id="collapseFour" class="panel-collapse collapse">
+											<div class="panel-body">
+												<table width="600" style="margin-bottom: 2px;" cellpadding="5" class="table table-bordered">
+													<tr>
+														<td>服务开始时间:</td>
+														<td>
+															<input type="date" class="form-control" style="display: inline-block; width: 152px;" id="compactStartDate" name="compactStartDate">
+														</td>
+														<td>服务结束时间:</td>
+														<td>
+															<input type="date" class="form-control" style="display: inline-block; width: 152px;" id="compactEndDate" name="compactEndDate">
+														</td>
+													</tr>
+													<tr>
+														
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+									<!-------------------- 备注信息  -------------------->
+									<div class="panel panel-info">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+        										<a data-toggle="collapse" href="#collapseFive">#5 备注信息</a>
+      										</h4>
+										</div>
+										<div id="collapseFive" class="panel-collapse collapse">
+											<div class="panel-body">
+												<table width="600" style="margin-bottom: 2px;" cellpadding="5" class="table table-bordered">
+													<tr>
+														<td>备注:</td>
+														<td>
+															<textarea id="remark" name="remark" rows=3 cols=95></textarea>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<table width=800px style="margin-bottom: 20px;">
+								<tr>
+									<td align=center><input type="button" class="btn btn-primary" onclick="chk6();" value="新建合约 " /></td>
+								</tr>
+							</table>
+
+						</div>
+						<!--  内容 -->
+				</div>
+				<!--content-->
+			</div>
+			<script>
+				$(document).ready(function() {
+					$(".editable").dblclick(function() {
+
+						var span_id = $(this).attr("id");
+
+						var o = $("#" + span_id);
+						var str = o.text();
+						o.text("");
+						var txt = $("<input>");
+						txt.val(str).appendTo(o).select();
+						var a1 = $("<a class='a1'>修改</a>");
+						var a2 = $("<a class='a1'>删除</a>");
+						var a3 = $("<a class='a1'>取消</a>");
+						a1.appendTo(o);
+						a2.appendTo(o);
+						a3.appendTo(o);
+						a1.click(function() {
+							if(txt.val() == "") {
+								alert("修改内容不能为空！");
+								o.text(str);
+							} else {
+								//								$.ajax({
+								//									url: 'editquestpartAction',
+								//									type: 'POST',
+								//									data: { id: span_id, name: "questpart", value: txt.val() },
+								//									success: function(data) { alert('修改成功'); },
+								//									error: function() { //alert('发生错误');
+								//									}
+								//								});
+								o.text(txt.val());
+							}
+						});
+						a2.click(function() {
+							lfm.action = "deletequestpartAction?id=" + span_id;
+							lfm.submit();
+						});
+						a3.click(function() {
+							o.text(txt.val());
+						});
+
+					});
+				});
+			</script>
+	</body>
+
+</html>

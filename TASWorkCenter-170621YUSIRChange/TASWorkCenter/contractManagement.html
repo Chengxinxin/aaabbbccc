@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/serviceManagement.css" />
+		<script src="js/bootstrap-tree.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			table thead {
+				background-color: #5e98f8;
+				color: #fff;
+				border-bottom-width: 10;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">合约管理</a>
+					</li>
+					<li class="active">服务合约</li>
+				</ol>
+
+				<ul id="tabs">
+					<li>
+						<a href="#" name="#tab1">查看合约</a>
+					</li>
+					<li>
+						<a href="#" name="#tab2">审核合约</a>
+					</li>
+					<li>
+						<a href="#" name="#tab3">历史合约</a>
+					</li>
+				</ul>
+
+				<div id="content">
+					<div id="tab1">
+						<!--  内容 -->
+						<div id="search_contract">
+							<div class="row" style="margin-top: 5px;margin-bottom: 5px;">
+								<div class="col-md-2">
+									<select name="kinds" class="form-control">
+										<option value="0">维保合约</option>
+										<option value="1">项目合约</option>
+										<option value="2">顾问合约</option>
+									</select>
+								</div>
+
+							</div>
+
+							<div style="overflow:auto;height:450px">
+								<table class="table table-bordered table-hover table-striped" width=1000>
+									<thead align=center>
+										<td>标识</td>
+										<td>合约序号</td>
+										<td>合约名称</td>
+										<td>合约用户</td>
+										<td>开始日期</td>
+										<td>结束日期</td>
+										<td>状态</td>
+										<td>冻结</td>
+										<td>终止</td>
+										<td>信息</td>
+									</thead>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">001</a>
+
+										</td>
+										<td>2014年上海市徐汇区财政局终端安全系统维护服务协议</td>
+										<td>上海市徐汇区财政局</td>
+										<td>01/01/2014</td>
+										<td>12/31/2014</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="001" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="001" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">004</a>
+
+										</td>
+										<td>2014年东方花旗证券有限公司网络防病毒升级服务合同</td>
+										<td>东方花旗证券有限公司</td>
+										<td>01/04/2014</td>
+										<td>03/31/2015</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="004" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="004" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">006</a>
+
+										</td>
+										<td>2013年东方证券股份有限公司网络防病毒升级服务合同</td>
+										<td>东方证券股份有限公司</td>
+										<td>01/04/2013</td>
+										<td>03/31/2013</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="006" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="006" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">010</a>
+
+										</td>
+										<td>2013年上海柴油机股份有限公司SNAC</td>
+										<td>上海柴油机股份有限公司</td>
+										<td>01/08/2013</td>
+										<td>01/07/2014</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="010" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="010" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">014</a>
+
+										</td>
+										<td>2014年百胜咨询（上海）有限公司IT系统维护服务协议</td>
+										<td>百胜咨询(上海)有限公司</td>
+										<td>01/01/2014</td>
+										<td>12/31/2014</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="014" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="014" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">023</a>
+
+										</td>
+										<td>2013年-2016年中远集装箱运输有限公司计算机软件维护合同SYMANTEC软件维护服务</td>
+										<td>中远集装箱运输有限公司</td>
+										<td>09/29/2013</td>
+										<td>09/28/2016</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="023" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="023" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">024</a>
+
+										</td>
+										<td>2013年-2016年中远集装箱运输有限公司计算机软件维护合同SYMANTEC软件维护</td>
+										<td>中远集装箱运输有限公司</td>
+										<td>12/28/2013</td>
+										<td>12/27/2016</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="024" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="024" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">025</a>
+
+										</td>
+										<td>2014年上海柴油机股份有限公司备份维护</td>
+										<td>上海柴油机股份有限公司</td>
+										<td>09/20/2013</td>
+										<td>09/21/2014</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="025" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="025" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">026</a>
+
+										</td>
+										<td>2012中国外汇交易中心暨全国银行间同业拆借中心防病毒维护</td>
+										<td>中国外汇交易中心</td>
+										<td>10/01/2012</td>
+										<td>09/30/2015</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="026" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="026" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">028</a>
+
+										</td>
+										<td>2013上海公安局科技处防病毒维护</td>
+										<td>上海市公安局</td>
+										<td>09/01/2013</td>
+										<td>09/30/2014</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="028" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="028" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">029</a>
+
+										</td>
+										<td>2012年上海银行股份有限公司维护服务合同（2012年版）</td>
+										<td>上海银行股份有限公司</td>
+										<td>12/26/2012</td>
+										<td>12/25/2013</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="029" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="029" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">030</a>
+
+										</td>
+										<td>2012年上海银行股份有限公司采购合同</td>
+										<td>上海银行股份有限公司</td>
+										<td>01/01/2013</td>
+										<td>12/31/2013</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="030" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="030" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">031</a>
+
+										</td>
+										<td>2014东方证券股份有限公司终端安全维护</td>
+										<td>东方证券股份有限公司</td>
+										<td>04/01/2014</td>
+										<td>03/31/2015</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="031" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="031" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+									<tr align="center">
+										<td title="新建"><img src="img/compact_new.png" /></td>
+										<td>
+
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">032</a>
+
+										</td>
+										<td>2012银联商务防病毒维护</td>
+										<td>银联商务有限公司</td>
+										<td>01/01/2013</td>
+										<td>12/31/2013</td>
+										<td title="审核通过"><img src="img/green.gif" /></td>
+										<td>
+
+											<input type="checkbox" class="js-switch" id="032" name="isDj" />
+
+										</td>
+										<td title="null">
+
+											<input type="checkbox" class="js-switch" id="032" name="isZz" />
+
+										</td>
+										<td>
+
+										</td>
+									</tr>
+
+								</table>
+
+							</div>
+						</div>
+						<!--  内容 -->
+
+					</div>
+					<!-- tab1 -->
+
+					<div id="tab2">
+						<!--添加用户现场-->
+						<div id="addCustomerSite">
+							<!--  内容 -->
+							<form method=post name=fm2>
+								<div style="overflow:auto;height:400px;">
+									<table class="table table-bordered table-hover" width=1000>
+										<thead align=center>
+											<td>合同序号</td>
+											<td>合约名称</td>
+											<td>事件</td>
+											<td>字段名</td>
+											<td>修改前</td>
+											<td>修改后</td>
+											<td>变更日期</td>
+											<td>备注</td>
+											<td>操作</td>
+										</thead>
+										<tr align="center">
+										<td>
+											<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">031</a>
+										</td>
+										<td>2014东方证券股份有限公司终端安全维护</td>
+										<td>东方证券股份有限公司</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td title="审核通过"></td>
+										<td>
+										</td>
+										<td title="null">
+										</td>
+									</tr>
+									</table>
+								</div>
+
+								<table width=1000>
+									<tr>
+										<td align=right>
+											<input type=button class="btn btn-primary btn-sm" value="审核通过" onclick="chk(1)" /><br/><br/> 拒绝原因:
+											<input type=text style="width: 200px;height: 30px;" name="description2" />
+											<input type=button class="btn btn-danger btn-sm" value="审核不过" onclick="chk(-1)" />
+										</td>
+									</tr>
+								</table>
+							</form>
+
+							<!--  内容 -->
+
+						</div>
+					</div>
+					<!-- tab2 -->
+					<div id="tab3">
+						<!--3开头-->
+						<div style="overflow:auto;height:400px;margin-top: 20px;">
+							<table class="table table-bordered table-hover" width=800>
+								<thead align=center>
+									<td>合约序号</td>
+									<td>合约名称</td>
+									<td>合约用户</td>
+									<td>开始日期</td>
+									<td>结束日期</td>
+									<td>状态</td>
+								</thead>
+								<tr align="center">
+									<td>
+
+										<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">031</a>
+
+									</td>
+									<td>2014东方证券股份有限公司终端安全维护</td>
+									<td>东方证券股份有限公司</td>
+									<td>04/01/2014</td>
+									<td>03/31/2015</td>
+									<td title="合约已完成"><img src="img/red.gif" /></td>
+								</tr>
+								<tr align="center">
+									<td>
+
+										<a href="contractManagementDetails.html" onclick="window.open(this.href,'_blank','scrollbars=1,resizable=0,width=820,height=600');return    false">031</a>
+
+									</td>
+									<td>2015东方证券股份有限公司终端安全维护</td>
+									<td>东方证券股份有限公司</td>
+									<td>04/01/2015</td>
+									<td>03/31/2016</td>
+									<td title="合约提前结束"><img src="img/yellow.gif" /></td>
+								</tr>
+							</table>
+						</div>
+						<!--3结束-->
+					</div>
+					<!-- tab3 -->
+				</div>
+				<!--content-->
+
+			</div>
+			<script>
+				$(document).ready(function() {
+					$(".editable").dblclick(function() {
+
+						var span_id = $(this).attr("id");
+
+						var o = $("#" + span_id);
+						var str = o.text();
+						o.text("");
+						var txt = $("<input>");
+						txt.val(str).appendTo(o).select();
+						var a1 = $("<a class='a1'>修改</a>");
+						var a2 = $("<a class='a1'>删除</a>");
+						var a3 = $("<a class='a1'>取消</a>");
+						a1.appendTo(o);
+						a2.appendTo(o);
+						a3.appendTo(o);
+						a1.click(function() {
+							if(txt.val() == "") {
+								alert("修改内容不能为空！");
+								o.text(str);
+							} else {
+								//								$.ajax({
+								//									url: 'editquestpartAction',
+								//									type: 'POST',
+								//									data: { id: span_id, name: "questpart", value: txt.val() },
+								//									success: function(data) { alert('修改成功'); },
+								//									error: function() { //alert('发生错误');
+								//									}
+								//								});
+								o.text(txt.val());
+							}
+						});
+						a2.click(function() {
+							lfm.action = "deletequestpartAction?id=" + span_id;
+							lfm.submit();
+						});
+						a3.click(function() {
+							o.text(txt.val());
+						});
+
+					});
+				});
+			</script>
+
+			<script>
+				function resetTabs() {
+					$("#content > div").hide(); //Hide all content
+					$("#tabs a").attr("id", ""); //Reset id's      
+				}
+
+				var myUrl = window.location.href; //get URL
+				var myUrlTab = myUrl.substring(myUrl.indexOf("#")); // For localhost/tabs.html#tab2, myUrlTab = #tab2     
+				var myUrlTabName = myUrlTab.substring(0, 4); // For the above example, myUrlTabName = #tab
+				(function() {
+					$("#content > div").hide(); // Initially hide all content
+					$("#tabs li:first a").attr("id", "current"); // Activate first tab
+					$("#content > div:first").fadeIn(); // Show first tab content
+
+					$("#tabs a").on("click", function(e) {
+						e.preventDefault();
+						if($(this).attr("id") == "current") { //detection for current tab
+							return
+						} else {
+							resetTabs();
+							$(this).attr("id", "current"); // Activate this
+							$($(this).attr('name')).fadeIn(); // Show content for current tab
+						}
+					});
+
+					for(i = 1; i <= $("#tabs li").length; i++) {
+						if(myUrlTab == myUrlTabName + i) {
+							resetTabs();
+							$("a[name='" + myUrlTab + "']").attr("id", "current"); // Activate url tab
+							$(myUrlTab).fadeIn(); // Show url tab content        
+						}
+					}
+				})()
+			</script>
+	</body>
+
+</html>

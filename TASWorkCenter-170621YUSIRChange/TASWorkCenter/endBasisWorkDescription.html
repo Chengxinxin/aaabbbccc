@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--项目描述cssjs-->
+		<!--<script type="text/javascript" src="css/tablcript.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+			});
+		</script>
+		<style type="text/css">
+			#showTable td {
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="color: #000000;">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">个人中心</a>
+					</li>
+					<li>
+						<a href="myTasks.html#tab4">我的任务</a>
+					</li>
+					<li class="active">派工单详情</li>
+				</ol>
+				<div class="projectDescription">
+					<!--style="background: #EBCCCC;"-->
+					<div class="row">
+						<div class="work_title col-md-7" style="vertical-align: middle;line-height: 40px;">
+							<h4>工单名称：</h4>
+							<h4><strong>【303】</strong>SEP例行维护</h4>
+						</div>
+						<!--跳转基础任务提交-->
+						<div class="col-sm-4" style="text-align: right;">
+							<button class="btn btn-danger" type="submit" id="back" onclick="javascript:window.location.href='myTasks.html#tab4';" >
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 返 回</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					
+					<!--表格显示-->
+					<div style="padding: 20px 60px;">
+						<table class="table table-bordered" id="showTable">
+							
+							<tr>
+								<td width="70"><strong>工作名称:</strong></td>
+								<td id="table_worktitle">SEP例行维护</td>
+								<td width="70"><strong>指派人员:</strong></td>
+								<td id="table_person">周平川</td>
+								<td width="70"><strong>工作属性:</strong></td>
+								<td id="table_worktype">应约</td>
+								
+							</tr>
+							<tr>
+								<td><strong>服务用户:</strong></td>
+								<td >延锋汽车饰件系统有限公司</td>
+								<td><strong>用户现场:</strong></td>
+								<td colspan="3">上海银行苏州分行</td>
+								
+							</tr>
+							<tr>
+								<td><strong>服务产品:</strong></td>
+								<td>SEP,DLP,一体机</td>
+								<td><strong>联系人:</strong></td>
+								<td>杨越</td>
+								<td><strong>请求方:</strong></td>
+								<td>请求方1</td>
+								
+								
+							</tr>
+							<tr>
+								
+								<td><strong>联系电话:</strong></td>
+								<td>0512-66960600</td>
+								<td><strong>地址:</strong></td>
+								<td colspan="3">江苏苏州市工业园区时代广场23栋B座江苏苏州市工业园区时代广场23栋B座</td>
+							</tr>
+							<tr>
+								<td><strong>描述:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<div class="descri_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										检查操作是否符合工艺，质量是否合格，设备设备是否完好，现场是否达到5s标准，人员是否有异动情况，工作进度是否正常等。
+										其作用是在巡检中及时发现问题，制定对策，使问题得到及时解决，以便生产正常运转，生产安全得到保障，产品质量得到保证……
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><strong>开始时间:</strong></td>
+								<td id="table_time">2017/10/20 9:00</td>
+								<td><strong>优先级:</strong></td>
+								<td id="table_levelType">紧急</td>
+								<td><strong>审核人:</strong></td>
+								<td id="table_check">何志文</td>
+								
+							</tr>
+							<tr>
+								<td><strong>是否准时到达现场:</strong></td>
+								<td>是</td>
+								<td><strong>用户现场问题是否解决:</strong></td>
+								<td>是</td>
+								<td><strong>在用户现场时长:</strong></td>
+								<td>8h</td>
+							</tr>
+							<tr>
+								<td><strong>总结描述:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<div class="descri_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										否有异动情况，工作进度是否正常等。
+										其作用是在巡检中及时发现问题，制定对策，使问题得到及时解决，以便生产正常运转，生产安全得到保障，产品质量得到保证……
+										
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td><strong>已上传文件:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<ul class="files_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										<li>1.文件1.doc</li>
+										<li>2.文件2.doc</li>
+										<li>3.文件3.doc</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+						<script type="text/javascript">
+						
+						</script>
+					</div>
+					
+
+				</div>
+				
+
+			</div>
+			<!--rightContent-->
+		</div>
+		<!--mainContent-->
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+					</div>
+					<div class="modal-body">点击关闭按钮检查事件功能。</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary">提交更改</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+	</body>
+
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--项目描述cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+		<!-- 评分样式 -->
+		<link rel="stylesheet" type="text/css" href="css/starGradeStyle.css" />
+		<script type="text/javascript" src="js/comment.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$("#project_edit").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').show();
+					$('.projectDescription').hide();
+				});
+				$("#project_cancel").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').hide();
+					$('.projectDescription').show();
+				});
+				$("#edit_submit_btn").on("click", function() {
+					//					$("#myModal").modal('show')
+					$('.projectEdit').hide();
+					$('.projectDescription').show();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="color: #000000;">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">评价</a>
+					</li>
+					<li>
+						<a href="myTasks.html">待评价工作</a>
+					</li>
+					<li class="active">工作单详情</li>
+				</ol>
+				<div class="projectDescription container-fluid">
+					<!--style="background: #EBCCCC;"-->
+					<div class="row">
+						<div class="work_title col-md-8">
+							<h4>工作名称：</h4>
+							<h1>[303]</h1>
+							<h1>开发前端</h1>
+						</div>
+						<div class="col-sm-4" style="text-align: right;">
+							<button class="btn btn-warning" type="submit" id="project_edit">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 评价</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+
+					<div class="row">
+						<div class="col-sm-4">
+							<p>工作单ID:</p>
+							<p class="">1314
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>发布人:</p>
+							<p class="">钱经理
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>指派给:</p>
+							<p class="">Neo
+								<p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>工作类别:</p>
+							<p class="">开发
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>起止时间:</p>
+							<p class="">2017-03-01-2017-05-01
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>工作状态:</p>
+							<p class="">已完成
+								<p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>优先级:</p>
+							<p class="">最高
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>审核状态:</p>
+							<p class="">已审核
+								<p>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					<div class="work_description">
+						<h5>工作描述:</h5>
+						<p>
+							Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+						<br />
+						<p>
+							Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+						</p>
+
+					</div>
+					<div class="partingLine"></div>
+					<div class="beizhu">
+						<h5>备注：</h5>
+						<p>优先级最高，优先完成！！！</p>
+					</div>
+					<div class="partingLine"></div>
+					<div class="comment_score">
+						<h4>评价内容：</h4>
+						<p>任务未完成，暂无评价</p>
+					</div>
+				</div>
+				<div class="projectEdit" style="background: #FFFFFF;">
+					<!--名字-->
+					<div class="row">
+						<div class="work_title col-md-8">
+							<h4>工作名称：</h4>
+							<h1>[303]</h1>
+							<h1>开发前端</h1>
+						</div>
+						<!--取消按钮-->
+						<div class="col-sm-4" style="text-align: right;">
+							<button class="btn btn-danger" type="submit" id="project_cancel">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 取消</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					<div id="">
+						<form action="" id="" method="post">
+							<div class="goods-comm">
+								<div class="goods-comm-stars">
+									<span class="star_l">满意度：</span>
+									<div id="rate-comm-1" class="rate-comm"></div>
+								</div>
+							</div>
+							<label for="endTime">完成时间：</label>
+							<p id="endTime"></p>
+							<script type="text/javascript">
+								var mydate = new Date();
+								$("#endTime").text(mydate.toLocaleString()); //获取日期与时间
+							</script>
+							<label id="edit_textareaname" for="edit_result">评价内容：</label>
+							<textarea name="edit_result" id="edit_result" rows="7" cols="140" placeholder="请在此输入您对其完成质量的看法和评价..."></textarea>
+							<style type="text/css">
+								/*设置placeholder颜色*/
+								
+								#edit_result::-webkit-input-placeholder {
+									color: #D6D0CA;
+								}
+							</style>
+
+							<input id="edit_submit_btn" class="btn btn-primary" type="submit" value="提交评价" />
+						</form>
+					</div>
+
+					<div class="partingLine"></div>
+
+				</div>
+
+			</div>
+			<!--rightContent-->
+		</div>
+		<!--mainContent-->
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+					</div>
+					<div class="modal-body">点击关闭按钮检查事件功能。</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary">提交更改</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+	</body>
+
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--项目描述cssjs-->
+		<!--<script type="text/javascript" src="css/tablcript.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$("#project_edit").on("click", function() {
+					window.location.href = 'submitSingleWayWork.html';
+//					$('.projectEdit').show();
+//					$('.projectDescription').hide();
+				});
+//				$("#project_cancel").on("click", function() {
+//					$('.projectEdit').hide();
+//					$('.projectDescription').show();
+//				});
+//				$("#edit_submit_btn").on("click", function() {
+//					$('.projectEdit').hide();
+//					$('.projectDescription').show();
+//				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="color: #000000;">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">个人中心</a>
+					</li>
+					<li>
+						<a href="myTasks.html">我的任务</a>
+					</li>
+					<li>
+						<a href="myTaskWorksForMember.html">该任务的工作列表</a>
+					</li>
+					<li class="active">工作详情</li>
+				</ol>
+				<div class="projectDescription">
+					<!--style="background: #EBCCCC;"-->
+					<div class="row">
+						<div class="work_title col-md-8">
+							<h4>工作名称：</h4>
+
+							<h4><strong>【2】</strong>安装邮件服务器</h4>
+						</div>
+						<div class="col-sm-4" style="text-align: right;">
+							<button class="btn btn-danger" type="submit" id="back" onclick="javascript:window.history.go(-1);" >
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 返 回</button>
+							<button class="btn btn-info" type="submit" id="project_edit">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 提 交</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					
+					<div style="padding: 50px 80px;">
+						<table class="table table-bordered" id="showTable">
+							<tr>
+								<td width="70"><strong>隶属任务:</strong></td>
+								<td colspan="3" id="table_task">安装邮件服务器</td>
+								<td width="70"><strong>指派人员:</strong></td>
+								<td id="table_person">周平川</td>
+							</tr>
+							<tr>
+								<td width="70"><strong>工作名称:</strong></td>
+								<td colspan="3" id="table_worktitle">SEP例行维护</td>
+								<td width="70"><strong>工作属性:</strong></td>
+								<td id="table_worktype">培训</td>
+							</tr>
+							<tr>
+								<td><strong>描述:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<div class="descri_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										
+										检查操作是否符合工艺，质量是否合格，设备设备是否完好，现场是否达到5s标准，人员是否有异动情况，工作进度是否正常等。
+										其作用是在巡检中及时发现问题，制定对策，使问题得到及时解决，以便生产正常运转，生产安全得到保障，产品质量得到保证……
+										检查操作是否符合工艺，质量是否合格，设备设备是否完好，现场是否达到5s标准，人员是否有异动情况，工作进度是否正常等。
+										
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><strong>开始时间:</strong></td>
+								<td id="table_time">2017-10-20~2017-10-28</td>
+								<td><strong>优先级:</strong></td>
+								<td id="table_levelType">普通</td>
+								<td><strong>审核人:</strong></td>
+								<td id="table_check">何志文</td>
+							</tr>
+							
+							<!--下面是提交完成后显示-->
+							<!--<tr>
+									<td><strong>是否准时到达现场:</strong></td>
+									<td>是</td>
+									<td><strong>用户现场问题是否解决:</strong></td>
+									<td>是</td>
+									<td><strong>在用户现场时长:</strong></td>
+									<td>8h</td>
+								</tr>
+								<tr>
+								<td><strong>总结描述:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<div class="descri_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										否有异动情况，工作进度是否正常等。
+										其作用是在巡检中及时发现问题，制定对策，使问题得到及时解决，以便生产正常运转，生产安全得到保障，产品质量得到保证……
+										
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td><strong>已上传文件:</strong></td>
+								<td colspan="5" align="left" style="word-break:break-all;">
+									<ul class="files_text" style="width:100%;height: auto;max-height: 100px; overflow-x: auto;text-align: left;">
+										<li>1.文件1.doc</li>
+										<li>2.文件2.doc</li>
+										<li>3.文件3.doc</li>
+									</ul>
+								</td>
+							</tr>-->
+							
+						</table>
+						<script type="text/javascript">
+							
+							//获取控件值填充表
+							function getTableTextField () {
+								$('#table_task').text($('#workOfTask option:selected').text());
+								$("#table_person").text($('#choosePeople').val());
+								$("#table_worktype").text($('#createworkType_one option:selected').text());
+								$("#table_worktitle").text($('#createWorkTitle').val());
+								$(".descri_text").text($('#createTaskDescription').val());
+								$("#table_time").text($('.createStartDate').val()+'~'+$('#createEndTime').val());
+								$("#table_levelType").text($('#levelType option:selected').text());
+								$("#table_check").text($('#sendToCheck').val());
+							}
+						</script>
+					</div>
+					
+					
+					<!--<div class="row">
+						<div class="col-sm-4">
+							<p>隶属任务:</p>
+							<p class="">某某某某某某某某某某某某某任务
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>任务种类:</p>
+							<p class="">单一任务
+								<p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p>派工单ID:</p>
+							<p class="">303
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>工作属性:</p>
+							<p class="">开发
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p style="padding-left: 19px;">优先级:</p>
+							<p class="">最高
+								<p>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-sm-4">
+							<p style="padding-left: 19px;">发布人:</p>
+							<p class="">钱经理
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p style="padding-left: 19px;">指派给:</p>
+							<p class="">Neo
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>工作状态:</p>
+							<p class="">进行中
+								<p>
+						</div>
+					</div>
+					<div class="row">
+
+						<div class="col-sm-4">
+							<p>起止时间:</p>
+							<p class="">2017-03-01-2017-05-01
+								<p>
+						</div>
+						<div class="col-sm-4">
+							<p>审核状态:</p>
+							<p class="">未审核
+								<p>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					<div class="row col-md-12">
+						<div class="col-md-5">
+							<label for="requester" style="margin-left: 14px;">请求方：</label>
+
+							<label id="requester" class="form-control" style="display: inline-block;width: 300px;">请求方1</label>
+						</div>
+
+						<div class="col-md-5 div_productSever">
+							<label for="productSever">服务产品：</label>
+							<label id="productSever" class="form-control" style="display: inline-block;width: 300px;">产品1</label>
+						</div>
+						<div class="col-md-5 div_userCustomer">
+							<label for="userCustomer">服务用户：</label>
+							<label id="userCustomer" class="form-control" style="display: inline-block;width: 300px;">用户1</label>
+						</div>
+						<div class="col-md-5 div_frequencyType">
+							<label for="userScene">用户现场：</label>
+							<label id="userScene" class="form-control" style="display: inline-block;width: 300px;">现场1</label>
+						</div>
+						<div class="col-md-5 contactInformation">
+							<label for="contactPerson" style="margin-left: 14px;">联系人：</label>
+							<label id="contactPerson" class="form-control" style="display: inline-block;width: 300px;">联系人1</label>
+						</div>
+						<div class="col-md-5 contactInformation">
+							<label>联系电话：</label>
+							<label id="contactPhone" class="form-control" style="display: inline-block;width: 300px;">123123123</label>
+						</div>
+						<div class="col-md-10 contactInformation">
+							<label>用户地址：</label>
+							<label id="contactAddress" class="form-control" style="display: inline-block;width: 730px;">xxxxxxxxxxxxxx</label>
+						</div>
+					</div>
+					<div class="partingLine" style="clear: both;"></div>
+					<div class="work_description">
+						<h5>工作描述:</h5><br />
+						<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+						<br />
+						<p>
+							Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.
+						</p>
+
+					</div>
+					<div class="partingLine"></div>
+					<div class="row">
+						<label style="margin-left: 20px;">附件：</label>
+						<div id="attachmentDiv">
+							<a href="">"文件名1"</a><br />
+							<a href="">"文件名2"</a>
+						</div>
+					</div>-->
+					<div class="partingLine"></div>
+
+				</div>
+				<div class="projectEdit">
+					<!--名字-->
+					<div class="row">
+						<div class="work_title col-md-8">
+							<h4>工作名称：</h4>
+
+							<h1><strong>【303】</strong>开发前端</h1>
+						</div>
+						<!--取消按钮-->
+						<div class="col-sm-4" style="text-align: right;">
+							<button class="btn btn-danger" type="submit" id="project_cancel">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 取消</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+					<form id="submit_change" action="" method="get">
+						<legend>更改提交信息</legend>
+						<div>
+							<label for="complete">工作状态：</label>
+							<select name="complete" id="complete">
+								<option value="已发布">已发布</option>
+								<option value="进行中" selected>进行中</option>
+								<option value="已完成">已完成</option>
+								<option value="已结束">已结束</option>
+							</select>
+							<label for="sendTo">提交给：</label>
+							<select name="sendTo" id="sendTo">
+								<option value="于桂成" selected>于桂成</option>
+								<option value="何志文">何志文</option>
+								<option value="周平川">周平川</option>
+								<option value="朱慧泽">朱慧泽</option>
+								<option value="徐春财">徐春财</option>
+								<option value="宋建平">宋建平</option>
+								<option value="张 璟">张璟</option>
+								<option value="彭 鹏">彭鹏</option>
+								<option value="洪坤宇">洪坤宇</option>
+								<option value="刘海运">刘海运</option>
+								<option value="吴天浩">吴天浩</option>
+								<option value="程鑫鑫">程鑫鑫</option>
+								<option value="董浩伟">董浩伟</option>
+								<option value="胡心波">胡心波</option>
+								<option value="王焱">王焱</option>
+							</select>
+							<label for="endTime">完成时间：</label>
+							<p id="endTime"></p>
+							<script type="text/javascript">
+								var mydate = new Date();
+								$("#endTime").text(mydate.toLocaleString()); //获取日期与时间
+							</script>
+							<label id="edit_textareaname" for="edit_result">项目总结：</label>
+							<textarea name="edit_result" id="edit_result" rows="7" cols="120" placeholder="请在此输入项目总结和注意事项等内容..."></textarea>
+							<style type="text/css">
+								/*设置textarea placeholder颜色*/
+								
+								#edit_result::-webkit-input-placeholder {
+									color: #D6D0CA;
+								}
+							</style>
+						</div>
+
+						<!--<label id="InputFile_label" for="InputFile" style="float: left;">提交文件：</label>
+						<input type="file" id="InputFile" multiple="multiple" style="text-align: left;display: inline-block;float: left;">-->
+
+					</form>
+					<div class="inputfiles">
+						<label id="InputFile_label">提交文件：</label>
+						<label for="filesNum_01">需要上传</label>
+						<input type="text" name="filesNum_01" class="filesNum_01" value="" style="display: inline;" />
+						<label for="filesNum_01" style="display: inline;">个文件</label>
+						<button type="button" class="btn btn-default" id="add_files_01"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加</button>
+						<div class="filesInputDiv">
+							<table class="fileTable_01">
+								<!--文件区域-->
+							</table>
+						</div>
+					</div>
+					<div id="">
+						<input id="edit_submit_btn" class="btn btn-primary" style="clear: left;" type="submit" value="提交信息" />
+					</div>
+					<script type="text/javascript">
+						$(function() {
+							$('#add_files_01').on('click', function() {
+								var num = $('.filesNum_01').val();
+								if(num == undefined || num > 10) {
+									return;
+								}
+								for(var i = 0; i < num; i++) {
+									var content = "<tr><td>";
+									content += "<input type='file' accept='.pdf' name='file1_" + (i + 1) + "' style ='display:inline-block'><input type='button' class='btn btn-primary btn-xs' value='remove' onclick='remove(this,1)' style ='display:inline-block'>";
+									content += "</td></tr>"
+									$(".fileTable_01").append(content);
+								}
+								if(num > 0) {
+									$("#add_files_01").attr("disabled", true);
+								}
+
+							});
+							//一个多文件input查询文件数量的方法
+//							$('#edit_submit_btn').on('click', function() {
+//								var files = document.getElementById('InputFile').files,
+//									fs = files.length,
+//									s = 0;
+//								if(fs > 10) {
+//									alert("上传的文件数量超过10个了！请重新选择！");
+//								} else {
+//									for(var i = 0; i < fs; i++) {
+//										if(files[i].size > 10 * 1024 * 1024) {
+//											alert(+files[i].name + "文件过大，提交文件需要小于10M！");
+//										}
+//									}
+//								}
+//							});
+						});
+
+						//删除当前行<tr>
+						function remove(obj, value) {
+							$(obj).parent().parent().remove();
+							//删除后获取table所剩行数
+							if(value == 1) {
+								var t01 = $(".fileTable_01 tr").length;
+								$('.filesNum_01').val(t01);
+								if(t01 == 0) {
+									$("#add_files_01").attr("disabled", false);
+								}
+
+							} else if(value == 2) {
+								var t02 = $(".fileTable_02 tr").length;
+								$('.filesNum_02').val(t02);
+								if(t02 == 0) {
+									$("#add_files_02").attr("disabled", false);
+								}
+							}
+
+						}
+					</script>
+					<div class="partingLine"></div>
+
+				</div>
+
+			</div>
+			<!--rightContent-->
+		</div>
+		<!--mainContent-->
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+					</div>
+					<div class="modal-body">点击关闭按钮检查事件功能。</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary">提交更改</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+	</body>
+
+</html>

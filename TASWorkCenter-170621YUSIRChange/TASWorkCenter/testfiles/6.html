@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			function check () {
+				if($("input").text().length >0) {
+					debugger
+					$("#001").attr("disabled",false);
+				}
+			}
+		</script>
+	</head>
+	<body>
+
+<form action="www.baidu.com" onsubmit="return check();" method="post">
+	<input type="text" value="" required="required"/>
+	<select name="aaa">
+		<option value="1">1</option>
+		<option value="2">1</option>
+		<option value="3">1</option>
+		<option value="4">1</option>
+	</select>
+	<input type="submit" id="001" value="提交" disabled="disabled"/>
+</form>
+	</body>
+</html>

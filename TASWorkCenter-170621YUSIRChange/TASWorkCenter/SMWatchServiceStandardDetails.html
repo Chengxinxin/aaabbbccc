@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/serviceManagement.css" />
+		<script src="js/bootstrap-tree.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">服务管理</a>
+					</li>
+					<li>
+						<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+					</li>
+					<li class="active">查看服务标准</li>
+				</ol>
+				<div id="SS_details">
+					<!--  内容 -->
+					<form name="asfm" method="post">
+						<table width="800" class="table table-bordered table-hover">
+							<tr>
+								<td width="120" align="right">服务标准名称：</td>
+								<td>&nbsp;2014东方花旗证券有限公司防病毒升级维护</td>
+							</tr>
+							<tr>
+								<td width="120" align="right">服务产品范围：</td>
+								<td valign="top">&nbsp;安全威胁控制和监控/端点安全管理/Symantec/Endpoint Protection;<br> &nbsp;
+									<BR>
+								</td>
+							</tr>
+							<tr>
+								<td width="120" align="right">服务方式：</td>
+								<td valign="top">
+									&nbsp;&nbsp;<input type="checkbox" name="chk_isTel" value="ON" checked disabled> 电话支持&nbsp;&nbsp;
+									<span id="sp_Tel">7天*24小时*8小时内到场</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isElc" value="ON" disabled> 电子连线&nbsp;&nbsp;
+									<span id="sp_Elc"></span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isLoc" value="ON" checked disabled> 现场支持&nbsp;&nbsp;
+									<span id="sp_Loc"></span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isFax" value="ON" disabled> 电子邮件、传真支持&nbsp;&nbsp;
+									<span id="sp_Fax">1</span>
+								</td>
+							</tr>
+							<tr>
+								<td width="120" align="right">服务内容：</td>
+								<td valign="top">&nbsp;&nbsp;<input type="checkbox" name="chk_isNeedMaster" value="ON" disabled>&nbsp;项目经理专署接口服务 &nbsp;
+									<span id="sp_NeedMaster"></span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isFrontTest" value="ON" disabled>&nbsp;实施前基础环境评估服务
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isDesign" value="ON" checked disabled>&nbsp;方案设计服务
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isInstellUpdate" value="ON" checked disabled>&nbsp;安装部署或升级服务
+									<BR>
+									<span id="sp_Choose">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk_isSetupConfig" value="ON" checked disabled>设备安装、调试、配置、优化；<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;管理服务器,客户端样本,服务器全部;<BR></span> &nbsp;
+									<input type="checkbox" name="chk_isAppTrain" value="ON" checked disabled>&nbsp;应用培训服务
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isNewStady" value="ON" disabled>&nbsp;新技术教育服务
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isWarning" value="ON" checked disabled>&nbsp;预警和对策方案服务
+									<span id="sp_alarm">&nbsp;&nbsp;&nbsp;安全级别:<input type="checkbox" name="isRedAlarm" value="ON" checked disabled>&nbsp;<font color="#FF0000">红色</font>&nbsp;&nbsp;
+				<input type="checkbox" name="isOrangeAlarm" value="ON"  disabled>&nbsp;<font color="#FF9900">橙色</font>&nbsp;&nbsp;<input type="checkbox" name="isYellowAlarm" value="ON"  disabled>&nbsp;<font color="#808000">黄色</font>&nbsp;&nbsp;
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" name="isHole" value="ON"  disabled>&nbsp;漏洞信息&nbsp;&nbsp;
+				<input type="checkbox" name="isBully" value="ON" checked disabled>&nbsp;威胁警报&nbsp;&nbsp;
+				<input type="checkbox" name="isLat" value="ON" checked disabled>&nbsp;潜在安全威胁警报&nbsp;&nbsp;
+				<input type="checkbox" name="isCount" value="ON"  disabled>&nbsp;对策方案&nbsp;&nbsp;</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isDuty" value="ON" checked disabled>&nbsp;例行巡检服务&nbsp;&nbsp;
+									<span id="sp_Times">频度: 每月1次&nbsp;&nbsp;
+				          偏好时间 :
+				    <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="isDutyTel" value="ON"  disabled>&nbsp;电话巡检&nbsp;&nbsp;
+					<input type="checkbox" name="isDutyLoc" value="ON" checked disabled>&nbsp;现场巡检&nbsp;&nbsp;
+					<input type="checkbox" name="isDutyElc" value="ON"  disabled>&nbsp;电子巡检&nbsp;&nbsp;</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_NeedLoc" value="ON" disabled>&nbsp;应需和应约现场技术服务&nbsp;&nbsp;
+									<span id="sp_NeedLocType">&nbsp;[次]</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_Urgency" value="ON" checked disabled>&nbsp;紧急现场响应技术服务&nbsp;&nbsp;
+									<span id="sp_UrgencyType">铂金级:严重事故,4小时内到现场;一般事故,1个工作日内到现场;轻微故障,2个工作日到现场;&nbsp;[次]</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_Crisis" value="ON" disabled>&nbsp;高危漏洞响应服务&nbsp;&nbsp;
+									<span id="sp_HightCrisis">&nbsp;&nbsp;&nbsp;安全级别:<input type="checkbox" name="isBlackCrisis" value="ON"  disabled>&nbsp;黑色&nbsp;&nbsp;
+				<input type="checkbox" name="isRedCrisis" value="ON"  disabled>&nbsp;<font color="#FF0000">红色</font>&nbsp;&nbsp;
+				<input type="checkbox" name="isOrangeCrisis" value="ON"  disabled>&nbsp;<font color="#FF9900">橙色</font>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" name="isHightCrisis" value="ON"  disabled>&nbsp;高危漏洞威胁网络隔离机制的解决方案</span>
+									<BR> &nbsp;
+									<input type="checkbox" name="chk_isReport" value="ON" disabled>&nbsp;定期报告服务<br>
+									<span id="sp_Report">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				
+				
+				</span>
+								</td>
+							</tr>
+							<tr>
+								<td width="120" align="right">备注：</td>
+								<td valign="top">&nbsp;
+									<textarea rows="3" name="loc_remark" cols="120">手机短信息（即时提供）
+并联科技反病毒网站 7*24提供</textarea>
+								</td>
+							</tr>
+
+						</table>
+
+					</form>
+
+					<!--  内容 -->
+
+				</div>
+			</div>
+	</body>
+
+</html>

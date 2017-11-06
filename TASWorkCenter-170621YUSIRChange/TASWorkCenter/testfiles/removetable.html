@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-table.css" />
+		<script src="js/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap-table-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+	</head>
+	<body>
+		
+		<table id="arrangedWorkTable"  data-unique-id="id"></table>
+		
+	</body>
+	<script type="text/javascript">
+		//放上面可以下面不可以。。
+		
+		window.operateEvents = {
+				'click .save': function(e, value, row, index) {
+					$.ajax({
+						type: "post",
+						data: row,
+						url: '/Analyze/EditMeterMeasureHistoryData',
+						success: function(data) {
+							alert('修改成功');
+						}
+					});
+				},
+				'click .remove': function(e, value, row, index) {
+					$table.bootstrapTable('remove', {
+						field: 'id',
+						values: [row.id]
+					});
+				}
+			};
+		var $table = $('#arrangedWorkTable');
+			$('#arrangedWorkTable').bootstrapTable({
+				clickToSelect: true,
+				uniqueId: "workid", //每一行的唯一标识，一般为主键列
+				columns: [{
+					field: 'id',
+					title: '工作单ID',
+					align: 'center',
+					valign: 'middle',
+					sortable: true,
+				}, {
+					field: 'isassign',
+					title: '是否新建',
+					align: 'center',
+					valign: 'middle',
+					formatter: function(value, row, index) {
+						var s = '<a class = "save" href="javascript:void(0)">保存</a>';
+						var d = '<a class = "remove" href="javascript:void(0)">删除</a>';
+						return s + ' ' + d;
+					},
+					events: 'operateEvents'
+					//					events: 'operateEvents',
+					//					formatter: 'operateFormatter',
+				}],
+				data: [{
+					id: 1,
+					
+				}, {
+					id: 2,
+					
+				}, {
+					id: 3,
+					
+				}, {
+					id: 4,
+					
+				}, {
+					id: 5,
+					
+				},{
+					id: 1,
+					
+				}, {
+					id: 2,
+					
+				}, {
+					id: 3,
+					
+				}, {
+					id: 4,
+					
+				}, {
+					id: 5,
+					
+				},{
+					id: 1,
+					
+				}, {
+					id: 2,
+					
+				}, {
+					id: 3,
+					
+				}, {
+					id: 4,
+					
+				}, {
+					id: 5,
+					
+				},{
+					id: 1,
+					
+				}, {
+					id: 2,
+					
+				}, {
+					id: 3,
+					
+				}, {
+					id: 4,
+					
+				}, {
+					id: 5,
+					
+				},{
+					id: 15,
+				}],
+
+			});
+			function removethis(value, row, index) {
+				var r = row;
+				
+				$(".remove").on("click",function () {
+					alert(r);
+					console.log(r);
+					var ids = $.map($table.bootstrapTable('getSelections'), function(row) {
+						return row.id;
+					});
+					$table.bootstrapTable('remove', {
+						field: 'id',
+						values: ids
+					});
+//					$table.bootstrapTable('remove', {
+//						field: 'id',
+//						values: [row.id]
+//					});
+				})		
+			};
+			
+	</script>
+</html>

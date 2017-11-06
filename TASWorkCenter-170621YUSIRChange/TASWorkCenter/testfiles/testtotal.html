@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/drilldown.src.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/exporting.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.year_select {
+				position: absolute;
+				margin-left: 300px;
+				margin-top: 8px;
+				z-index: 2;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box" style="height: 400px;width: 80%;margin: 0 auto;background: #CCCCCC;">
+			<div id="chart1" style="min-width: 310px;width: 500px; height: 400px; margin: 0 auto;float: left;"></div>
+			<div id="chart2" style="min-width: 310px;width: 500px; height: 400px; margin: 0 0 0 20px; float: left; "></div>
+		</div>
+		<div class="annual_statistic" style="height: 400px;width: 80%;margin: 0 auto;background: #CCCCCC;text-align: center;">
+			<div class="year_select">
+				<select name="year_statistic" id="year_statistic" class="form-control" >
+					<option value="0">2016年</option>
+					<option value="1" selected>2017年</option>
+					<option value="2">2018年</option>
+				</select>
+			</div>
+			<div id="chart3" style="min-width: 310px;width: 1000px; height: 400px;margin: 0 auto;">
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				//任务列表				
+				// Create the chart1
+				$('#chart1').highcharts({ //图表展示容器，与 div 的 id 保持一致
+					chart: {
+						type: 'column',
+						zoomType: 'xy',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: '年度任务统计' //指定图表标题
+					},
+					subtitle: {
+						text: '钻取下图查看截至目前任务详情'
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					xAxis: {
+						crosshair: true, //显示标示区			
+						type: 'category'
+					},
+					yAxis: {
+						gridLineWidth: 1,
+						title: {
+							text: '',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						},
+						labels: {
+							format: '{value} 份',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+						valueSuffix: ' 份',
+						//						useHTML: true
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+
+					series: [{
+						name: '任务单',
+						data: [{
+							name: '2016 年',
+							y: 50,
+							drilldown: '2016任务单类型占比'
+						}, {
+							name: '2017 年',
+							y: 80,
+							drilldown: '2017任务单类型占比'
+						}, {
+							name: '2018 年',
+							y: 20,
+							drilldown: '2018任务单类型占比'
+						}],
+						color: Highcharts.getOptions().colors[8] //'#50A3A2'
+					}],
+					drilldown: {
+						series: [{
+								type: 'pie',
+								id: '2016任务单类型占比',
+								name: '2016任务单类型占比',
+								data: [
+									['团队任务', 45.0],
+									['合同任务', 26.8],
+									{
+										name: '个人任务',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务', 8.5],
+									['临时任务', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								name: '2017任务单类型占比',
+								id: '2017任务单类型占比',
+								data: [
+									['团队任务', 45.0],
+									['合同任务', 26.8],
+									{
+										name: '个人任务',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务', 8.5],
+									['临时任务', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								name: '2018任务单类型占比',
+								id: '2018任务单类型占比',
+								data: [
+									['团队任务', 45.0],
+									['合同任务', 26.8],
+									{
+										name: '个人任务',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['运维任务', 8.5],
+									['临时任务', 6.9],
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							}
+						]
+					} //drilldown
+				});
+				//工作详情
+				// Create the chart2
+				$('#chart2').highcharts({ //图表展示容器，与 div 的 id 保持一致
+					chart: {
+						type: 'column',
+						zoomType: 'xy',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					title: {
+						text: '年度工作统计' //指定图表标题
+					},
+					subtitle: {
+						text: '钻取下图查看截至目前工作详情'
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					xAxis: {
+						crosshair: true, //显示标示区			
+						type: 'category'
+					},
+					yAxis: {
+						gridLineWidth: 1,
+						title: {
+							text: '',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						},
+						labels: {
+							format: '{value} 份',
+							style: {
+								color: Highcharts.getOptions().colors[0]
+							}
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+						valueSuffix: ' 份',
+						useHTML: true
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: false
+							},
+							showInLegend: true
+						}
+					},
+
+					series: [{ //指定数据列
+						name: '工作单', //数据列名
+						data: [{
+							name: '2016 年',
+							y: 550,
+							drilldown: '2016工作单类型占比'
+						}, {
+							name: '2017 年',
+							y: 630,
+							drilldown: '2017工作单类型占比'
+						}, {
+							name: '2018 年',
+							y: 240,
+							drilldown: '2018工作单类型占比'
+						}], //数据
+						color: Highcharts.getOptions().colors[0]
+					}],
+					drilldown: {
+						series: [{
+								type: 'pie',
+								id: '2016工作单类型占比',
+								name: '2016工作单类型占比',
+								data: [
+									['开发', 45.0],
+									['运维', 26.8],
+									{
+										name: '巡检',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约', 8.5],
+									['顾问', 2.2],
+									['其他', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								id: '2017工作单类型占比',
+								name: '2017工作单类型占比',
+								data: [
+									['开发', 55.0],
+									['运维', 16.8],
+									{
+										name: '巡检',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约', 8.5],
+									['顾问', 2.2],
+									['其他', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+							{
+								type: 'pie',
+								id: '2018工作单类型占比',
+								name: '2018工作单类型占比',
+								data: [
+									['开发', 25.0],
+									['运维', 46.8],
+									{
+										name: '巡检',
+										y: 12.8,
+										sliced: true,
+										selected: true
+									},
+									['应约', 8.5],
+									['顾问', 2.2],
+									['其他', 0.7]
+								],
+								tooltip: {
+									headerFormat: '<span style="font-size: 15px">{point.key}</span><br/>',
+									valueSuffix: '%',
+								},
+							},
+						]
+					}
+				});
+
+				$('#chart3').highcharts({
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: '工作任务详情'
+					},
+					subtitle: {
+						text: '年度每月工作单量'
+					},
+					xAxis: {
+						categories: [
+							'一月',
+							'二月',
+							'三月',
+							'四月',
+							'五月',
+							'六月',
+							'七月',
+							'八月',
+							'九月',
+							'十月',
+							'十一月',
+							'十二月'
+						],
+						crosshair: true
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: '建单数量 (份)'
+						}
+					},
+					tooltip: {
+						headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+						pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+							'<td style="padding:0"><b>{point.y} 份</b></td></tr>',
+						footerFormat: '</table>',
+						shared: true,
+						useHTML: true
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: [{
+						name: '任务',
+						data: [83, 78, 98, 93, 106, 84, 105, 104, 91, 83, 106, 92],
+					}, {
+						name: '工作',
+						data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54],
+						color: Highcharts.getOptions().colors[8]
+					}]
+				});
+			});
+		</script>
+	</body>
+
+</html>

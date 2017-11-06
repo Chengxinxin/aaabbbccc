@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script src="js/UISetFunction.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--项目描述cssjs-->
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+		<!--图表框架-->
+		<link rel="stylesheet" type="text/css" href="js/highcharts.css" />
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<!--甘特图-->
+		<script src="js/dhtmlxgantt.js"></script>
+		<link rel="stylesheet" type="text/css" href="js/dhtmlxgantt.css" />
+		<script src="js/dhtmlxgantt_marker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dhtmlxgantt_smart_rendering.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/dhtmlxgantt_tooltip.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/locale_cn.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent" style="color: #000000;">
+				<div class="title_bar">
+					<div class="title_text" style="width: 300px;display: inline-block;">
+						<p>任务工作一览</p>
+					</div>
+				</div>
+				<style type="text/css">
+					.title_bar {
+						height: 30px;
+						width: 500px;
+						/*						background-image: linear-gradient(to right, #4285f4, #ffffff);*/
+						background: url(img/titlebar.jpg) no-repeat;
+						background-size: cover;
+					}
+					
+					.title_bar1 {
+						height: 30px;
+						width: 220px;
+						background: url(img/titlebar_short.jpg) no-repeat;
+						background-size: cover;
+					}
+					
+					.title_text {
+						margin: 0px 20px;
+					}
+					
+					.title_text p {
+						line-height: 30px;
+						font-size: 15px;
+						font-weight: 600px;
+						color: #FFFFFF;
+					}
+					
+					.fixArea {
+						width:670px;
+						height: 260px;
+						margin: 0px;
+						overflow: auto;
+					}
+					
+					.pieces {}
+					
+					.pieces_small {
+						float: left;
+						margin: 5px;
+						border-radius: 4px;
+						height: 120px;
+						width: 120px;
+						font-size: 12px;
+						background: #0099CC;
+						position: relative;
+						box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+						transition: .3s all linear;
+						/*background: linear-gradient(270deg,rgba(255,115,155,.7),#ff739b);*/
+					}
+					
+					.pieces_small a {
+						display: block;
+						position: relative;
+						z-index: 1;
+						border-radius: 4px;
+						overflow: hidden;
+					}
+					
+					.card_color_red {
+						background: -moz-linear-gradient(270deg, rgba(255, 115, 155, .7), #ff739b);
+						background: -o-linear-gradient(270deg, rgba(255, 115, 155, .7), #ff739b);
+						background: -webkit-linear-gradient(270deg, rgba(255, 115, 155, .7), #ff739b);
+						background: linear-gradient(270deg, rgba(240, 39, 39, .6), #f02727);
+					}
+					
+					.card_color_green {
+						background: -moz-linear-gradient(270deg, rgba(0, 185, 90, .7), #00b95a);
+						background: -o-linear-gradient(270deg, rgba(0, 185, 90, .7), #00b95a);
+						background: -webkit-linear-gradient(270deg, rgba(0, 185, 90, .7), #00b95a);
+						background: linear-gradient(270deg, rgba(0, 185, 90, .7), #00b95a);
+					}
+					
+					.card_color_blue {
+						background: -moz-linear-gradient(270deg, rgba(75, 150, 220, .7), #4b96dc);
+						background: -o-linear-gradient(270deg, rgba(75, 150, 220, .7), #4b96dc);
+						background: -webkit-linear-gradient(270deg, rgba(75, 150, 220, .7), #4b96dc);
+						background: linear-gradient(270deg, rgba(75, 150, 220, .7), #4b96dc);
+					}
+					
+					.card_color_orange {
+						background: -moz-linear-gradient(270deg, rgba(255, 150, 0, .7), #ff9600);
+						background: -o-linear-gradient(270deg, rgba(255, 150, 0, .7), #ff9600);
+						background: -webkit-linear-gradient(270deg, rgba(255, 150, 0, .7), #ff9600);
+						background: linear-gradient(270deg, rgba(255, 150, 0, .7), #ff9600);
+					}
+					
+					.card_color_cyan {
+						background: -moz-linear-gradient(270deg, rgba(0, 200, 200, .7), #00c8c8);
+						background: -o-linear-gradient(270deg, rgba(0, 200, 200, .7), #00c8c8);
+						background: -webkit-linear-gradient(270deg, rgba(0, 200, 200, .7), #00c8c8);
+						background: linear-gradient(270deg, rgba(0, 200, 200, .7), #00c8c8);
+					}
+					
+					.card_backgroudimg {
+						position: absolute;
+						width: 120px;
+						height: 120px;
+						z-index: 0;
+						left: 0;
+						top: 0;
+						border-radius: 4px;
+						overflow: hidden;
+						background-size: contain;
+						background-repeat: no-repeat;
+					}
+					
+					.pieces_title {
+						height: 18px;
+					}
+					
+					.pieces_text {
+						display: block;
+						height: 90px;
+						/*background-color: #fff;*/
+						padding: 5px 5px;
+						box-sizing: border-box;
+					}
+					
+					.pieces_title span {
+						line-height: 18px;
+						font-size: 11px;
+						color: #FFFFFF;
+						width: 120px;
+						text-align: center;
+
+						/*font-weight: bold;*/
+					}
+					
+					.pieces_text span {
+						display: block;
+						margin-top: 10px;
+						color: #FFFFFF;
+						text-align: center;
+						font-size: 20px;
+						font-weight: bold;
+					}
+					/*.pieces_text i {
+						display: block;
+						height: 36px;
+					}*/
+					
+					.pieces_text p {
+						display: block;
+						margin-top: 10px;
+						text-align: right;
+						font-size: 12px;
+						color: #FFFFFF;
+					}
+					
+					.pieces_text p:hover {
+						text-decoration: underline;
+						color: #0070FE;
+					}
+					/*幕课那个图标*/
+					
+					.navicon {
+						display: block;
+						width: 36px;
+						height: 36px;
+						margin: 0px auto;
+						transition: .1s all linear;
+						background-image: url(img/card_icon.png);
+						background-size: cover;
+					}
+					
+					.navicon.danger {
+						background-position: -106px 0;
+					}
+										
+					
+					
+					.weekend {
+						background: #f4f7f4;
+						/*color: lightgray;*/
+					}
+					
+					.circle {
+						width: 100px;
+						height: 100px;
+						position: relative;
+						top: 5px;
+						left: 5px;
+					}
+					
+					canvas {
+						display: block;
+						margin: 0;
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+					
+					#canvas_1 {
+						z-index: 1;
+					}
+					
+					#canvas_2 {
+						z-index: 2;
+						/* background: transparent;*/
+						transform: rotate(-90deg);
+						-webkit-transform: rotate(-90deg);
+						-o-transform: rotate(-90deg);
+						-moz-transform: rotate(-90deg);
+						-ms-transform: rotate(-90deg);
+					}
+				</style>
+				<!--主体-->
+				<div id="gantt_here" style='width:100%; height:250px;margin-top: 0px;box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);'></div>
+				<script type="text/javascript">
+					var markerId = gantt.addMarker({
+						start_date: new Date(), //a Date object that sets the marker's date
+						css: "today", //a CSS class applied to the marker
+						text: "Now", //the marker title
+						title: "今天" // the marker's tooltip
+					});
+					//datajson规则：xml_date="%Y-%m-%d %h:%i"
+					//  ========== 
+					//  = 父类任务字段：id: 1,text: "taskname",start_date: "2017-07-10 9:00",end_date: "2017-07-30 24:00", 四个必备 = 
+					//  = 任务包含子任务的需要open: true,  = 
+					//  =子类工单字段： parent - （string，number）父任务的id。根任务的id由root_id配置指定。 = 
+					//  = progress: 1,（区分颜色使用） = 
+					//  = Banner = 
+					//  = Banner = 
+					//  = Banner = 
+					//  ========== 
+					gantt.config.root_id = "root"; //指定根ID，根据根ID来判断是否为单一任务子类和普通工单，来处理显示信息BUG
+					var tasks = {
+						data: [{
+								id: 1,
+								text: "安装前端服务器",
+								start_date: "2017-07-20",
+								end_date: "2017-07-30",
+								teamMember: "张璟，余斐",
+								open: true,
+								
+							},
+							{
+								id: 2,
+								text: "安装邮件服务器",
+								content:"红星美凯龙房地产有限公司",
+								start_date: "2017-07-20",
+								end_date: "2017-07-24",
+								progress: 1,
+								open: true,
+								color:'red',
+								parent: 1
+							}
+							,
+							{
+								id: 3,
+								text: "生成SSL证书导入",
+								content:"红星美凯龙房地产有限公司",
+								start_date: "2017-07-20",
+								end_date: "2017-07-24",
+								progress: 1,
+								open: true,
+								color:'red',
+								parent: 1
+							}
+							,
+							{
+								id: 7,
+								text: "浦发银行驻厂运维",
+								content:"上海浦东发展银行",
+								start_date: "2017-07-24 0:00",
+								end_date: "2017-08-1 12:00",
+								open: true,
+								teamMember: "",
+
+							},
+							{
+								id: 8,
+								text: "浦发银行驻厂运维",
+								content:"上海浦东发展银行",
+								start_date: "2017-07-25",
+								end_date: "2017-07-27 12:00",
+								progress: 1,
+								open: true,
+								parent: 7
+							},
+							{
+								id: 9,
+								text: "应约",
+								content:"架构调整事宜 ",
+								target:"上海汽车集团股份有限公司乘用车分公司",
+								start_date: "2017-07-27",
+								end_date: "2017-07-28",
+								duration:1,
+							},{
+								id: 10,
+								text: "应约",
+								content:"架构调整事宜",
+								target:"上海汽车集团股份有限公司乘用车分公司",
+								start_date: "2017-07-28",
+								end_date: "2017-07-29",
+								duration:1,
+							},{
+								id: 11,
+								text: "巡检",
+								content:"SEP例行维护",
+								target:"延锋汽车饰件系统有限公司",
+								start_date: "2017-07-31",
+								end_date: "2017-08-1",
+								duration:1,
+							},
+						],
+						
+					};
+					
+					//设置左边列显示
+					gantt.config.columns = [{
+						name: "text",
+						label: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;任务工作时间规划",
+						width: "200px",
+						tree: true,
+						resize: true,
+						align: "center"
+					}];
+					//添加第二个比例 星期比例
+					gantt.config.subscales = [{
+							unit: "year",
+							step: 1,
+							date: "%Y"
+						},
+						{
+							unit: "day",
+							step: 1,
+							date: "%D"
+						}
+					];
+
+					//设置右边header周末样式
+					gantt.templates.scale_cell_class = function(date) {
+						if(date.getDay() == 0 || date.getDay() == 6) {
+							return "weekend";
+						}
+					};
+					//设置右边表格周末样式
+					gantt.templates.task_cell_class = function(item, date) {
+						if(date.getDay() == 0 || date.getDay() == 6) {
+							return "weekend";
+						}
+					};
+					//指定工具提示中显示的开始和结束日期的格式
+					gantt.templates.tooltip_date_format = function(date) {
+						var formatFunc = gantt.date.date_to_str("%Y-%m-%d");
+						return formatFunc(date);
+					};
+					//设置工具提示的自定义文本
+					gantt.templates.tooltip_text = function(start, end, task) {
+						var star_date = gantt.templates.tooltip_date_format(task.start_date);
+						var end_date = gantt.templates.tooltip_date_format(task.end_date);
+						if(gantt.hasChild(task.id)) { //有子工单则显示任务提示
+							if(task.teamMember != "") { //团队任务
+								return "<b>任务名称:</b> " + task.text +
+									"<br/><b>开始时间:</b>" + star_date + "<br/><b>结束时间</b> " + end_date +
+									"<br/><b>成员:</b> " + task.teamMember;
+							} else { //单人任务
+								return "<b>任务名称:</b> " + task.text +
+									"<br/><b>开始时间:</b>" + star_date + "<br/><b>结束时间</b> " + end_date;
+							}
+						} else if(task.parent != 'root') {
+								return "<b>工单名称:</b> " + task.text +"&nbsp;&nbsp;&nbsp;&nbsp;<b>工单ID:</b> "+ task.id +
+							"<br/><b>内容:</b>" + task.content +
+								"<br/><b>开始时间:</b>" + star_date + "<br/><b>结束时间</b> " + end_date;						
+						} else { //工单显示
+							return "<b>工单名称:</b> " + task.text +"&nbsp;&nbsp;&nbsp;&nbsp;<b>工单ID:</b> "+ task.id +
+							"<br/><b>内容:</b>" + task.content +"<br/><b>用户:</b>" + task.target +
+								"<br/><b>开始时间:</b>" + star_date + "<br/><b>结束时间</b> " + end_date;
+						}
+					};
+					
+					//JSON和XML数据的默认日期格式为“％d-％m-％Y”
+					gantt.config.xml_date = "%Y-%m-%d %h:%i";
+					//设置工具提示的超时
+					gantt.config.tooltip_hide_timeout = 0;
+					//					gantt.config.scale_unit = "day";
+					//					gantt.config.date_scale = "%F,%d"; 
+					//					gantt.config.min_column_width = 100;
+					//					gantt.config.start_date = new Date(2017, 06, 1);
+					//					gantt.config.end_date = new Date(2017, 07, 09);
+					//设置表格只读
+					gantt.config.readonly = true;
+					//设置智能加载
+					gantt.config.smart_rendering = true;
+					//设置表格行高
+					gantt.config.row_height = 22;
+					//设置时间轴区域中列的最小宽度
+					gantt.config.min_column_width = 70;
+					//设置刻度的高度
+					gantt.config.scale_height = 54;
+
+					//					gantt.config.autosize = "y";
+					
+					//设置时间轴区域将初始滚动不显示初始显示现在
+					gantt.config.initial_scroll = false;
+				
+					//考虑一下
+					gantt.ignore_time = function(date){
+						return !gantt.isWorkTime(date);
+					};
+					//设置完成后进行初始化
+					gantt.init("gantt_here");
+					//解析数据
+					gantt.parse(tasks);
+
+					//点击任务一行显示东西
+					gantt.attachEvent("onTaskSelected", function(id, item) {
+						//any custom logic here
+//						alert("111");
+					});
+				</script>
+				<!--height = 260+30+20   width 130X5-->
+				<div id="pieces" style='width:670px; height:290px;margin-top: 8px;float: left;display: inline-block; box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .2);'>
+					<div class="title_bar" style="display: block;">
+						<div class="title_text" style="width: 300px;">
+							<p>工作处理</p>
+						</div>
+					</div>
+					<div class="fixArea">
+						<!--<div class="pieces_small card_color_red">
+							<a class="" href="createTask.html">
+								<div class="pieces_title"><span>工作一</span></div>
+								<div class="pieces_text">
+									<span>已延期</span>
+									<p>立即处理>></p>
+								</div>
+							</a>
+							<div class="card_backgroudimg">
+
+							</div>
+						</div>-->
+						<div class="pieces_small" v-cloak v-for="item in piecesArray"  v-bind:class="{card_color_red:item.isDelay,card_color_blue:!item.isDelay}"><!--延时显示红色，不延时显示蓝色-->
+							<div v-bind:href="item.url">
+								<div class="pieces_title"><span>{{item.name}}</span></div>
+								<div class="pieces_text">
+									<span>{{item.message}}</span>
+									<p>{{item.ps}}</p>
+								</div>
+							</a>
+							<div class="card_backgroudimg">
+
+							</div>
+						</div>
+						<!--<div class="pieces_small" v-cloak v-for="item in piecesArray"  v-bind:class="{card_color_red:item.isDelay,card_color_blue:!item.isDelay}"><!--延时显示红色，不延时显示蓝色-->
+						<!--	<a v-bind:href="item.url">
+								<div class="pieces_title"><span>{{item.name}}</span></div>
+								<div class="pieces_text">
+									<span>{{item.message}}</span>
+									<p>{{item.ps}}</p>
+								</div>
+							</a>
+							<div class="card_backgroudimg">
+
+							</div>
+						</div>-->
+						<!--
+						<div class="pieces_small card_color_cyan">
+							<a class="" href="createTask.html">
+								<div class="pieces_title"><span>单一任务统计</span></div>
+								<div class="pieces_text">
+									<span>2条</span>
+									<p>未完成>></p>
+								</div>
+							</a>
+							<div class="card_backgroudimg">
+
+							</div>
+						</div>-->
+					</div>
+				</div>
+
+				<div id="myEvaluate" style="width:380px; height:290px;margin: 8px 0px 0px auto;position: relative; float: right; display: inline-block; box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .2);">
+					<div class="title_bar1">
+						<div class="title_text" style="width: 300px;display: inline-block;">
+							<p>我的评价</p>
+						</div>
+					</div>
+					<!--<div id="" style="width: 100px;height: 100px;background: #0099CC;">
+						<p style="font-size: 70px; text-align: center;color: #FFFFFF;">10</p>
+					</div>-->
+					<div class="circle">
+						<canvas id="canvas_1" width="100" height="100"></canvas>
+						<canvas id="canvas_2" width="100" height="100"></canvas>
+					</div>
+					<script>
+						function inte(score) {
+							var percent = score * 10;
+							var canvas_1 = document.querySelector('#canvas_1');
+							var canvas_2 = document.querySelector('#canvas_2');
+							var ctx_1 = canvas_1.getContext('2d');
+							var ctx_2 = canvas_2.getContext('2d');
+							ctx_1.lineWidth = 10;
+							ctx_1.strokeStyle = "#ccc";
+							//画底部的灰色圆环
+							ctx_1.beginPath();
+							ctx_1.arc(canvas_1.width / 2, canvas_1.height / 2, canvas_1.width / 2 - ctx_1.lineWidth / 2, 0, Math.PI * 2, false);
+							ctx_1.closePath();
+							ctx_1.stroke();
+							if(percent < 0 || percent > 100) {
+								throw new Error('percent must be between 0 and 100');
+								return
+							}
+							ctx_2.lineWidth = 10;
+							ctx_2.strokeStyle = "#0099cc";
+							var angle = 0;
+							var timer;
+							(function draw() {
+								timer = requestAnimationFrame(draw);
+								ctx_2.clearRect(0, 0, canvas_2.width, canvas_2.height)
+								//百分比圆环
+								ctx_2.beginPath();
+								ctx_2.arc(canvas_2.width / 2, canvas_2.height / 2, canvas_2.width / 2 - ctx_2.lineWidth / 2, 0, angle * Math.PI / 180, false);
+								angle += 10;
+								var percentAge = parseInt((angle / 360) * 100)
+								if(angle > (percent / 100 * 360)) { //增加的角度大于实际百分比角度
+									percentAge = percent;
+									angle = (percent / 100 * 360);
+									window.cancelAnimationFrame(timer);
+								};
+								ctx_2.stroke();
+								ctx_2.closePath();
+								ctx_2.save();
+								ctx_2.beginPath();
+								ctx_2.rotate(90 * Math.PI / 180);
+								ctx_2.font = '40px Microsoft YaHei';
+								ctx_2.fillStyle = '#0099cc';
+								var text = score;
+								ctx_2.fillText(text, 22, -34);
+								ctx_2.closePath();
+								ctx_2.restore();
+							})()
+						}
+						inte(9.5);
+					</script>
+					<div id="leida" style="width: 300px;height: 260px;border: none;position: absolute;top: 30px; left: 100px;">
+					</div>
+					<script type="text/javascript">
+						$(function() {
+							chart1 = Highcharts.chart('leida', {
+								chart: {
+									polar: true,
+									type: 'area'
+								},
+								title: {
+									text: null
+								},
+								credits: {
+									enabled: false // 禁用版权信息
+								},
+								pane: {
+									size: '82%'
+								},
+
+								xAxis: {
+									categories: ['服务', '态度', '技术', '能力', '效率'],
+									tickmarkPlacement: 'on',
+									lineWidth: 2,
+									minorGridLineWidth: 2,
+									lineColor: 'transparent',
+								},
+								yAxis: {
+									gridLineInterpolation: 'polygon',
+									//						alternateGridColor: '#FDFFD5',
+									alternateGridColor: '#1B6D85',
+									tickInterval: 2,
+									max: 10,
+									minorGridLineWidth: 2,
+								},
+								tooltip: {
+									shared: true,
+									pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}分</b><br/>'
+								},
+								legend: {
+									enabled: false
+								},
+								series: [{
+									name: '平均得分',
+									data: [10, 10, 10, 8, 10],
+									pointPlacement: 'on'
+								}]
+							});
+						});
+
+						//						function mouseOver() {
+						//							$('#leida').css({
+						//								"width": "350px",
+						//								"height": "250px",
+						//								"z-index": "100"
+						//							});
+						//							chart1.reflow(); //更新图
+						//						}
+						//
+						//						function mouseOut() {
+						//							$('#leida').css({
+						//								"width": "210px",
+						//								"height": "150px"
+						//							});
+						//							chart1.reflow();
+						//						}
+					</script>
+
+					<div class="list-group" style="z-index: 3;width: 100px;position: absolute;left: 10px; top: 150px;font-size: 12px;">
+						<a href="#" class="list-group-item list-group-item-success">最新评价>></a>
+						<a href="#" class="list-group-item list-group-item-warning">点击详情>></a>
+					</div>
+				</div>
+			</div>
+			<!--rightContent-->
+		</div>
+		<!--mainContent-->
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+					</div>
+					<div class="modal-body">点击关闭按钮检查事件功能。</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary">提交更改</button>
+						<a href="submitSingleWayWork.html"></a>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			new Vue({
+				el: '#pieces',
+				data: {
+					piecesArray: [
+						{	
+							name: '2-安装邮件服务器',
+							isDelay: true,
+							message:'已延期',
+							url:'submitBasisWayWork.html',
+							ps:'立即处理>>'
+						},
+						{
+							name: '3-生成SSL证书导入',
+							isDelay: true,
+							message:'已延期',
+							url:'submitSingleWayWork.html',
+							ps:'请处理>>'
+						},
+						{
+							name: '8-浦发银行驻厂运维',
+							isDelay: false,
+							message:'未提交',
+							url:'submitBasisWayWork.html',
+							ps:'请处理>>'
+						},
+						{
+							name: '9-应约-SEP例行维护',
+							isDelay: false,
+							message:'未提交',
+							url:'submitSingleWayWork.html',
+							ps:'请处理>>'
+						},
+						{
+							name: '10-应约-SEP例行维护',
+							isDelay: false,
+							message:'未提交',
+							url:'submitSingleWayWork.html',
+							ps:'请处理>>'
+						}
+//						,
+//						{
+//							name: '11-巡检-SEP例行维护',
+//							isDelay: false,
+//							message:'未提交',
+//							url:'submitSingleWayWork.html',
+//							ps:'请处理>>'
+//						}
+						
+					]
+				}
+			})
+		</script>
+	</body>
+
+</html>

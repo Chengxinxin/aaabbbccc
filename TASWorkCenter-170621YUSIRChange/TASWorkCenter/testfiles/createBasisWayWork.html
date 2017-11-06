@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script src="js/UISetFunction.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--内含新建用户css-->
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+		<!--多选插件-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-select.min.css" />
+		<script src="js/bootstrap-select.min.js"></script>
+		<!--步骤轴-->
+		<link rel="stylesheet" type="text/css" href="css/stepByStep.css"/>
+		<script type="text/javascript">
+			var step = 1; //全局变量
+			$(document).ready(function() {
+				$("#create_cancel").on("click", function() {
+					location.href = "createNewWorkGate.html";
+				});
+
+				$('#workOfTask').selectpicker({ //隶属任务
+					'selectedText': 'cat'
+				});
+				$('#workOfTask').selectpicker('hide'); //先隐藏隶属任务
+
+				$('#requester').selectpicker({ //请求方
+					'selectedText': 'cat'
+				});
+
+				$('#productSever').selectpicker({ //服务产品
+					'selectedText': 'cat'
+				});
+				$('#userScene').selectpicker({ //用户现场
+					'selectedText': 'cat'
+				});
+				$('#userScene').on('changed.bs.select', function(e) {
+
+					console.log($('#userScene').text('selected'));
+				});
+				//分步骤控制的逻辑
+				$('#nextBtn').on('click', function() {
+					//										alert(step);
+					//todo验证完成后下一步
+					$('.ui-step li').eq(step).addClass('step-active');
+					if(step < 6) {
+						if(step < 5) { //显示下一步的div
+							$('.stepDiv').eq(step - 1).hide();
+							$('.stepDiv').eq(step).show();
+						} else if(step == 5) {
+							$('#nextBtn').attr("disabled", true);
+							$('#completeTip').text("已提交完成！");
+							$('#submit_success').show();
+						}
+						$('.ui-step li').eq(step - 1).removeClass('step-active').addClass('step-done');
+						step += 1; //到6为止
+					}
+					if(step > 1 && step < 6) {
+						$('#lastBtn').attr("disabled", false);
+					} else {
+						$('#lastBtn').attr("disabled", true);
+					}
+					if(step == 5) {
+						//						$('#nextBtn').text("提交");
+						$('#nextBtn').css({
+							"background": "url(img/yes.png) no-repeat",
+							"background-size": "cover",
+						});
+					}
+
+				});
+				$('#lastBtn').on('click', function() {
+					//todo验证完成后下一步
+					if(step == 5) {
+						//						$('#nextBtn').text("下一步");
+						$('#nextBtn').css({
+							"background":"url(img/arrow_next.png)  no-repeat",
+							"background-size": "cover",
+						});
+
+					}
+					$('.ui-step li').eq(step - 1).removeClass('step-active');
+					//					alert(step);
+					$('.stepDiv').eq(step - 1).hide();
+					$('.stepDiv').eq(step - 2).show();
+					if(step > 1) {
+						$('.ui-step li').eq(step - 2).removeClass('step-done').addClass('step-active');
+						step -= 1;
+					}
+					if(step == 1) {
+						$('#lastBtn').attr("disabled", true);
+					}
+					//					alert(step);
+				});
+				//选择基础和单一
+				$('#workOfTask1').on('change', function() {
+					if($(this).val() == 2) { //单一
+						$('#workOfTask').selectpicker('show');
+						$('#oneworktype_div').show();
+						$('#worktype_div').hide();
+						$('.setOneWorkTime_div').show();
+						$('.setWorkTime_div').hide();
+					} else { //基础
+						$('#workOfTask').selectpicker('hide');
+						$('#worktype_div').show();
+						$('#oneworktype_div').hide();
+						$('.setOneWorkTime_div').hide();
+						$('.setWorkTime_div').show();
+
+					}
+				});
+				//没有联系人时，添加联系人，确认更新
+				$('#addContactInformation_btn').on('click', function() {
+					$('.contactInformation').hide();
+					$('.addContactInformation').show();
+				});
+				$('#cancelContactInformation_btn').on('click', function() {
+					$('.contactInformation').show();
+					$('.addContactInformation').hide();
+					$('#addContact').val('');
+					$('#addContactPhone').val('');
+				});
+				$('#submitContactInformation_btn').on('click', function() {
+					$('#myModal_submit').modal('show');
+					$('.contactInformation').show();
+					$('.addContactInformation').hide();
+				});
+				$('#myModal_submit_btn').on('click', function() {
+					$('#myModal_submit').modal('hide');
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			.creatWorklistStepDiv {
+				float: left;
+				width: 100%;
+				height: 400px;
+				margin: 0px auto;
+				/*background-color: #DDDDDD;*/
+			}
+			
+			#lastBtnDiv {
+				vertical-align: middle;
+				text-align: center;
+				float: left;
+				display: inline-block;
+				height: 400px;
+				width: 7%;
+				color: #FFFFFF;
+				margin-left: 3%;
+				position: relative;
+			}
+			
+			#nextBtnDiv {
+				vertical-align: middle;
+				text-align: center;
+				float: left;
+				display: inline-block;
+				height: 400px;
+				width: 7%;
+				color: #FFFFFF;
+				position: relative;
+			}
+			
+			.btnSelect {
+				position: absolute;
+				top: 165px;
+				left: 0px;
+				border: hidden;
+			}
+			
+			
+			#creatWorklistStepContent {
+				display: inline-block;
+				float: left;
+				width: 80%;
+				height: 400px;
+				margin: 0px auto;
+				/*background: url(img/backgroud_form3.png) 0 0 no-repeat;*/
+			}
+			
+			.stepDiv {
+				margin: 30px 20px 30px 20px;
+				height: 350px;
+			}
+			
+			.rowStep {
+				margin-bottom: 20px;
+				margin-top: 20px;
+				margin-left: 10px;
+			}
+			
+			.rowStep_short {
+				margin-bottom: 5px;
+				margin-top: 10px;
+				margin-left: 10px;
+			}
+			#choosePeople {
+				display: inline-block;
+				width: 120px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">工作任务</a>
+					</li>
+					<li class="active">创建派工单</li>
+				</ol>
+
+				<!--主体创建新的账号-->
+
+				<div class="createNewWork_div container-fluid">
+					<!--名字-->
+					<div style="width: 1050px;position: relative;">
+						<div class="work_title">
+							<h1>创建新派工单</h1>
+						</div>
+						<!--取消按钮-->
+						<div style="position: absolute;right: 10px;top:0px;">
+							<button class="btn btn-danger" type="submit" id="create_cancel">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 取消</button>
+						</div>
+					</div>
+					<div class="partingLine"></div>
+
+					<div style="width:90%; margin:0px auto">
+						<!--分步骤轴实现-->
+						<ol class="ui-step ui-step-blue ui-step-5">
+							<li class="step-start step-active">
+								<div class="ui-step-line"></div>
+								<div class="ui-step-cont">
+									<span class="ui-step-cont-number">1</span>
+									<span class="ui-step-cont-text">填工作名称</span>
+								</div>
+							</li>
+							<li class="">
+								<div class="ui-step-line"></div>
+								<div class="ui-step-cont">
+									<span class="ui-step-cont-number">2</span>
+									<span class="ui-step-cont-text">设置用户选项</span>
+								</div>
+							</li>
+							<li class="">
+								<div class="ui-step-line"></div>
+								<div class="ui-step-cont">
+									<span class="ui-step-cont-number">3</span>
+									<span class="ui-step-cont-text">填写工作内容</span>
+								</div>
+							</li>
+							<li class="">
+								<div class="ui-step-line"></div>
+								<div class="ui-step-cont">
+									<span class="ui-step-cont-number">4</span>
+									<span class="ui-step-cont-text">人员时间安排</span>
+								</div>
+							</li>
+							<li class="step-end">
+								<div class="ui-step-line"></div>
+								<div class="ui-step-cont">
+									<span class="ui-step-cont-number">5</span>
+									<span class="ui-step-cont-text">完成提交</span>
+								</div>
+							</li>
+
+						</ol>
+					</div>
+					<style>
+						/*用bootstrap做的按钮，点击后，都会出现边框，请问如何去除*/
+						
+						.btnSelect:focus,
+						.btnSelect:active:focus,
+						.btnSelect.active:focus,
+						.btnSelect.focus,
+						.btnSelect:active.focus,
+						.btnSelect.active.focus {
+							outline: none;
+							box-shadow: none;
+						}
+					</style>
+					<div class="creatWorklistStepDiv">
+						<div id="lastBtnDiv">
+							<button id="lastBtn" class="btnSelect btn" disabled="disabled" style="display:block; width:70px; height:70px; background:url(../img/last.png)  no-repeat;background-size: cover;"></button>
+						</div>
+						<div id="creatWorklistStepContent">
+							<form id="submit_create_work" action="" method="get">
+
+								<div class="stepDiv" id="stepDiv_1">
+									<div class="row rowStep col-md-12">
+										<h4>请选择该派工单所隶属的任务种类：</h4>
+									</div>
+									<!--第一行-->
+									<div class="row rowStep col-md-12">
+										<label id="forchoosePeople" for="choosePeople">人员选择：</label>
+										<select name="choosePeople" id="choosePeople" class="form-control">
+												<option value="于桂成" selected>于桂成</option>
+												<option value="何志文">何志文</option>
+												<option value="周平川">周平川</option>
+												<option value="朱慧泽">朱慧泽</option>
+												<option value="徐春财">徐春财</option>
+												<option value="宋建平">宋建平</option>
+												<option value="张 璟">张璟</option>
+												<option value="彭 鹏">彭鹏</option>
+												<option value="洪坤宇">洪坤宇</option>
+												<option value="刘海运">刘海运</option>
+												<option value="吴天浩">吴天浩</option>
+												<option value="程鑫鑫">程鑫鑫</option>
+												<option value="董浩伟">董浩伟</option>
+												<option value="胡心波">胡心波</option>
+												<option value="王焱">王焱</option>
+										</select>
+										<label for="workOfTask">任务种类：</label>
+										<select name="workOfTask1" id="workOfTask1" class="form-control">
+											<option value="0">请选择</option>
+											<option value="1">基础</option>
+											<option value="2">单一</option>
+										</select>
+										<select id="workOfTask" name="workOfTask" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="300px" data-live-search="true">
+											<option value="1">已审批任务1</option>
+											<option value="2">已审批任务2</option>
+											<option value="3">已审批任务3</option>
+											<option value="4">已审批任务4</option>
+										</select>
+									</div>
+									<!--第二行-->
+									<div class="row rowStep col-md-12">
+										<label for="createWorkTitle">工作名称：</label>
+										<input type="text" class="form-control" name="createWorkTitle" id="createWorkTitle" value="" />
+									</div>
+								</div>
+
+								<div class="stepDiv" id="stepDiv_2" style="display: none;">
+
+									<div class="row rowStep_short col-md-12">
+										<h4>请设置该派工单属性以及服务用户信息：</h4>
+									</div>
+									<div class="row col-md-12 rowStep_short">
+										<div class="col-md-5" id="worktype_div">
+											<label for="createworkType">工作属性：</label>
+											<select name="createworkType" id="createworkType" class="form-control" style="display: inline-block;">
+												<option value="0">开发</option>
+												<option value="1">维护</option>
+												<option value="2">应约</option>
+												<option value="3">巡检</option>
+												<option value="4">顾问</option>
+												<option value="5">临时</option>
+											</select>
+										</div>
+										<!--单一任务时显示-->
+										<div class="col-md-5" id="oneworktype_div" style="display: none;">
+											<label for="createworkType_one">工作属性：</label>
+											<select name="createworkType_one" id="createworkType_one" class="form-control" style="display: inline-block;">
+												<option value="0">培训</option>
+												<option value="1">认证考试</option>
+												<option value="2">产品测试</option>
+												<option value="3">开发</option>
+											</select>
+										</div>
+									</div>
+									<div class="row col-md-12 rowStep_short">
+										<div class="col-md-5">
+											<label for="requester" style="margin-left: 14px;">请求方：</label>
+											<select id="requester" name="requester" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="300px" data-live-search="true">
+												<option value="0">请求方1</option>
+												<option value="1">请求方2</option>
+												<option value="2">请求方3</option>
+												<option value="3">请求方4</option>
+												<option value="4">请求方5</option>
+												<option value="5">请求方6</option>
+												<option value="6">请求方7</option>
+												<option value="7">请求方8</option>
+											</select>
+										</div>
+
+										<div class="col-md-5 div_productSever">
+											<label for="productSever">服务产品：</label>
+											<select id="productSever" name="productSever" class="selectpicker show-tick form-control" multiple title="请选择" data-actions-box="true" data-width="300px" data-live-search="true">
+												<option value="0">产品1</option>
+												<option value="1">产品2</option>
+												<option value="2">产品3</option>
+												<option value="3">产品4</option>
+												<option value="4">产品5</option>
+												<option value="5">产品6</option>
+												<option value="6">产品7</option>
+												<option value="7">产品8</option>
+											</select>
+										</div>
+
+										<div class="col-md-5 div_userCustomer">
+											<label for="userCustomer">服务用户：</label>
+											<select id="userCustomer" name="userCustomer" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="300" data-live-search="true">
+												<option value="0">用户1</option>
+												<option value="1">用户2</option>
+												<option value="2">用户3</option>
+												<option value="3">用户4</option>
+												<option value="4">用户5</option>
+												<option value="5">用户6</option>
+												<option value="6">用户7</option>
+											</select>
+
+										</div>
+										<div class="col-md-5 div_frequencyType">
+											<label for="userScene">用户现场：</label>
+											<select id="userScene" name="userScene" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="300px" data-live-search="true">
+												<option value="0">现场1</option>
+												<option value="1">现场2</option>
+												<option value="2">现场3</option>
+												<option value="3">现场4</option>
+												<option value="4">现场5</option>
+												<option value="5">现场6</option>
+												<option value="6">现场7</option>
+												<option value="7">现场8</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="row col-md-12 rowStep_short">
+										<div class="col-md-5 contactInformation">
+											<label for="contactPerson" style="margin-left: 14px;">联系人：</label>
+											<select name="contactPerson" id="contactPerson" class="form-control" style="display: inline-block;">
+												<option value="0">请选择</option>
+												<option value="1">联系人1</option>
+												<option value="2">联系人2</option>
+											</select>
+										</div>
+										<div class="col-md-5 contactInformation">
+											<label for="contactPhone">联系电话：</label>
+											<label id="contactPhone" class="form-control"></label>
+										</div>
+										<div class="col-md-5 addContactInformation" style="display: none;">
+											<label for="addContact">联系人：</label>
+											<input type="text" id="addContact" class="form-control" />
+										</div>
+										<div class="col-md-5 addContactInformation" style="display: none;">
+											<label for="addContactPhone">联系电话：</label>
+											<input type="text" id="addContactPhone" class="form-control" />
+										</div>
+										<div class="col-md-2" style="line-height: 84px; text-align: center; vertical-align: middle;display: inline-block;">
+											<button type="button" class="btn btn-success contactInformation" id="addContactInformation_btn">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true">联系人</span>
+											</button>
+											<button type="button" class="btn btn-primary btn-sm addContactInformation" id="submitContactInformation_btn" style="display: none;">
+												添加</span>
+											</button>
+											<button type="button" class="btn btn-warning btn-sm addContactInformation" id="cancelContactInformation_btn" style="display: none;">
+												取消</span>
+											</button>
+										</div>
+									</div>
+								</div>
+								<!--stepDiv_2-->
+								<div class="stepDiv" id="stepDiv_3" style="display: none;">
+									<div class="row rowStep_short col-md-12">
+										<h4>请填写详细的任务描述：</h4>
+									</div>
+									<div class="row rowStep_short col-md-12">
+										<label for="createTaskDescription">工作描述：</label>
+										<textarea class="form-control" id="createTaskDescription" rows="10" cols="180" placeholder="请输入具体工作内容..."></textarea>
+									</div>
+								</div>
+								<!--stepDiv_3-->
+								<div class="stepDiv" id="stepDiv_4" style="display: none;">
+									<div class="row rowStep_short col-md-12">
+										<h4>请选择人员时间安排：</h4>
+									</div>
+									<div class="row rowStep col-md-12">
+										<div class="col-sm-3">
+											<label for="levelType">优先级：</label>
+											<select name="levelType" id="levelType" class="form-control">
+												<option value="0" style="color: gray;">选择</option>
+												<option value="1" style="color: red;font-weight: 700;">紧急</option>
+												<option value="2" style="color: orangered;font-weight: 700;">优先</option>
+												<option value="3" style="color: blue;font-weight: 700;">普通</option>
+												<!--<option value="4" style="color: green;font-weight: 700;">日常</option>-->
+											</select>
+										</div>
+										<div class="col-sm-3">
+											<label for="sendTo ">指派给：</label>
+											<select name="sendTo" id="sendTo" class="form-control">
+												<option value="于桂成" selected>于桂成</option>
+												<option value="何志文">何志文</option>
+												<option value="周平川">周平川</option>
+												<option value="朱慧泽">朱慧泽</option>
+												<option value="徐春财">徐春财</option>
+												<option value="宋建平">宋建平</option>
+												<option value="张 璟">张璟</option>
+												<option value="彭 鹏">彭鹏</option>
+												<option value="洪坤宇">洪坤宇</option>
+												<option value="刘海运">刘海运</option>
+												<option value="吴天浩">吴天浩</option>
+												<option value="程鑫鑫">程鑫鑫</option>
+												<option value="董浩伟">董浩伟</option>
+												<option value="胡心波">胡心波</option>
+												<option value="王焱">王焱</option>
+											</select>
+										</div>
+										<div class="col-sm-3">
+											<label for="sendToCheck">审核人：</label>
+
+											<select name="sendToCheck" id="sendToCheck" class="form-control">
+												<option value="何志文">何志文</option>
+												<option value="周平川">周平川</option>
+												<option value="朱慧泽">朱慧泽</option>
+												<option value="徐春财">徐春财</option>
+												<option value="宋建平">宋建平</option>
+												<option value="张 璟">张璟</option>
+												<option value="彭 鹏">彭鹏</option>
+												<option value="洪坤宇">洪坤宇</option>
+												<option value="刘海运">刘海运</option>
+												<option value="胡心波">胡心波</option>
+												<option value="王焱">王焱</option>
+											</select>
+										</div>
+
+									</div>
+									<div class="row rowStep setWorkTime_div">
+										<div class="col-sm-5">
+											<label for="createStartDate ">开始日期：</label>
+											<input class="form-control createStartDate" type="date" name="createStartTime" style="display: inline-block; width: 200px;" />
+										</div>
+										<div class="col-sm-5">
+											<label for="createTime ">时间：</label>
+											<input class="form-control" id="createTime" type="time" name="createEndTime" style="display: inline-block; width: 100px;" />
+										</div>
+									</div>
+									<div class="row rowStep setOneWorkTime_div" style="display: none;">
+										<div class="col-sm-5">
+											<label for="createStartDate ">开始日期：</label>
+											<input class="form-control createStartDate" type="date" name="createStartTime" style="display: inline-block; width: 200px;" />
+										</div>
+										<div class="col-sm-5">
+											<label for="createEndTime ">结束日期：</label>
+											<input class="form-control" id="createEndTime" type="date" name="createEndTime" style="display: inline-block; width: 200px;" />
+										</div>
+									</div>
+									<script type="text/javascript">
+										var now = new Date();
+										//格式化日，如果小于9，前面补0
+										var day = ("0" + now.getDate()).slice(-2);
+										//格式化月，如果小于9，前面补0
+										var month = ("0" + (now.getMonth() + 1)).slice(-2);
+										//										var hour = ("0" + now.getHours()).slice(-2);
+										var hour = "09";
+										var min = "00";
+										//拼装完整日期格式
+										// document.getElementById("myLocalDate").value = "2014-01-02T01:02:13.510";
+										//										var today = now.getFullYear()+"-"+(month)+"-"+(day)+"T"+(hour)+":"+(min) ;
+										var today = now.getFullYear() + "-" + (month) + "-" + (day);
+										var time = (hour) + ":" + (min);
+										//完成赋值
+										$('.createStartDate').val(today);
+										$('#createTime').val(time);
+									</script>
+								</div>
+								<!--stepDiv_4-->
+								<div class="stepDiv" id="stepDiv_3" style="display: none;">
+									<div class="row rowStep col-md-12" style="height: 120px;">
+										<h3 id="completeTip" style="text-align: center;vertical-align: middle;line-height: 200px;">请确认提交！</h3>
+									</div>
+									<div class="row rowStep col-md-12" id="submit_success" style="height: 100px;text-align: center; display: none;">
+										<a class="btn btn-success" href="createBasisWayWork.html">再次填写派工</a>
+										<a href=""></a>
+										<a class="btn btn-warning col-md-offset-1" href="index.html">返回首页</a>
+
+									</div>
+
+								</div>
+							</form>
+						</div>
+						<div id="nextBtnDiv">
+							<button id="nextBtn" class="btnSelect btn" style="display:block; border: none; vertical-align: middle; width:70px; height:70px; background:url(../img/next.png)  no-repeat;background-size: cover;"></button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- 模态框（myModal_logout） -->
+		<div class="modal fade" id="myModal_submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+						<h4 class="modal-title" id="myModalLabel">
+					提示
+				</h4>
+					</div>
+					<div class="modal-body" id="submit_logout" style="text-align: center;font-size: 16px;">
+						联系人已更新成功！
+					</div>
+					<div class="modal-footer">
+						<!--确认后跳转首页-->
+						<button type="button" class="btn btn-primary" id="myModal_submit_btn">
+					确认
+				</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		<!-- 模态框（myModal） -->
+	</body>
+
+</html>

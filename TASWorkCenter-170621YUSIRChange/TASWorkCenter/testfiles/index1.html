@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!-- 评分样式 -->
+		<link rel="stylesheet" type="text/css" href="css/starGradeStyle.css" />
+		<script type="text/javascript" src="js/comment.js"></script>
+		<!--图表框架-->
+		<link rel="stylesheet" type="text/css" href="js/highcharts.css" />
+		<script src="js/highcharts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/highcharts-more.js" type="text/javascript" charset="utf-8"></script>
+		<!--时钟-->
+		<link rel="stylesheet" type="text/css" href="css/YUCalender.css" />
+		<script src="js/YUCalender.js" type="text/javascript" charset="utf-8"></script>
+		<!--风车-->
+		<link rel="stylesheet" type="text/css" href="css/recert.css" />
+
+		<style type="text/css">			
+			.userDetail {
+				position: absolute;
+				width: 100%;
+				top: 5px;
+				left: 0px;
+				box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+			}
+			
+			.userDetailHead {
+				height: 30px;
+				padding: 3px 15px;
+			}
+			
+			#headImage {
+				height: 100px;
+				width: 100px;
+				line-height: 100px;
+				position: relative;
+				left: 20px;
+				top: 0px;
+			}
+			
+			#headImagePic {
+				height: 90px;
+				width: auto;
+				vertical-align: middle;
+				margin-left: 10px;
+			}
+			
+			.userinfo_body {
+				padding: 0px;
+				position: relative;
+				height: 100px;
+			}
+			
+			#userInformation {
+				position: relative;
+				height: 100px;
+				width: 500px;
+				top: -100px;
+				left: 150px;
+				color: #0099CC;
+			}
+			
+			#userInformation .list-group .list-group-item {
+				border: none;
+			}
+			
+			.list-group {
+				margin-bottom: 5px;
+			}
+			
+			#taskBoxDetail {
+				position: absolute;
+				left: 2px;
+				top: 150px;
+				width: 515px;
+			}
+			
+			#TaskListDetails {
+				float: left;
+				width: 510px;
+				margin: 0px 20px 5px 0px;
+				box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+
+			}
+			
+			#TaskListDetailsBody {
+				height: 200px;
+				overflow-y: scroll;
+				overflow-x: visible;
+			}
+			
+			#TaskListDetails1 {
+				margin-top: 10px;
+				clear: both;
+				width: 510px;
+				box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+			}
+			
+			#TaskListDetailsBody1 {
+				height: 120px;
+				overflow-y: scroll;
+				overflow-x: visible;
+				padding-top: 3px;
+			}
+			#myEvaluateDetails {
+				position: absolute;
+				left: 515px;
+				top: 150px;
+				width: 245px;
+				height: 415px;
+				box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+			}
+			/*#noticeListDetails {
+				float: left;
+				width: 280px;
+				height: 415px;
+				margin-left: 5px;
+			}
+			
+			#noticeListDetailsBody {
+				height: 370px;
+				overflow-y: scroll;
+				overflow-x: visible;
+				font-size: 10px;
+			}*/
+			
+			
+			#leida:hover {
+				position: absolute;
+				z-index: 999;
+				width: 300px;
+				height: 300px;
+				border: 1px #d1d1d1 solid;
+			}
+		</style>
+	</head>
+
+	<body onload=initial();>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页 </a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createTask.html">创建新任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+								<a href="createWorklist.html">创建派工单</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="rightContent" style="position: relative;">
+				<div style="width: 1030px;position: absolute;">
+					<!--面包屑-->
+					<ol class="breadcrumb">
+						<li>
+							<a href="#">个人中心</a>
+						</li>
+						<li class="active">我的主页</li>
+					</ol>
+				</div>
+				<div id="myContent" style="position: absolute;left: 0px;top: 40px;width: 760px;height: 100%;">
+					<div class="panel panel-info userDetail">
+						<!-- Default panel contents -->
+						<div class="panel-heading userDetailHead">
+							<div class="panel-title">个人信息 </div>
+						</div>
+						<div class="panel-body userinfo_body">
+							<div id="headImage" class="main53d">
+								<!--<img id="headImagePic" src="img/userHeadImage.PNG" />-->
+								<ul>
+									<li><img src="img/main5-pic1.png"> </li>
+									<li><img src="img/main5-pic2.png"> </li>
+									<li><img src="img/main5-pic3.png"> </li>
+								</ul>
+							</div>
+							<div id="userInformation">
+								<ul class="list-group">
+									<li class="list-group-item height3_5"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>姓名：<strong> 于桂成</strong> <i>您好！</i></li>
+									<li class="list-group-item height3_5"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>部门：<strong> 开发部   </strong> </li>
+									<li class="list-group-item height3_5"> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>职位：<strong> 前端开发工程师   </strong></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div style="background: #007FFF;height: 5px;width: 100%; position: absolute;left: 0px; top: 140px;"></div>
+					<div id="taskBoxDetail">
+						<div class="panel panel-info" id="TaskListDetails">
+							<div class="panel-heading">
+								<div class="panel-title">我的基础任务&nbsp;<span class="badge">100</span> </div>
+							</div>
+							<div class="panel-body" id="TaskListDetailsBody">
+								<div class="list-group" style="width: 470px;">
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-success"><span class="badge">3条工单未完成</span><strong>例行巡检任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计100条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-info"><span class="badge">3条工单未完成</span><strong>应急响应任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计80条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-warning"><span class="badge">10条工单未完成</span><strong>开发对接任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计70条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-text"><span class="badge">3条工单未完成</span><strong>技术性任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计60条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-danger"><span class="badge">3条工单未完成</span><strong>事务性任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-danger"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-warning"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-danger"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-warning"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-text"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-text"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+									<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-danger"><span class="badge">3条工单未完成</span><strong>某某某任务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+
+								</div>
+								<!--<div class="list-group" style="width: 450px;">
+								<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-success"><span class="badge">3条工单未完成</span><strong>售前任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计100条该类型派工记录</small></a>
+								<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-info"><span class="badge">3条工单未完成</span><strong>售后任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计80条该类型派工记录</small></a>
+								<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-warning"><span class="badge">10条工单未完成</span><strong>开发任务&nbsp;&nbsp;&nbsp;</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计70条该类型派工记录</small></a>
+								<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-text"><span class="badge">3条工单未完成</span><strong>技术性任务</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计60条该类型派工记录</small></a>
+								<a href="dailyTaskWorklists.html" class="list-group-item list-group-item-danger"><span class="badge">3条工单未完成</span><strong>事务性任务</strong> &nbsp;&nbsp;&nbsp;&nbsp;<small>总计50条该类型派工记录</small></a>
+							</div>-->
+							</div>
+						</div>
+						<div class="panel panel-info" id="TaskListDetails1">
+							<div class="panel-heading">
+								<div class="panel-title">我的单一任务&nbsp;<span class="badge">10</span> </div>
+							</div>
+							<div class="panel-body" id="TaskListDetailsBody1">
+								<div class="list-group" style="width: 470px;">
+									<a href="myTasks.html" class="list-group-item list-group-item-info"><span class="badge">2条工单未完成</span><strong>某某任务</strong> &nbsp;&nbsp;&nbsp;&nbsp;</a>
+									<a href="myTasks.html" class="list-group-item list-group-item-info"><span class="badge">3条工单未完成</span><strong>某某任务</strong> &nbsp;&nbsp;&nbsp;&nbsp;</a>
+									<a href="myTasks.html" class="list-group-item list-group-item-info"><span class="badge">5</span><strong>任务列表详情</strong></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-info" id="myEvaluateDetails">
+						<div class="panel-heading">
+							<div class="panel-title">我的评价 </div>
+						</div>
+						<div class="panel-body" style="position: relative;">
+							<div id="" style="width: 210px;height: 100px;background: #0099CC;position: absolute;top: 0px;">
+								<p style="font-size: 70px; text-align: center;color: #FFFFFF;">10</p>
+							</div>
+							<div id="leida" style="width: 210px;height: 150px;background: #C0C0C0;position: absolute;top: 100px;" onmouseover="mouseOver()" onmouseout="mouseOut()">
+							</div>
+
+							<div class="list-group" style="width: 210px;position: absolute;top: 250px;">
+								<a href="#" class="list-group-item list-group-item-success"><span class="badge">14</span>最新评价</a>
+								<a href="#" class="list-group-item list-group-item-info"><span class="badge">14</span>详情</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="" style="position: absolute;left: 785px;top: 40px;width: 250px;">
+					<div id="YUDateTimeContent" style="box-shadow: 0 10px 16px rgba(0,0,0,.1);">
+						<!-- 显示日期详情 -->
+						<div id="dateTimeDetail">
+							<p style="font-size:40px;margin:0 auto; height:50px;line-height: 50px;" id="clock"></p>
+							<div id="date_content">
+							</div>
+
+							<!--<div id="animal_year"></div>-->
+							<!-- 显示时钟 -->
+						</div>
+						<form name="calender_content" id="calender_content">
+							<table class="week">
+								<tbody>
+									<tr>
+										<td class="ch">
+											<!-- 日历头部 -->
+											<table>
+												<tbody>
+													<tr class="day">
+														<td>日</td>
+														<td>一</td>
+														<td>二</td>
+														<td>三</td>
+														<td>四</td>
+														<td>五</td>
+														<td>六</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<!-- 头部END -->
+
+									<!-- js动态的向表格写入日期 -->
+									<script>
+										var Num; //Num计算出日期位置
+										for(i = 0; i < 6; i++) {
+
+											document.write('<table id="cal-content"><tr>');
+
+											for(j = 0; j < 7; j++) {
+												Num = i * 7 + j;
+												document.write('<td id="SD' + Num + '" onclick="addDay(' + Num + ')" ');
+												//周六 周日 假期样式设定
+												if(j == 0 || j == 6) {
+													document.write(' class="aorange"');
+												} else {
+													document.write(' class="one"');
+												}
+												document.write('title=""> </td>')
+											}
+
+											document.write('</tr></table></td></tr><tr><td><table style="width:399;"><tr style="text-align:center"> ');
+											//农历
+											for(j = 0; j < 7; j++) {
+												Num = i * 7 + j;
+												document.write('<td id="LD' + Num + '" onclick="addDay(' + Num + ')" class="bs" title=""> </td>')
+
+											}
+											document.write('</tr></table></td></tr>');
+
+										}
+									</script>
+									<!-- 生成日期 END    -->
+							</table>
+							</td>
+							</tr>
+							</tbody>
+							</table>
+							<table>
+								<tbody>
+									<tr>
+										<td class="sm">
+											<table class="table_head">
+												<tbody>
+													<tr>
+														<td>
+															<!-- 选择年份菜单 -->
+															<div class="year_select">
+																<span onClick="BtN('year_d')"><img src="img/left.png"></span>
+																<select class="calender_select" onChange="chaCld()" name="SY">
+																	<script>
+																		for(i = 1900; i < 2050; i++)
+																			document.write('<option>' + i + "年")
+																	</script>
+																</select>
+																<span onClick="BtN('year_a')"><img src="img/right.png"></span>
+															</div>
+															<!-- 回到当天菜单 -->
+															<div class="home_select" onClick="BtN('')">
+																<img src="img/2.png" style="width:26px;height:26px">
+															</div>
+
+															<!-- 选择月份菜单 -->
+															<div style="display:inline-block;">
+																<span onClick="BtN('month_d')"><img src="img/left.png"></span>
+																<select class="calender_select" onChange="chaCld()" name="SM">
+																	<script>
+																		for(i = 1; i < 13; i++) document.write('<option>' + i + "月")
+																	</script>
+																</select>
+																<span onClick="BtN('month_a')"><img src="img/right.png"></span>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+			<!--<div class="panel panel-info" id="noticeListDetails">
+						<div class="panel-heading">
+							<div class="panel-title">我的通知&nbsp;<span class="badge">100</span> </div>
+						</div>
+						<div class="panel-body" id="noticeListDetailsBody">
+							<div class="alert alert-success alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+            				</button><strong> 成功！</strong>
+								<a href="#" class="alert-link">this important alert message</a>。
+							</div>
+							<div class="alert alert-info alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+          					</button> <strong>信息！</strong>请注意这个
+								<a href="#" class="alert-link">信息</a>。
+							</div>
+							<div class="alert alert-warning alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+           					</button> <strong>警告</strong>请注意
+								<a href="myTasks.html" class="alert-link">未完成任务</a>时间。
+							</div>
+							<div class="alert alert-danger alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+            				</button> <strong>错误！</strong>请进行一些更改。
+							</div>
+							<div class="alert alert-danger alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+            				</button> <strong>错误！</strong>请进行一些更改。
+							</div>
+							<div class="alert alert-danger alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+            				</button> <strong>错误！</strong>请进行一些更改。
+							</div>
+							<div class="alert alert-danger alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+								&times;
+            				</button> <strong>错误！</strong>请进行一些更改。
+							</div>
+						</div>
+					</div>-->
+
+			<style type="text/css">
+				.badge {
+					background: #FF6600;
+				}
+				
+				.highcharts-axis-line {
+					fill: none;
+					stroke: #ffffff;
+				}
+			</style>
+		</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				chart1 = Highcharts.chart('leida', {
+					chart: {
+						polar: true,
+						type: 'area'
+					},
+					title: {
+						text: null
+					},
+					credits: {
+						enabled: false // 禁用版权信息
+					},
+					pane: {
+						size: '82%'
+					},
+
+					xAxis: {
+						categories: ['服务', '态度', '技术', '能力',
+							'效率'
+						],
+						tickmarkPlacement: 'on',
+						lineWidth: 2,
+						minorGridLineWidth: 2,
+						lineColor: 'transparent',
+					},
+					yAxis: {
+						gridLineInterpolation: 'polygon',
+						//						alternateGridColor: '#FDFFD5',
+						alternateGridColor: '#1B6D85',
+						tickInterval: 2,
+						max: 10,
+						minorGridLineWidth: 2,
+					},
+					tooltip: {
+						shared: true,
+						pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}分</b><br/>'
+					},
+					legend: {
+						enabled: false
+					},
+					series: [{
+						name: '平均得分',
+						data: [10, 10, 10, 8, 10],
+						pointPlacement: 'on'
+					}]
+				});
+			});
+
+			function mouseOver() {
+				$('#leida').css({
+					"width": "350px",
+					"height": "250px",
+					"z-index": "100"
+				});
+				chart1.reflow(); //更新图
+			}
+
+			function mouseOut() {
+				$('#leida').css({
+					"width": "210px",
+					"height": "150px"
+				});
+				chart1.reflow();
+			}
+		</script>
+
+	</body>
+
+</html>

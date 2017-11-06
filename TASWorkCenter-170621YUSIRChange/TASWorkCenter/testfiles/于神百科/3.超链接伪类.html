@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>超链接伪类</title>
+		
+		<style>
+			a {
+				display: block;
+				float: left;
+				color: black;
+				font-family: arial;
+				font-size: 12px;
+				font-weight: bold;
+			}
+			.basic{
+				text-decoration: none;
+				display: block;
+				padding: 20px;
+				background-color: #bbbbbb;
+				color: #FFFFFF;
+			}
+			.basic:link {
+				color: blue;
+				text-decoration: overline;
+			}
+			.basic:visited {
+				color: #999999;
+				text-decoration: line-through;
+			}
+			.basic:active {
+				background-color: #4075b0;
+			}
+			.basic:hover {
+				background-color: #4075B0;
+			}
+			
+			
+			a.classic {
+				text-decoration: none;
+				background-color: #ded0c8;
+				border: 1px solid #ffffff;
+				border-right-color: #808080;
+				border-bottom-color: #808080;
+				padding: 5px;
+			}
+			a.classic:hover {
+				background-color: #eee9e0;
+			}
+			a.classic:hover {
+				background-color: #EEE9E0;
+			}
+			a.classic:active {
+				border: 1px solid #FFFFFF;
+				border-top-color: #808080;
+				border-left-color: #808080;
+				background-color: #d4d0c8;
+			}
+		</style>
+	</head>
+	<body>
+		<a class="basic" href="#">超链接A</a>
+		<a class="basic" href="http://www.baidu.com">超链接B</a>
+		
+		<br />
+		
+		<div style="clear: both; background-color: #D4D078;height: 200px;width: 400px;margin-top: 50px;">
+			<a href="#" class="classic">Classic Style</a>
+			<a href="#" class="XP">XP Style</a>
+		</div>
+		
+	</body>
+</html>

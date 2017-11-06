@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>TAS Work Center</title>
+
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/loginStyle.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+							
+		$(function() {
+			$.ajax({
+				type : "post",
+				url : "http://127.0.0.1:8080/YU/first",
+				//返回数据格式为json
+//				dataType : "te",
+				//请求成功完成后要执行的方法
+				 success:function(response,status,xhr){
+               		console.log(response);
+            	}
+			});
+		});
+	</script>	
+	</head>
+
+	<body>
+		<div class="body-content">
+			<div class="wrapper">
+				<div class="container">
+					<h1>Welcome Work Center</h1>
+					<h1>并联科技</h1>
+					<form class="form" action="myTasks.html">
+						<input type="text" placeholder="Username" required="required">
+						<input type="password" placeholder="Password" required="required">
+						<button type="submit" id="login_button">Login</button>
+					</form>
+				</div>
+
+				<ul class="bg-bubbles">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function() {
+						$("#login_button").on("click", function() {
+					location.href = "myTasks.html";
+				});
+					});
+		</script>
+	</body>
+
+</html>

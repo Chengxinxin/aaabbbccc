@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style type="text/css">
+			.course-card-container {
+				width: 224px;
+				height: 228px;
+				border-radius: 4px;
+				background-color: #fff;
+				position: relative;
+				box-shadow: 0 4px 8px 0 rgba(7, 17, 27, .1);
+				transition: .3s all linear;
+			}
+			
+			.index-card-container {
+				float: left;
+				margin-right: 20px;
+				border-radius: 4px;
+			}
+			
+			.course-card-container .course-card {
+				display: block;
+				position: relative;
+				z-index: 1;
+				border-radius: 4px;
+				overflow: hidden;
+			}
+			
+			.course-card-top {
+				height: 48px;
+				padding: 0 20px;
+				overflow: hidden;
+			}
+			
+			.cart-color.blue {
+				background: linear-gradient(270deg, rgba(75, 150, 220, .7), #4b96dc);
+			}
+			
+			.course-card-container .course-card-top i {
+				float: left;
+				font-size: 16px;
+				color: #fff;
+				line-height: 48px;
+				margin-right: 8px;
+				display: none;
+			}
+			
+			.course-card-container .course-card-top span {
+				float: left;
+				font-size: 12px;
+				font-weight: 700;
+				color: #fff;
+				line-height: 48px;
+				margin-right: 10px;
+			}
+			
+			.course-card-container .course-card-content {
+				height: 180px;
+				background-color: #fff;
+				padding: 16px 24px;
+				box-sizing: border-box;
+			}
+			
+			body .bk,
+			div {
+				background-size: cover;
+			}
+			
+			.course-card-container p {
+				font-size: 12px;
+				color: #93999f;
+				line-height: 24px;
+				margin: 8px 0;
+			}
+			
+			.course-card-container p {
+				height: 48px;
+				word-break: normal;
+				word-wrap: break-word;
+				overflow: hidden;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+			
+			.course-card-container .course-card-bk {
+				position: absolute;
+				width: 224px;
+				height: 228px;
+				z-index: 0;
+				left: 0px;
+				top: 0px;
+				border-radius: 4px;
+				overflow: hidden;
+				background-size: contain;
+				background-repeat: no-repeat;
+			}
+			.course-card-container .course-card-bk img{
+				background-position: 10px -20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="index-card-container course-card-container container ">
+
+			<a target="_blank" class="course-card" href="#" data-track="sypython-1-9">
+
+				<div class="course-card-top cart-color blue">
+					<i class="imv2-war"></i>
+					<span>Python</span>
+				</div>
+
+				<!--<div class="course-card-content">
+					<h3 class="course-card-name">python-web.py开发入门</h3>
+					<p title="web.py开发入门入门教程，讲解一个你最快能学会的web开发的框架">web.py开发入门入门教程，讲解一个你最快能学会的web开发的框架</p>
+					<div class="clearfix course-card-bottom">
+						<div class="course-card-info">
+							初级<span>·</span> 24864人在学
+						</div>
+
+					</div>
+				</div>-->
+			</a>
+			<div class="course-card-bk">
+				<img src="http://www.imooc.com/courseimg/s/cover034_s.jpg">
+			</div>
+		</div>
+	</body>
+
+</html>

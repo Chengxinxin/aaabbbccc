@@ -1,0 +1,165 @@
+#YUDateTimeContent {
+	width: 240px;
+	margin: 0 auto;
+}
+
+.YUlog {
+	text-align: center;
+	margin-left: 30px;
+}
+#calender_content {
+	/*border-left: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;*/
+	border: 1px solid #C0C0C0;
+}
+.smlb {
+	font-size: 20px;
+	color: white;
+	float: right;
+	margin-right: 13%;
+	margin-top: -54%;
+}
+
+.aorange {
+	font-weight: bold;
+	font-size: 20px;
+	color: #ff5f07;
+	width: 34px;
+}
+
+.day {
+	font-size: 18px;
+	color: #000000;
+}
+
+.day td {
+	color: #9F9E9E;
+}
+
+.one {
+	font-weight: normal;
+	font-size: 20px;
+	color: #000000;
+	width: 34px;
+}
+
+.bs {
+	font-size: 12px;
+	color: #9F9E9E;
+	width: 35px;
+}
+
+.lb {
+	font-size: 16px;
+	color: #0099ff
+}
+
+.sm {
+	font-size: 14px;
+	color: #333399
+}
+
+.smz {
+	font-weight: bold;
+	font-size: 14px;
+	color: #0099ff
+}
+
+#cal-content {
+	height: 40;
+	text-align: center;
+	background-color: "#FAFBFB";
+}
+
+.detallu {
+	width: 100%;
+	border: 0;
+	padding: 2px;
+	color: white;
+}
+
+.lnotice {
+	margin-top: 34%;
+}
+
+#dateTimeDetail {
+	margin-top: 5px;
+	text-align: center;
+	background-color: #82cdff;
+	/*#2EBEB7;*/
+}
+
+#oTime {
+	color: white;
+	text-align: center;
+	font-family:
+}
+
+.sm span {
+	color: black;
+}
+
+.thead span {
+	color: #82cdff;
+}
+
+#clock {
+	font-family: courier;
+}
+
+
+/*年份，月份切换*/
+
+.year_select {
+	display: inline-block;
+}
+
+.home_select {
+	display: inline-block;
+	margin: 0px 10px;
+}
+
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+
+select::-ms-expand {
+	display: none;
+}
+
+.ch {
+	background-color: #82cdff;
+}
+
+.day td {
+	width: 35px;
+	color: white;
+	text-align: center;
+}
+
+.calender_select {
+	margin-bottom: 5px;
+	margin-top: 5px;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	border-radius: 2px;
+	color: #8C8C8C;
+	padding-top: 6px;
+	background-color: white;
+	padding-bottom: 2px;
+}
+
+
+/*日历头部*/
+
+.table_head {
+	background-color: #82cdff;
+	width: 240px;
+	margin-left: -2px;
+	text-align: center;
+}
+
+.week {
+	border-spacing: 0;
+}

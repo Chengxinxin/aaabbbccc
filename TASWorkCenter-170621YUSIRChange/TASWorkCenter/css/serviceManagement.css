@@ -1,0 +1,19 @@
+/* ========== */
+/* = addCustomer = */
+/* ========== */
+#addCustomer {
+	margin-top: 20px;
+}
+#addCustomerTable {
+	border-radius: 5px; 
+}
+#editCustomer {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+#addQuestPart {
+	margin-top: 20px;
+}
+#treeDetailTitle {
+	margin: 10px 20px;
+}

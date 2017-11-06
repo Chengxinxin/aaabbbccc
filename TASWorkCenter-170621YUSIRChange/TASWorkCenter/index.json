@@ -1,0 +1,48 @@
+{
+	"status": 0,
+	"piecearray": [
+		{
+			"name": "2-安装邮件服务器",
+			"isDelay": true,
+			"message": "已延期",
+			"url": "submitSingleWorkandFiles.html",
+			"ps": "立即处理>>"
+		}, {
+			"name": "3-生成SSL证书导入",
+			"isDelay": true,
+			"message": "已延期",
+			"url": "submitSingleWayWork.html",
+			"ps": "立即处理>>"
+		}, {
+			"name": "8-浦发银行驻厂运维",
+			"isDelay": false,
+			"message": "未提交",
+			"url": "submitBasisWayWorkandFiles.html",
+			"ps": "请处理>>"
+		}, {
+			"name": "9-SEP例行维护",
+			"isDelay": false,
+			"message": "未提交",
+			"url": "submitBasisWayWork.html",
+			"ps": "请处理>>"
+		}, {
+			"name": "10-SEP例行维护",
+			"isDelay": false,
+			"message": "未提交",
+			"url": "submitBasisWayWorkandFiles.html",
+			"ps": "请处理>>"
+		}, {
+			"name": "11-SEP例行维护",
+			"isDelay": false,
+			"message": "未提交",
+			"url": "submitBasisWayWorkandFiles.html",
+			"ps": "请处理>>"
+		}, {
+			"name": "12-SEP例行维护",
+			"isDelay": false,
+			"message": "未提交",
+			"url": "submitBasisWayWorkandFiles.html",
+			"ps": "请处理>>"
+		}
+	]
+}

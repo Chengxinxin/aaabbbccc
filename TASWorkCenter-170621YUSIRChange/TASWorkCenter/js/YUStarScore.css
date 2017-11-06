@@ -1,0 +1,22 @@
+.rating {
+	width: 200px;
+	height: 30px;
+	margin: 0px auto;
+	display: inline-block;
+}
+
+.rating_item {
+	float: left;
+	width: 30px;
+	height: 30px;
+	background: url(../img/star_1-off.png) no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.score {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: #ffb455;
+	line-height: 30px;
+}

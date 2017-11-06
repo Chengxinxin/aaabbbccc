@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var site_url = window.location.href.toLowerCase(); //此处得到url
+				var arr = site_url.split("/");
+				var fun = arr[6];
+				fun = fun.split(".");
+				var tmpmenu = '';
+				tmpmenu = arr[5] + '_' + fun[0];
+				
+				var temp = "#" + tmpmenu;
+				console.log(temp);
+				$parent = $(temp).parent();
+				$children = $(temp).children();
+				$children.css({ 'background': '#5B6E84', 'color': '#FFF' });
+				$parent.slideToggle();
+				$parent.parent().toggleClass('open');
+			});
+			$(function() {
+				var Accordion = function(el, multiple, link) {
+					this.el = el || {};
+					this.multiple = multiple || false;
+
+					// Variables privadas
+					var links = this.el.find('.link');
+					// Evento
+					links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown);
+				}
+				Accordion.prototype.dropdown = function(e) {
+					var $el = e.data.el;
+					$this = $(this),
+						$next = $this.next();
+
+					$next.slideToggle();
+					$this.parent().toggleClass('open');
+
+					if(!e.data.multiple) {
+						$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+					};
+				}
+
+				var accordion = new Accordion($('#accordion'), false);
+			});
+		</script>
+	</head>
+
+	<body>
+		<h1>55555</h1>
+		<ul id="accordion" class="accordion">
+			<li class="licss">
+				<div class="link"><i class="fa fa-home"></i></i>藏馆台账<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a href="6.html">Photoshop</a>
+					</li>
+					<li>
+						<a href="#">HTML</a>
+					</li>
+					<li>
+						<a href="#">CSS</a>
+					</li>
+					<li>
+						<a href="#">Maquetacion web</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="fa fa fa-bar-chart-o"></i>征集管理<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li id="clueinfo_index">
+						<a class="J_menuItem" href="{:U('ClueInfo/index')}">征集线索</a>
+					</li>
+					<li id="sourceinfo_index">
+						<a class="J_menuItem" href="{:U('SourceInfo/index')}">征集来源</a>
+					</li>
+					<li id="collectinfo_index">
+						<a class="J_menuItem" id="" href="{:U('CollectInfo/index')}">征集信息</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="fa fa-envelope"></i>藏品编目<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a href="{:U('CollectionInfo/index')}">藏品登记</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="mail_detail.html">影像编目</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="mail_compose.html">藏品审核</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="mail_compose.html">总账浏览</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="mail_compose.html">藏品鉴定</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="mail_compose.html">回收站</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="fa fa-edit"></i>库房管理<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a class="J_menuItem" href="form_basic.html">藏品入库</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="form_validate.html">藏品移库</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="form_advanced.html">藏品出库</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="form_wizard.html">藏品归还</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="form_wizard.html">库房查询</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="form_wizard.html">日常维护</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="fa fa-desktop"></i> 藏品管理<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a class="J_menuItem" href="contacts.html">日常事件</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="profile.html">藏品专题</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="am-icon-th-list"></i>查询统计<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a class="J_menuItem" href="contacts.html">日常事件</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="profile.html">藏品专题</a>
+					</li>
+				</ul>
+			</li>
+			<li class="licss">
+				<div class="link"><i class="am-icon-cog"></i>系统维护<i class="fa fa-chevron-down"></i></div>
+				<ul class="submenu">
+					<li>
+						<a class="J_menuItem" href="{:U('CollectionType/index')}">类别维护</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="carousel.html">古汉字管理</a>
+					</li>
+					<li>
+						<a class="J_menuItem" href="blueimp.html">编目导入</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+
+</html>

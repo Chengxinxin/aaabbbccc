@@ -1,0 +1,573 @@
+<html>
+<head>
+<style type="text/css">
+    #container
+    {
+        font-size: 12px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        position: relative;
+        margin: 0;
+    }
+    #stationContainer
+    {
+        background-color: #E5ECFF;
+        float: left;
+        width: 150px;
+        padding-top: 30px;
+        position: relative;
+        z-index: 200;
+        border-right: 1px solid black;
+    }
+    #stationContainer .station
+    {
+        border-top: 1px solid black;
+        width: 100%;
+        float: left;
+        height: 100px;
+        z-index: 300;
+    }
+    #timeContainer
+    {
+        float: left;
+        display: inline;
+        position: absolute;
+        z-index: 100;
+        width: 900px;
+        overflow: hidden;
+    }
+    #scrollContainer
+    {
+        position: relative;
+    }
+    #timeHeader
+    {
+        height: 30px;
+        background-color: #eeeeee;
+        position: relative;
+        overflow: hidden;
+    }
+    #timeHeader .unitTime
+    {
+        width: 4px;
+        float: left;
+        border-left: 1px solid black;
+        z-index: 100;
+        height: 10px;
+        margin-top: 20px;
+        position: absolute;
+    }
+    #timeHeader .halfHour
+    {
+        margin-top: 10px;
+        height: 20px;
+    }
+    #timeHeader .hour
+    {
+        height: 30px;
+        margin-top: 0px;
+    }
+    #timeBody
+    {
+        position: relative;
+    }
+    #timeBody .horizontalStation
+    {
+        position: relative;
+        width: 100%;
+        border-top: 1px solid black;
+        height: 100px;
+        z-index: 10;
+    }
+    #footer
+    {
+        clear: both;
+        width: 100%;
+        height: 20px;
+        background-color: #808080;
+        border-bottom: 1px solid #808080;
+    }
+    #timeLine
+    {
+        left: 500px;
+        border-right: 1px solid red;
+        float: left;
+        z-index: 100;
+        background-color: Red;
+        margin-top: 30px;
+        position: absolute;
+    }
+    
+    .techinian
+    {
+        width: 100%;
+        height: 100%;
+    }
+    .techinian td
+    {
+        text-align: center;
+    }
+    .techinian .stationTd
+    {
+        width: 60px;
+        border-right: 1px solid black;
+    }
+    .car
+    {
+        height: 25%;
+        display: inline;
+        float: left;
+        width: 100px;
+        border: 1px solid #000000;
+        padding: 0px;
+        background-color: lightsteelblue;
+        text-decoration: none;
+        position: absolute;
+        outline: none;
+        margin-top: 5px;
+        top: 1px;
+        bottom: 1px;
+        font-family: 黑体;
+        color: Black;
+        font-size: large;
+    }
+    .virtual
+    {
+        border: 2px dashed #000000;
+    }
+    a.car:hover
+    {
+        cursor: pointer;
+        background-color: Fuchsia;
+        text-decoration: none;
+    }
+    .color0
+    {
+        background-color: Green;
+    }
+    .color70
+    {
+        background-color: Yellow;
+    }
+    .color100
+    {
+        background-color: Red;
+    }
+</style>
+<style type="text/css">
+    .border_bottom
+    {
+        border-bottom: 1px solid black;
+    }
+    .border_top
+    {
+        border-top: 1px solid black;
+    }
+    .border_right
+    {
+        border-right: 1px solid black;
+    }
+    .border_left
+    {
+        border-left: 1px solid black;
+    }
+    .border_none
+    {
+        border: 0 none;
+    }
+</style>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript">
+    Date.prototype.format = function (format) {
+        var o =
+    {
+        "M+": this.getMonth() + 1, //month
+        "d+": this.getDate(),    //day
+        "h+": this.getHours(),   //hour
+        "m+": this.getMinutes(), //minute
+        "s+": this.getSeconds(), //second
+        "q+": Math.floor((this.getMonth() + 3) / 3),  //quarter
+        "S": this.getMilliseconds() //millisecond
+    }
+        if (/(y+)/.test(format))
+            format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(format))
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+        return format;
+    }
+
+    
+    function MockTime(hour)
+    {
+        var now = new Date();
+        return new Date(now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate()+' '+hour+':00:00');
+    }
+
+</script>
+<script type="text/javascript">
+    var unitMinute = 5, halfHourCount = 30 / unitMinute, hourCount = 60 / unitMinute;
+    var unitCount = 24 * (60 / unitMinute);
+    var unitPx = 5; //每个格子的宽度加边框
+    var timelineInitLeft = 150;
+    var headerHeight = 30;
+    // 从服务端读取时间轴的开始和结束时间
+    //var validTime = new Date('<%=DateTime.Today.Date.Add(Xindeco.Bmw.Infrastruction.DefaultSetting.StationStartValid).ToString("yyyy/MM/dd HH:mm:ss")%>');
+    //var invalidTime = new Date('<%=DateTime.Today.Date.Add(Xindeco.Bmw.Infrastruction.DefaultSetting.StationEndInvalid).ToString("yyyy/MM/dd HH:mm:ss")%>');
+    var now = new Date();
+    //从服务端读取服务器时间，使客户端和服务器时间同步
+    var serverTime = now; //静态页面测试直接赋值为客户端时间
+    var offsetTime = now -serverTime ;
+    var validTime = MockTime(8);
+    var invalidTime= MockTime(18);
+
+    $(function () {
+        var headerWidth = $("#container").width() - $("#stationContainer").width();
+        unitPx = headerWidth / ((invalidTime - validTime) / 60000 / unitMinute);
+
+        for (var i = 0; i < unitCount; i++) {
+            var classstr = " ";
+            var hourstr = "";
+            if (i % hourCount == 0) {
+                classstr = "hour";
+                hourstr = i / hourCount;
+            }
+            else if (i % halfHourCount == 0)
+                classstr = "halfHour";
+            var unitTime = $("<div id='time_" + i + "' class='unitTime " + classstr + "'>" + hourstr + "</div>");
+            unitTime.css('left', i * unitPx);
+            $("#timeHeader").append(unitTime);
+
+        }
+        $("#scrollContainer").width(unitCount * unitPx);
+        $("#timeLine").height($("#stationContainer").height());
+        $("#timeContainer").width($("#footer").width() - timelineInitLeft);
+        ScrollToTime(validTime.getHours(), invalidTime.getMinutes());
+        SetTimeNow();
+    });
+
+    function SetTimeNow() {
+        serverTime.setTime(new Date().getTime() + offsetTime);
+        SetTimeLineByTime(serverTime.getHours(), serverTime.getMinutes());
+    }
+
+    function ScrollToTime(hour, min) {
+        var count = (hourCount * hour + Math.round(min / unitMinute));
+        $("#scrollContainer").css("left", -$("#time_" + count).position().left);
+    }
+
+
+    function SetTimeLineByTime(hour, min) {
+
+        var dateTime = new Date(serverTime.getFullYear(), serverTime.getMonth(), serverTime.getDate(), hour, min, 0);    console.log(dateTime);
+        if (dateTime < validTime || dateTime > invalidTime) {
+            $("#timeLine").hide();
+            return;
+        }
+        $("#timeLine").show();
+        var count = (hourCount * hour + Math.round(min / unitMinute));
+        $("#timeLine").css("left", $("#time_" + count).position().left + $("#scrollContainer").position().left + $("#stationContainer").width());
+    }
+
+    function SetCarPositionByTime(car, hour, min) {
+        var count = (hourCount * hour + Math.round(min / unitMinute));
+        $(car).css('left', $("#time_" + count).position().left);
+        SetHeight($(car));
+    }
+
+    function AutoScroll() {
+        try {
+            serverTime.setTime(new Date().getTime() + offsetTime);
+            SetTimeLineByTime(serverTime.getHours(), serverTime.getMinutes());
+        } catch (e) {
+        }
+    }
+
+
+</script>
+<script type="text/javascript">
+    window['selectedCar'] = '';
+    function Car(carData) {
+        var id = carData.ID;
+        var carNo = carData.CarNo;
+        var text = carData.DisplayText;
+        var stationId = carData.StationId;
+        //模拟的数据不需要做转换
+        //var startTime = ConvertJSONDateToJSDateObject(carData.StartTime);
+        //var endTime = ConvertJSONDateToJSDateObject(carData.EndTime);
+        var startTime = carData.StartTime;
+        var endTime = carData.EndTime;
+        var durationMinute = carData.TotalMinutes;
+        var isVirtual = carData.IsVirtual;
+        var title = "";
+        var colorClass = "";
+        if (carData.DisplayStartTime != null && carData.DisplayEndTime != null) {
+            title = ConvertJSONDateToJSDateObject(carData.DisplayStartTime).format("yyyy/MM/dd hh:mm") + "-" + ConvertJSONDateToJSDateObject(carData.DisplayEndTime).format("yyyy/MM/dd hh:mm");
+        }
+        if (carData.Percent != null) {
+            var color = "";
+            if (carData.Percent < 70)
+                color = 0;
+            else if (carData.Percent >= 70 && carData.Perent < 100)
+                color = 70;
+            else if (carData.Percent >= 100)
+                color = 100;
+            colorClass = "color" + color;
+        }
+        var car = $("<a id='car_" + id + "' href=\"#\" title='" + title + "' stationId='" + stationId + "' class=\"car  " + colorClass + "  " + (isVirtual ? 'virtual' : '') + "\"><div>" + text + "</div></a>");
+        car.width(unitPx * durationMinute / unitMinute);
+        car.click(function () {
+            if (carData.ReachId != null) {
+                $(".panel .dxb img").hide();
+                if (typeof ShowMsg != 'undefined') ShowMsg($("#msg"), "已选择:" + carNo);
+                window["selectedId"] = carData.ReachId;
+            }
+        });
+        Car.prototype.Show = function () {
+            $("#station_" + stationId).append(car);
+            SetCarPositionByTime(car, startTime.getHours(), startTime.getMinutes());
+        }
+    }
+
+    function SetHeight(dstCar) {
+        var cars = $("a[stationid='" + dstCar.attr("stationId") + "']");
+        for (var i = 0; i < cars.length; i++) {
+            var car = $(cars[i]);
+            if (car.attr('id') != dstCar.attr('id') && (car.position().left + car.width()) > dstCar.position().left + 2) {
+                dstCar.css('top', car.position().top + car.height() + 4);
+            }
+        }
+    }
+
+    function Station(stationId) {
+        var station = $("<div id='station_" + stationId + "' class=\"horizontalStation\"></div>");
+        station.height($(".station:first").height());
+        Station.prototype.Show = function () {
+            $("#timeBody").append(station);
+        }
+    }
+
+    function ConvertJSONDateToJSDateObject(jsondate) {
+        var date = new Date(parseInt(jsondate.replace("/Date(", "").replace(")/", ""), 10));
+        return date;
+    }
+
+    function LoadData() {
+        return MockData();
+        //从服务端读取面板上需要显示的数据,包括所在工位，开始时间结束时间,以及其他需要显示的备注信息
+        var url = '<%=ResolveClientUrl("~/Handler/AutoDispatcher.ashx") %>?groupcodes=<%=string.Join(",", groupCodes) %>&r=' ;
+        $.getJSON(url+ Math.random(), function (data) {
+            window["data"] = data;
+            var stations = $("div.station[data-key]");
+            $("#timeBody").html('');
+            for (var i = 0; i < stations.length; i++) {
+                var stationId = $(stations[i]).attr('data-key');
+                var station = new Station(stationId);
+                station.Show();
+                var carList = data[stationId];
+                if (typeof carList == 'undefined') continue;
+                for (var j = 0; j < carList.length; j++) {
+                    var startTime = new Date();
+                    var carData = carList[j];
+                    var car = new Car(carData);
+                    car.Show();
+                }
+            }
+        });
+    }
+
+    function MockData()
+    {
+        var data= {'1':[
+            {ID:1,CarNo:'闽12345',DisplayText:'维修中',StationId:1,StartTime:MockTime(9),EndTime:MockTime(13),isVirtual:false,TotalMinutes:300,Percent:80},
+            {ID:2,CarNo:'闽22345',DisplayText:'等待中',StationId:1,StartTime:MockTime(14),EndTime:MockTime(16),isVirtual:false,TotalMinutes:200,Percent:50}
+        ],'2':[
+            {ID:3,CarNo:'闽12345',DisplayText:'维修中',StationId:2,StartTime:MockTime(8),EndTime:MockTime(12),isVirtual:false,TotalMinutes:300,Percent:80},
+            {ID:4,CarNo:'闽22345',DisplayText:'等待中',StationId:2,StartTime:MockTime(13),EndTime:MockTime(14),isVirtual:false,TotalMinutes:200,Percent:50}
+        ],'3':[
+            {ID:5,CarNo:'闽12345',DisplayText:'维修中',StationId:3,StartTime:MockTime(10),EndTime:MockTime(13),isVirtual:false,TotalMinutes:300,Percent:80},
+            {ID:6,CarNo:'闽22345',DisplayText:'等待中',StationId:3,StartTime:MockTime(15),EndTime:MockTime(16),isVirtual:false,TotalMinutes:200,Percent:50}
+        ],'4':[
+            {ID:7,CarNo:'闽12345',DisplayText:'维修中',StationId:4,StartTime:MockTime(9),EndTime:MockTime(12),isVirtual:false,TotalMinutes:300,Percent:80},
+            {ID:8,CarNo:'闽22345',DisplayText:'等待中',StationId:4,StartTime:MockTime(13),EndTime:MockTime(15),isVirtual:false,TotalMinutes:200,Percent:50}
+        ]};
+        window["data"] = data;
+            var stations = $("div.station[data-key]");
+            $("#timeBody").html('');
+            for (var i = 0; i < stations.length; i++) {
+                var stationId = $(stations[i]).attr('data-key');
+                var station = new Station(stationId);
+                station.Show();
+                var carList = data[stationId];
+                if (typeof carList == 'undefined') continue;
+                for (var j = 0; j < carList.length; j++) {
+                    var carData = carList[j];
+                    var car = new Car(carData);
+                    car.Show();
+                }
+            }
+    }
+
+    function Loop() {
+        AutoScroll();
+        LoadData();//.complete(function () { setTimeout('Loop()', 20000) });
+    }
+
+    window['LoadData'] = LoadData;
+
+    $(function () {
+        Loop();
+    });
+</script>
+</head>
+<body>
+<div id="container">
+    <div id="stationContainer">
+        <div class="station" data-key='1'>
+            <table border="0" class="techinian" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan='4' class="stationTd">
+                        工位1
+                    </td>
+                    <td class='border_bottom'>
+                        技师1
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师2
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师3
+                    </td>
+                </tr>
+                <tr>
+                    <td class=''>
+                        技师4
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div class="station" data-key='2'>
+            <table border="0" class="techinian" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan='4' class="stationTd">
+                        工位2
+                    </td>
+                    <td class='border_bottom'>
+                        技师5
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师6
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师7
+                    </td>
+                </tr>
+                <tr>
+                    <td class=''>
+                        技师8
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div class="station" data-key='3'>
+            <table border="0" class="techinian" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan='4' class="stationTd">
+                        工位3
+                    </td>
+                    <td class='border_bottom'>
+                        技师9
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师10
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师11
+                    </td>
+                </tr>
+                <tr>
+                    <td class=''>
+                        技师12
+                    </td>
+                </tr>
+            </table>
+        </div>
+         <div class="station" data-key='4'>
+            <table border="0" class="techinian" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan='4' class="stationTd">
+                        工位4
+                    </td>
+                    <td class='border_bottom'>
+                        技师13
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师14
+                    </td>
+                </tr>
+                <tr>
+                    <td class='border_bottom'>
+                        技师3
+                    </td>
+                </tr>
+                <tr>
+                    <td class=''>
+                        技师15
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="timeContainer">
+        <div id="scrollContainer">
+            <div id="timeHeader">
+                 <div class="unitTime">
+                    <!--1111111111111111111-->
+                </div>
+            </div>
+            <div id="timeBody">
+                <div class="horizontalStation">
+                    <a href="#" class="car">
+                        <div>
+                            车辆1
+                        </div>
+                    </a><a href="#" class="car">
+                        <div>
+                            车辆1
+                        </div>
+                    </a><a href="#" class="car">
+                        <div>
+                            车辆1
+                        </div>
+                    </a><a href="#" class="car">
+                        <div>
+                            车辆1
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeLine">
+    </div>
+    <div style="clear: both;">
+    </div>
+</div>
+<div id="footer">
+</div>
+</body>
+</html>

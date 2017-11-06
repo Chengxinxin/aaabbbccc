@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>TAS Work Center</title>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="js/menu.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<!--表格cssjs-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-table.css" />
+		<script src="js/bootstrap-table.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap-table-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/tableStyle.css" />
+		<!--多选插件-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-select.min.css" />
+		<script src="js/bootstrap-select.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/projectStyle.css" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="header_logo">
+				<div class="logo">
+					<img src="img/logo.png" />
+				</div>
+				<div class="title">
+					<h1>并联科技个人工作中心</h1>
+				</div>
+			</div>
+			<div class="userInfo">
+				<h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名:</h4>
+				<p>Neo</p>
+				<h4><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 部门:</h4>
+				<p>开发部</p>
+				<h4><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> 职位:</h4>
+				<p>前端工程师</p>
+				<a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> 个人中心</a>
+				<a href="login.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 注销</a>
+			</div>
+		</div>
+		<div class="mainContent">
+			<div class="leftNav">
+				<!-- Contenedor -->
+				<ul id="accordion" class="accordion">
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-tasks"></i>个人中心 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<a href="index.html">我的主页</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+								<a href="myTasks.html">我的任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<a href="mySettings.html">我的设置</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 工作任务 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+								<a href="createNewWorkGate.html">创建新工作</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<a href="reviewTask.html">考核审批</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+								<a href="arrangedWork.html">待安排工作</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-folder-close"></i>合约管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+								<a href="myContractManagement.html">我的合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+								<a href="createContractManagement.html">新建合约</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								<a href="contractManagement.html">服务合约</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-link"></i>服务管理 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+								<a href="serviceManagementCustomerCenter.html">客户服务中心</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+								<a href="ServiceManagerServiceStandards.html">服务标准管理</a>
+							</li>
+						</ul>
+					</li>
+					<!--<li>
+						<div class="link"><i class="glyphicon glyphicon-fire"></i>评价 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+								<a href="evaluatedTask.html">待评价任务</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								<a href="ViewJobEvaluation.html">任务工作评价</a>
+							</li>
+						</ul>
+					</li>-->
+					<li>
+						<div class="link"><i class="glyphicon glyphicon-leaf"></i>统计 <i class="glyphicon glyphicon-menu-down"></i></div>
+						<ul class="submenu">
+							<li>
+								<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+								<a href="taskWorkStatistics.html">工作任务统计</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+								<a href="memberStatistics.html">员工管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p id="time"></p>
+			</div>
+			<div class="rightContent">
+				<!--面包屑-->
+				<ol class="breadcrumb">
+					<li>
+						<a href="#">工作任务</a>
+					</li>
+					<li class="active">待安排工作表 </li>
+				</ol>
+				<div class="row" style="width: 100%;">
+					<div class="col-md-6 pull-left">
+						<label for="arrangedEndTime" class="control-label">请选择待安排工作列表查询截止时间：</label>
+						<input class="form-control" id="arrangedEndTime" type="date" name="arrangedEndTime" />
+						<button type="button" class="btn btn-info" id="arrangedSearch"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> 查询</button>
+
+					</div>
+					<div class="pull-right">
+						<button type="button" class="btn btn-info btn-sm" id="createArrangedWork"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新建指定工作入池</button>
+					</div>
+				</div>
+				<div id="arrangedWorkTableDiv">
+					<table id="arrangedWorkTable"></table>
+					<div class="row col-md-12" style="margin-top: 3px; padding-bottom: 5px;">
+						<button type="button" class="btn btn-primary btn-sm col-md-2 col-md-offset-3" id="come"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> 添加</button>
+						<button type="button" class="btn btn-default btn-sm col-md-2 col-md-offset-2" id="back"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> 撤回</button>
+					</div>
+
+					<table id="selectTable" data-toggle="table" data-height="150" data-click-to-select="true" data-row-style="rowStyleSet">
+						<thead>
+							<tr>
+								<!--<th data-field="state" data-radio="true"></th>-->
+
+								<th data-field="state" data-checkbox="true"></th>
+								<th data-field="workname" data-width="40%" data-formatter="taskNameSelectFormatter">工作名称</th>
+								<th data-field="workCustomer">用户</th>
+								<th data-field="workPeriodTime">合约起止时间</th>
+								<th data-field="workrate" data-formatter="displaycolor">工作频率</th>
+								<th data-field="preference" data-formatter="preferenceFormatter">偏好</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="row col-md-12" style="padding: 5px;">
+						<button type="button" class="btn btn-primary btn-sm col-md-2 col-md-offset-5" id="dispachWork"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> 新建派工</button>
+
+						<div id="dispachWorkTip" style="vertical-align: bottom;line-height: 40px;">
+							&nbsp;<small>(请填写并保存操作池中的工单，选中可发送派工单)</small>
+						</div>
+					</div>
+					<div class="partingLine" style="clear: both;"></div>
+				</div>
+<!--新建入池代码，最下方的div//Todo-->				
+				<div class="createArrangedNewWorkDiv" style="display: none;">
+					<div style="height: 5px;background: #007FFF;margin-top: 20px;"></div>
+					<div style="height: 3px;background: #D5D5D5; margin-bottom: 25px;"></div>
+					<div class="createNewWork container-fluid">
+						<!--名字-->
+						<div class="row">
+							<div class="work_title col-md-9 col-md-offset-1">
+								<h1>创建新的待安排工作入池</h1>
+							</div>
+							<!--取消按钮-->
+							<div class="col-sm-2" style="text-align: right;">
+								<button class="btn btn-danger" type="submit" id="create_cancel">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 取消</button>
+							</div>
+						</div>
+						<div class="partingLine" style="margin-top: 10px;"></div>
+
+						<form id="create_arrangedWorkForm" action="" method="get">
+							<div class="form-group col-md-12">
+								<div class="row col-md-10">
+									<label for="workOfTask">隶属合约：</label>
+									<select id="workOfTask" name="workOfTask" class="selectpicker show-tick form-control" multiple title="请选择" data-actions-box="true" data-width="600px" data-live-search="true">
+										<option value="1">合约1</option>
+										<option value="2">合约2</option>
+										<option value="3">合约3</option>
+										<option value="4">合约4</option>
+									</select>
+								</div>
+							</div>
+							<!--第一行-->
+							<div class="form-group col-md-12">
+								<label for="createWorkTitle">工作名称：</label>
+								<input type="text" class="form-control" name="createWorkTitle" id="createWorkTitle" value="" />
+							</div>
+
+							<!--第二行-->
+							<div class="form-group col-md-12">
+								<div class="row">
+									<div class="col-md-5 div_userCustomer">
+										<label for="arranged_userCustomer" style="padding-left: 27px;">用户：</label>
+										<select id="arranged_userCustomer" name="arranged_userCustomer" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="75%" data-live-search="true">
+											<option value="0">用户1</option>
+											<option value="1">用户2</option>
+											<option value="2">用户3</option>
+											<option value="3">用户4</option>
+											<option value="4">用户5</option>
+											<option value="5">用户6</option>
+											<option value="6">用户7</option>
+										</select>
+									</div>
+									<div class="col-md-5 div_userScene">
+										<label for="arranged_userScene">用户现场：</label>
+										<select id="arranged_userScene" name="arranged_userScene" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="75%" data-live-search="true">
+											<option value="0">现场1</option>
+											<option value="1">现场2</option>
+											<option value="2">现场3</option>
+											<option value="3">现场4</option>
+											<option value="4">现场5</option>
+											<option value="5">现场6</option>
+											<option value="6">现场7</option>
+											<option value="7">现场8</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!--第三行-->
+							<div class="form-group col-md-12">
+								<div class="row">
+									<div class="col-md-5 div_productSever">
+										<label for="arranged_productSever">服务产品：</label>
+										<select id="arranged_productSever" name="arranged_productSever" class="selectpicker show-tick form-control" multiple title="请选择" data-actions-box="true" data-width="75%" data-live-search="true">
+											<option value="0">产品1</option>
+											<option value="1">产品2</option>
+											<option value="2">产品3</option>
+											<option value="3">产品4</option>
+											<option value="4">产品5</option>
+											<option value="5">产品6</option>
+											<option value="6">产品7</option>
+											<option value="7">产品8</option>
+										</select>
+									</div>
+									<div class="col-md-5 div_frequencyType">
+										<label for="arranged_frequency">频率情况：</label>
+										<select name="arranged_frequency" id="arranged_frequency" class="form-control">
+											<option value="0" class="gray">请选择</option>
+											<option value="1">每周3次</option>
+											<option value="2">每周2次</option>
+											<option value="3">每周1次</option>
+											<option value="4">一月2次</option>
+											<option value="5">一月1次</option>
+											<option value="6">两月1次</option>
+											<option value="7">三月1次</option>
+											<option value="8">六月1次</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<!--第三行-->
+							<div class="form-group col-md-12">
+								<div class="row">
+									<div class="col-md-5">
+										<label for="arranged_createStartTime ">开始时间：</label>
+										<input class="form-control" id="arranged_createStartTime" type="date" name="arranged_createStartTime" />
+									</div>
+									<div class="col-md-5">
+										<label for="arranged_createEndTime ">结束时间：</label>
+										<input class="form-control" id="arranged_createEndTime" type="date" name="arranged_createEndTime" />
+									</div>
+								</div>
+							</div>
+							<!--第三行-->
+							<div class="form-group col-md-12">
+								<div class="row col-md-12" style="height: 50px;">
+									<label for="arranged_prefer" style="padding: 0px 3px 30px 27px;line-height: 20px; display: inline-block;float: left;">偏好：</label>
+									<textarea class="form-control" name="arranged_prefer" id="arranged_prefer" rows="2" cols="100"></textarea>
+								</div>
+							</div>
+							<div class="form-group col-md-12">
+								<div class="partingLine"></div>
+								<div class="row col-md-12">
+									<input id="createArrangedWork_submit_btn" class="btn btn-primary col-md-2 col-md-offset-5 " type="submit" value="提 交" />
+								</div>
+							</div>
+						</form>
+
+					</div>
+					<div style="height: 5px;background: #007FFF;margin-top: 20px;"></div>
+					<div style="height: 3px;background: #D5D5D5; margin-bottom: 210px;"></div>
+				</div>
+
+			</div>
+			<!--rightContent-->
+		</div>
+		<!--mainContent-->
+		<script type="text/javascript">
+			var $table = $('#arrangedWorkTable');
+			var $selectTable = $('#selectTable');
+			$('#arrangedWorkTable').bootstrapTable({
+				cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+				pageList: [5, 10, 25, 50], //可供选择的每页的行数（*）
+				search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+				searchAlign: 'left',
+				pagination: true, //是否显示分页（*）
+				sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+				pageNumber: 1, //初始化加载第一页，默认第一页
+				pageSize: 5, //每页的记录行数（*）
+				paginationPreText: '上一页',
+				paginationNextText: '下一页',
+				uniqueId: "workid", //每一行的唯一标识，一般为主键列
+				clickToSelect: true, //是否启用点击选中行
+				//				showToggle: true, //是否显示详细视图和列表视图的切换按钮
+				//				cardView: false, //是否显示详细视图
+				showColumns: true, //是否显示所有的列
+				showRefresh: true, //是否显示刷新按钮
+				minimumCountColumns: 2, //最少允许的列数
+				//				height: 300, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+				rowStyle: function(row, index) {
+					//这里有5个取值代表5中颜色['active', 'success', 'info', 'warning', 'danger'];
+					var strClass = "";
+					if(row.isDelay == 1) {
+						strClass = 'danger'; //还有一个active
+					} else {
+						strClass = 'default';
+					} 
+					return { classes: strClass };
+				},
+				columns: [{
+						checkbox: true
+					},
+					//				{
+					//						field: 'workid',
+					//						title: '工作ID',
+					//						align: 'center',
+					//						valign: 'middle',
+					//						sortable: true,
+					//					},
+					{
+						field: 'workname',
+						title: '工作名称',
+						align: 'center',
+						valign: 'middle',
+						width: '40%',
+						formatter: 'taskNameFormatter'
+					}, {
+						field: 'workCustomer',
+						title: '用户',
+						align: 'center',
+						valign: 'middle',
+						sortable: true,
+					},
+					//					{
+					//						field: 'workplace',
+					//						title: '用户现场',
+					//						align: 'center',
+					//						valign: 'middle'
+					//					},{
+					//						field: 'production',
+					//						title: '产品',
+					//						align: 'center',
+					//						valign: 'middle',
+					//						sortable: true,
+					//						formatter: 'productionFormatter'
+					//					},
+					{
+						field: 'workPeriodTime',
+						title: '合约起止时间',
+						align: 'center',
+						valign: 'middle',
+					}, {
+						field: 'workrate',
+						title: '工作频率',
+						align: 'center',
+						valign: 'middle',
+						sortable: true,
+						formatter: 'displaycolor'
+					}, {
+						field: 'preference',
+						title: '偏好',
+						align: 'center',
+						valign: 'middle',
+						formatter: 'preferenceFormatter'
+					}
+				],
+				data: [{
+					workid: 1,
+					workname: 'SEP例行维护',
+					workCustomer: '延锋汽车饰件系统有限公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月一次',
+					preference: '星期一星期二下午两点以后',
+					isDelay: 1,//判断是否延期来设置该行样式 ， 1代表延期 0 代表 正常
+				}, {
+					workid: 2,
+					workname: 'SEP例行维护',
+					workCustomer: '延锋汽车饰件系统有限公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月一次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 3,
+					workname: 'SEP例行维护',
+					workCustomer: '延锋汽车饰件系统有限公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月一次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 4,
+					workname: '架构调整事宜',
+					workCustomer: '上海汽车集团股份有限公司乘用车分公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月两次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 5,
+					workname: 'EV交流',
+					workCustomer: '上海汽车集团股份有限公司乘用车分公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月一次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 6,
+					workname: '紧急应对勒索病毒，为用户更新病毒定义',
+					workCustomer: '延锋汽车饰件系统有限公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '两月一次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 7,
+					workname: '紧急应对勒索病毒，为用户更新病毒定义',
+					workCustomer: '延锋汽车饰件系统有限公司',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一周一次',
+					preference: '星期一星期二下午两点以后',
+				}, {
+					workid: 8,
+					workname: '例行维护',
+					workCustomer: '上海银行',
+					workPeriodTime: '2017/01/01-2018/01/01',
+					workrate: '一月一次',
+					preference: '星期一星期二下午两点以后',
+				}],
+
+			});
+
+			$('.search input').attr("placeholder", "快速模糊搜索工作池内容");
+
+			function rowStyleSet(row, index) {
+				//这里有5个取值代表5中颜色['active', 'success', 'info', 'warning', 'danger'];
+				var strClass = "info";
+				//				if(row.workrate == "一月一次") {
+				//					strClass = 'info'; //还有一个active
+				//				} else if(row.workrate == "一月四次") {
+				//					strClass = 'danger';
+				//				} else if(row.workrate == "一月两次") {
+				//					strClass = 'warning';
+				//				} else if(row.workrate == "两月一次") {
+				//					strClass = 'success';
+				//				} else {
+				//					return {};
+				//				}
+				return {
+					classes: strClass
+				}
+			}
+
+			function displaycolor(value, row, index) {
+				var a = '<span class="text-info">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				if(value == "一月四次") {
+				//					var a = '<span class="text-danger">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				} else if(value == "一月两次") {
+				//					var a = '<span class="text-warning">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				} else if(value == "一月一次") {
+				//					var a = '<span class="text-primary">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				} else if(value == "二月一次") {
+				//					var a = '<span class="text-success">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				} else {
+				//					var a = '<span class="text-info">' + value + '<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>' + '</span>';
+				//				}
+				return a;
+			}
+			//任务主题
+			function taskNameFormatter(value, row, index) {
+				var nameString = "";
+				if(value.length > 25) {
+					nameString = value.substring(0, 25) + '...';
+				} else {
+					nameString = value;
+				}
+				return [
+					'<a href="#" data-toggle="tooltip" title=' + value + '>' + nameString + '</a>',
+				].join('');
+			}
+			//Selecttable任务主题
+			function taskNameSelectFormatter(value, row, index) {
+				var nameString = "";
+				if(value.length > 20) {
+					nameString = value.substring(0, 20) + '...';
+				} else {
+					nameString = value;
+				}
+				return [
+					'<a href="#" onclick="writeWork()" data-toggle="tooltip" title=' + value + '>' + nameString + '</a>',
+				].join('');
+			}
+			//偏好主题
+			function preferenceFormatter(value, row, index) {
+
+				return [
+					'<a href="#" data-toggle="tooltip" title=' + value + '><i class="glyphicon glyphicon-comment"></i> </a>',
+				].join('');
+			}
+			//产品
+			function productionFormatter(value, row, index) {
+				var nameString = "";
+				if(value.length > 15) {
+					nameString = value.substring(0, 15) + '...';
+				} else {
+					nameString = value;
+				}
+				return [
+					'<a href="#" data-toggle="tooltip" title=' + value + '>' + nameString + '</a>',
+				].join('');
+			}
+			//新建按钮
+			function buttonFormatter(value, row, index) {
+				return [
+					'<button  class="createArranged btn btn-primary btn-xs"><i class="glyphicon glyphicon-file"></i> 新建</button>',
+					//					'<button  class="remove btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i> 删除</button>'
+
+				].join(' '); //空格
+			}
+
+			function writeWork() {
+				$('#myModal_writeWork').modal('show');
+			}
+			$(document).ready(function() {
+				$("#create_cancel").on("click", function() {
+					$('.createArrangedNewWorkDiv').hide();
+				});
+
+				$('#workOfTask').selectpicker({ //隶属任务
+					'selectedText': 'cat'
+				});
+				$('#requester').selectpicker({ //隶属任务
+					'selectedText': 'cat'
+				});
+				$('#serviceType').selectpicker({ //服务类型
+					'selectedText': 'cat'
+				});
+				$('#productSever').selectpicker({ //服务产品
+					'selectedText': 'cat'
+				});
+				$('#userScene').selectpicker({ //用户现场
+					'selectedText': 'cat'
+				});
+				$('#userCustomer').selectpicker({ //用户
+					'selectedText': 'cat'
+				});
+				$('#arranged_productSever').selectpicker({ //服务产品
+					'selectedText': 'cat'
+				});
+				$('#arranged_userScene').selectpicker({ //用户现场
+					'selectedText': 'cat'
+				});
+				$('#arranged_userCustomer').selectpicker({ //用户
+					'selectedText': 'cat'
+				});
+
+				$('#createArrangedWork').on('click', function() {
+					$('.createArrangedNewWorkDiv').show();
+					//					jquery让页面滚动到底部
+					var h = $(document).height() - $(window).height();
+					$(document).scrollTop(h);
+				});
+				//添加待安排工作
+				$('#come').on('click', function() {
+					var selectArray = $table.bootstrapTable('getSelections');
+					console.log(selectArray);
+					if(selectArray.length == 0) {
+						return;
+					}
+					var ids = $.map($table.bootstrapTable('getSelections'), function(row) {
+						return row.workid;
+					});
+					$table.bootstrapTable('remove', {
+						field: 'workid',
+						values: ids
+					});
+					$selectTable.bootstrapTable('prepend', selectArray);
+				});
+				//撤回工作
+				$('#back').on('click', function() {
+					var selectArray = $selectTable.bootstrapTable('getSelections');
+					console.log(selectArray);
+					var ids = $.map($selectTable.bootstrapTable('getSelections'), function(row) {
+						return row.workid;
+					});
+					$selectTable.bootstrapTable('remove', {
+						field: 'workid',
+						values: ids
+					});
+					$table.bootstrapTable('prepend', selectArray);
+					$(".no-records-found>td").html("从待安排工作中添加工作到池中进行操作");
+				});
+				$(".no-records-found>td").html("从待安排工作中添加工作到池中进行操作");
+			});
+		</script>
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal_writeWork" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel" style="text-align: center;margin-left: 400px;">创建派工单</h4>
+					</div>
+					<div class="modal-body" style="overflow:auto;background: url(img/backgroud_form3.png) no-repeat;background-size: cover;">
+						<!--名字-->
+						<form id="wirteWorkForm" action="" method="get">
+							<!--第一行-->
+							<!--<div class="form-group col-md-12">
+								<div class="row col-md-10">
+									<label for="workOfTask_write">隶属任务：</label>
+									<input type="text" class="form-control" name="workOfTask_write" id="workOfTask_write" style="width: 600px;" value="" />
+								</div>
+							</div>-->
+							<style type="text/css">
+								#createWorkTitle,#requester,#productSever,#userCustomerLabel,#userSceneLabel,#createTaskDescription,#levelType,#sendTo,#sendToCheck,#createEndTime,#createStartDate,
+								#createTime{
+									background-color: transparent!important;
+								}
+								.form-control {
+									background: transparent;
+								}
+							</style>
+							<!--第二行-->
+							<div class="form-group col-md-12">
+								<label for="createWorkTitle">工作名称：</label>
+								<input type="text" class="form-control" name="createWorkTitle" id="createWorkTitle" value="" />
+							</div>
+							<!--第三行-->
+							<div class="form-group col-md-12">
+								<div class="row">
+									<div class="col-md-5 requester1">
+										<label for="requester" style="margin-left: 14px;">请求方：</label>
+										<select id="requester" name="requester" class="selectpicker show-tick form-control" title="请选择" data-actions-box="true" data-width="300px" data-live-search="true" data-style="background: transparent!improtant;">
+											<option value="0">请求方1</option>
+											<option value="1">请求方2</option>
+											<option value="2">请求方3</option>
+											<option value="3">请求方4</option>
+											<option value="4">请求方5</option>
+											<option value="5">请求方6</option>
+											<option value="6">请求方7</option>
+											<option value="7">请求方8</option>
+										</select>
+									</div>
+									<div class="col-md-5 div_productSever">
+										<label for="productSever">服务产品：</label>
+										<select id="productSever" name="productSever" class="selectpicker show-tick form-control" multiple title="请选择" data-actions-box="true" data-width="300px" data-live-search="true" data-style="background: transparent!improtant;">
+											<option value="0">产品1</option>
+											<option value="1">产品2</option>
+											<option value="2">产品3</option>
+											<option value="3">产品4</option>
+											<option value="4">产品5</option>
+											<option value="5">产品6</option>
+											<option value="6">产品7</option>
+											<option value="7">产品8</option>
+										</select>
+									</div>
+									<div class="col-md-5 div_userCustomer">
+										<label>服务用户：</label>
+										<label class="form-control" id="userCustomerLabel">用户1</label>
+									</div>
+									<div class="col-md-5 div_userScene">
+										<label for="userScene">用户现场：</label>
+										<label class="form-control" id="userSceneLabel">现场1</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group col-md-12">
+								<label for="createTaskDescription">工作描述：</label>
+								<textarea  class="form-control" id="createTaskDescription" rows="5" cols="200" placeholder="请输入具体工作内容..."></textarea>
+							</div>
+
+							<div class="form-group col-md-12">
+								<div class="partingLine"></div>
+								<div class="row">
+									<div class="col-sm-3">
+										<label for="levelType">优先级：</label>
+										<select name="levelType" id="levelType" class="form-control" >
+											<option value="0" style="color: gray;">选择</option>
+											<option value="1" style="color: red;font-weight: 700;">紧急</option>
+											<option value="2" style="color: orangered;font-weight: 700;">优先</option>
+											<option value="3" style="color: blue;font-weight: 700;">普通</option>
+											<option value="4" style="color: green;font-weight: 700;">日常</option>
+										</select>
+									</div>
+									<div class="col-sm-3">
+										<label for="sendTo ">指派给：</label>
+										<select name="sendTo" id="sendTo" class="form-control" style="width: 90px;">
+											<option value="于桂成" selected>于桂成</option>
+											<option value="何志文">何志文</option>
+											<option value="周平川">周平川</option>
+											<option value="朱慧泽">朱慧泽</option>
+											<option value="徐春财">徐春财</option>
+											<option value="宋建平">宋建平</option>
+											<option value="张 璟">张璟</option>
+											<option value="彭 鹏">彭鹏</option>
+											<option value="洪坤宇">洪坤宇</option>
+											<option value="刘海运">刘海运</option>
+											<option value="吴天浩">吴天浩</option>
+											<option value="程鑫鑫">程鑫鑫</option>
+											<option value="董浩伟">董浩伟</option>
+											<option value="胡心波">胡心波</option>
+											<option value="王焱">王焱</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="createStartDate ">开始日期：</label>
+										<input class="form-control" id="createStartDate" type="date" name="createStartDate" style="width: 160px; display: inline-block;" />
+										<label for="createTime ">时间：</label>
+										<input class="form-control" id="createTime" type="time" name="createTime" style="width: 100px;display: inline-block;" />
+									</div>
+									<script type="text/javascript">
+										//先设置日期跟时间
+										var now = new Date();
+										//格式化日，如果小于9，前面补0
+										var day = ("0" + now.getDate()).slice(-2);
+										//格式化月，如果小于9，前面补0
+										var month = ("0" + (now.getMonth() + 1)).slice(-2);
+//										var hour = ("0" + now.getHours()).slice(-2);
+										var hour = "09";
+										var min = "00";
+										//拼装完整日期格式
+										// document.getElementById("myLocalDate").value = "2014-01-02T01:02:13.510";
+										var today = now.getFullYear()+"-"+(month)+"-"+(day);
+										var time = (hour)+":"+(min) ;
+
+										//完成赋值
+										$('#createStartDate').val(today);
+										$('#createTime').val(time);
+									</script>
+								</div>
+							</div>
+							<div class="form-group col-md-12">	
+								<div class="row">
+									<!--<div class="col-sm-4">
+										<label for="createStartDate ">开始日期：</label>
+										<input class="form-control" id="createStartDate" type="date" name="createStartDate" style="width: 160px; display: inline-block;" />
+									</div>
+									<div class="col-sm-4">
+										<label for="createTime ">时间：</label>
+										<input class="form-control" id="createTime" type="time" name="createTime" style="width: 100px;display: inline-block;" />
+									</div>-->
+									
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-warning" id="confirm_button">保存</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+	</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="js/bootstrap.min.css" />
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.label_better.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				//				var perferenceArray = []; //存储选择的标签数组
+				//				$("#addSign").click(function() {
+				//					$('.add_list').toggle();
+				//				});
+				//				$(document).on("click", function(e) {
+				//					var target = $(e.target);
+				//					if(target.closest(".add_list,#addSign").length == 0) {
+				//						$(".add_list").hide();
+				//					};
+				//					e.stopPropagation();
+				//				});
+				//
+				//				$('.add_list li').click(function() {
+				//					var num = $('#signContent').children('span').length;
+				//					if(num < 5) {
+				//						var id = $(this).index();
+				//						var name = $(this).html();
+				//						var con = $('#signContent').html();
+				//						//当前文档去indexof是否存在不存在返回-1，！=-1表示已存在，return 不添加
+				//						if((con.indexOf('<span class="list_active" title="取消" name="tag[]" id="' + id + '">' + name + '</span>')) != -1) {
+				//							return;
+				//						} else {
+				//							$('#signContent').append('<span class="list_active" title="取消" name="tag[]" id="' + id + '">' + name + '</span>');
+				//							perferenceArray.push(name);
+				//						}
+				//					} else {
+				//						alert('您最多添加5个标签')
+				//					}
+				//				})
+				//
+				//				$(document).on("click", "#signContent span", function() {
+				//					var id = $(this).attr('id');
+				//					$('#signContent span[id=' + id + ']').remove();
+				//				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<style type="text/css">
+			.addSignSpan {
+				width: 500px;
+			}
+			
+			.addSignSpan .signContent {
+				display: inline-block;
+			}
+			
+			.addSignSpan .signContent .list_active {
+				display: inline-block;
+				margin: 0px 5px;
+				padding: 0px 10px;
+				border-radius: 4px;
+				border: 1px solid #CCC;
+				color: #333;
+			}
+			
+			.addSignSpan .signContent .list_active:hover {
+				cursor: pointer;
+				background-color: #ccc;
+			}
+			
+			.addSignSpan .add_list_btn {
+				display: inline-block;
+				padding: 0px 10px;
+				border-radius: 4px;
+				/*border: 1px solid #333;*/
+				background-color: #ccc;
+			}
+			
+			.addSignSpan .add_list_btn span {
+				color: white;
+			}
+			
+			.add_list {
+				display: none;
+				width: 200px;
+				padding: 5px;
+				margin: 5px 0;
+				border: 1px solid #CCC;
+				position: absolute;
+				top: 20px;
+				left: 70px;
+				background-color: white;z-index:2;
+			}
+			
+			.add_list li {
+				margin: 2px 5px;
+				padding: 0px 10px;
+				border-radius: 4px;
+				border: 1px dashed #CCC;
+				color: #333;
+			}
+			
+			.add_list li:hover {
+				cursor: pointer;
+				border: 1px dashed #CCC;
+				background-color: #ccc;
+			}
+		</style>
+		<div class="SignSpan" id="SignSpan1">
+
+		</div>
+		<div class="SignSpan" id="SignSpan2">
+
+		</div>
+		<table style="TABLE-LAYOUT: fixed" border="1" cellspacing="0" cellpadding="0" width="200">  
+		    <tbody>  
+		        <tr>  
+		            <td style="WORD-WRAP: break-word" width="100">sssssssssssssssssssssssssssssssssssssssssssssss </td>  
+		            <td>aaaaa</td>  
+		        </tr>  
+		        <tr>  
+		            <td style="WORD-WRAP: break-word" width="100">sssssssssssssssssssssssssssssssssssssssssssssss </td>  
+		            <td>aaaaa</td>  
+		        </tr>  
+		    </tbody>  
+		</table>  
+		<div id="">
+			 <form class="lb_form">
+	          <input type="text"  class="label_better" data-new-placeholder="Username" placeholder="Username" >
+	          <input type="email"  class="label_better" data-new-placeholder="Email Address" placeholder="Email Address">
+	          <input type="password" value="abcdefg"  class="label_better" data-new-placeholder="Password" placeholder="Password">
+	          <input type="password" value="abcdefg" class="label_better" data-new-placeholder="Shhh.." placeholder="Confirm Password">
+	        </form>
+		</div>
+		<style>
+  
+   
+
+    
+    
+    
+
+    .lb_form {
+      margin: 150px 0;
+    }
+    
+    .lb_form input {
+      padding-top: 5px;
+      background: rgba(155,155,155,0.10);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border: none;
+      color: #333;
+      padding: 3px 10px;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+
+    .lb_wrap .lb_label.top, .lb_wrap .lb_label.bottom {
+      left: 15px !important;
+    }
+
+    .lb_wrap .lb_label.left {
+      left: 0;
+    }
+
+    .lb_label {
+      font-weight: bold;
+      color: #999;
+    }
+
+    .lb_label.active {
+      color: #333;
+    }
+    
+	</style>
+		<script>
+		  $(document).ready( function() {
+		    $(".label_better").label_better({
+		      easing: "bounce"
+		    });
+		  });
+		
+		</script>
+		<!--<div class="add_list  activitySign">
+			<li>会议</li>
+			<li>展览</li>
+			<li>论坛</li>
+			<li>课程</li>
+			<li>讲座</li>
+			<li>沙龙</li>
+			<li>沙龙</li>
+		</div>
+		<div class="addSignSpan">
+			<label for="signContent">添加偏好：</label>
+			<div class="signContent"></div>
+			<div class="add_list_btn">
+				<span class="glyphicon glyphicon-plus" id="addSign" aria-hidden="true"></span>
+			</div>
+		</div>-->
+
+		<div id="div1">
+
+		</div>
+
+		<script type="text/javascript">
+			var SignSpan = (function() {
+				//选择的标签
+				var Sign = function(el, options) {
+					this.$el = $(el);
+					this.opts = $.extend({}, Sign.defaults, options);
+					this.seldata=[];
+				};
+				Sign.defaults = {
+					maxnumber:5,
+					data: ['会议', '展览', '论坛', '课程', '讲座', '沙龙'],
+					selectdata: [],
+					selected: function() {}
+				};
+
+				Sign.prototype.init = function() {
+					this.buildHTML();
+					//					this.setCSS();
+					this.bindEvent();
+				};
+				Sign.prototype.buildHTML = function() {
+					var html = '';
+					html += '<div class="addSignSpan"><label for="signContent">添加偏好：</label><div class="signContent"></div><div class="add_list_btn"><span class="glyphicon glyphicon-plus" id="addSign" aria-hidden="true"></span></div></div>';
+
+					html += '<div class="add_list  activitySign">';
+					for(var j = 0; j < this.opts.data.length; j++) {
+						html += '<li>' + this.opts.data[j] + '</li>'
+					}
+					html += '</div>';
+					this.$el.html(html);
+				};
+				Sign.prototype.bindEvent = function() {
+					var self = this;
+					var selfId = this.$el.attr("id");
+					//点击显示
+					self.$el.css("position","relative");
+					self.$el.find('.add_list_btn').on('click', function() {
+						self.$el.find('.add_list').toggle();
+					});
+					//全局委托点击取消
+					$(document).on("click", function(e) {
+						var target = $(e.target);
+						if(target.closest(".add_list,.add_list_btn").length == 0) {
+							$(".add_list").hide();
+						};
+						e.stopPropagation();
+					});
+					//点击选择添加到signContent
+					self.$el.find('.add_list li').click(function() {
+						var num = self.$el.find('.signContent').children('span').length;
+						if(num < self.opts.maxnumber) {
+							var id = self.$el.attr("id") +'_' + $(this).index();
+							var name = $(this).html();
+							var con = self.$el.find('.signContent').html();
+							//当前文档去indexof是否存在不存在返回-1，！=-1表示已存在，return 不添加
+							if((con.indexOf('<span class="list_active" title="取消" name="tag[]" id="' + id + '">' + name + '</span>')) != -1) {
+								return;
+							} else {
+								self.$el.find('.signContent').append('<span class="list_active" title="取消" name="tag[]" id="' + id + '">' + name + '</span>');
+								self.opts.selectdata.push(name);
+								self.seldata.push(name);
+//								alert(self.opts.selectdata);
+								console.log("self.seldata"+self.seldata);
+
+							}
+						} else {
+							alert('您最多添加'+self.opts.maxnumber +'个标签');
+						}
+					})
+					//获取当前对象id的span避免多个控件混淆
+					var cancelspan = '#'+selfId +' .signContent span';
+					console.log(cancelspan);
+					//取消选择
+					$(document).on("click", cancelspan, function(e) {
+						var id = $(this).attr('id');
+						var name = $(this).text();
+						self.$el.find('.signContent span[id=' + id + ']').remove();
+						removeByValue(self.opts.selectdata,name);
+						removeByValue(self.seldata,name);
+						console.log(self.opts.selectdata);
+						console.log("self.seldata"+self.seldata);
+						e.stopPropagation();
+					});
+				};
+				var init = function(el, option) {
+					var $el = $(el),
+						signspan = $el.data('signspan');
+					//如果data中不存在就创建，存在不创建
+					if(!signspan){
+						$el.data('signspan', (signspan = new Sign(el, typeof option === 'object' && option)));
+						signspan.init();
+					}
+					
+					if(typeof option === 'string') signspan[option]();
+				};
+				//jQuery插件
+				$.fn.extend({
+					SignSpan: function(option) {
+						return this.each(function() {
+							init(this, option);
+						});
+					}
+				});
+				
+				return {
+					init: init
+				};
+				
+				function removeByValue(arr, val) {
+				  for(var i=0; i<arr.length; i++) {
+				    if(arr[i] == val) {
+				      arr.splice(i, 1);
+				      break;
+				    }
+				  }
+				}
+			})();
+			
+//			SignSpan.init(".SignSpan", {});
+			$('#SignSpan1').SignSpan();
+			$('#SignSpan2').SignSpan({maxnumber:3,data: ['会议', '展览', '论坛', '课程', '讲座', '沙龙','出身','无敌','是多么','寂寞'],});
+			
+		
+		</script>
+		<!--<script type="text/javascript">
+			(function($) {
+				//1.定义jquery的扩展方法combobox
+				$.fn.combobox = function(options, param) {
+					if(typeof options == 'string') {
+						return $.fn.combobox.methods[options](this, param);
+					}
+					//2.将调用时候传过来的参数和default参数合并
+					options = $.extend({}, $.fn.combobox.defaults, options || {});
+					//3.添加默认值
+					var target = $(this);
+					target.attr('valuefield', options.valueField);
+					target.attr('textfield', options.textField);
+					target.empty();
+					var option = $('<option></option>');
+					option.attr('value', '');
+					option.text(options.placeholder);
+					target.append(option);
+					//4.判断用户传过来的参数列表里面是否包含数据data数据集，如果包含，不用发ajax从后台取，否则发送ajax从后台取数据
+					if(options.data) {
+						init(target, options.data);
+					} else {
+						//var param = {};
+						options.onBeforeLoad.call(target, options.param);
+						if(!options.url) return;
+						$.getJSON(options.url, options.param, function(data) {
+							init(target, data);
+						});
+					}
+
+					function init(target, data) {
+						$.each(data, function(i, item) {
+							var option = $('<option></option>');
+							option.attr('value', item[options.valueField]);
+							option.text(item[options.textField]);
+							target.append(option);
+						});
+						options.onLoadSuccess.call(target);
+					}
+					target.unbind("change");
+					target.on("change", function(e) {
+						if(options.onChange)
+							return options.onChange(target.val());
+					});
+				}
+
+				//5.如果传过来的是字符串，代表调用方法。
+				$.fn.combobox.methods = {
+					getValue: function(jq) {
+						return jq.val();
+					},
+					setValue: function(jq, param) {
+						jq.val(param);
+					},
+					load: function(jq, url) {
+						$.getJSON(url, function(data) {
+							jq.empty();
+							var option = $('<option></option>');
+							option.attr('value', '');
+							option.text('请选择');
+							jq.append(option);
+							$.each(data, function(i, item) {
+								var option = $('<option></option>');
+								option.attr('value', item[jq.attr('valuefield')]);
+								option.text(item[jq.attr('textfield')]);
+								jq.append(option);
+							});
+						});
+					}
+				};
+
+				//6.默认参数列表
+				$.fn.combobox.defaults = {
+					url: null,
+					param: null,
+					data: null,
+					valueField: 'value',
+					textField: 'text',
+					placeholder: '请选择',
+					onBeforeLoad: function(param) {},
+					onLoadSuccess: function() {},
+					onChange: function(value) {}
+				};
+			})(jQuery);
+		</script>
+
+		<script type="text/javascript">
+			(function($) {
+
+				$.fn.maxHeight = function() {
+
+					var max = 0;
+
+					this.each(function() {
+						max = Math.max(max, $(this).height());
+					});
+
+					return max;
+				};
+			})(jQuery);
+
+			var tallest = $('div').maxHeight(); //返回高度最大的div元素的高度
+			alert(tallest);
+		</script>-->
+	</body>
+
+</html>
